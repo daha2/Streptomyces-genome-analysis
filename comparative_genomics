@@ -26,6 +26,7 @@ Quality control:
 - FastQC
 
 Read trimming:
+- Trim Galore!
 - Trimmomatic
 
 De novo assembly:
