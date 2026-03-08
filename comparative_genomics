@@ -1,0 +1,82 @@
+# Comparative Genome Analysis of Streptomyces silvae
+
+## Dataset
+
+The analysis includes two newly sequenced soil isolates and several publicly available genomes.
+
+Newly sequenced strains:
+
+- Streptomyces silvae TMS4I1
+- Streptomyces silvae TMS12I2
+
+Publicly available genomes downloaded from NCBI:
+
+- Streptomyces silvae For3T
+- Streptomyces sp. M3
+- Streptomyces sp. gb1(2016)
+- Streptomyces sp. ADI93-02
+- Streptomyces sp. SID4921
+- Streptomyces sp. LamerLS-316
+
+## Read processing and genome assembly
+
+Sequencing reads were processed using the Galaxy platform.
+
+Quality control:
+- FastQC
+
+Read trimming:
+- Trimmomatic
+
+De novo assembly:
+- Unicycler
+
+Assembly polishing:
+- Bowtie2
+- Pilon
+
+## Reference-guided scaffolding
+
+Genome scaffolding was performed using RagTag.
+
+Reference genome:
+Streptomyces sp. M3
+
+## Genome annotation
+
+Genome annotation was performed using:
+
+RASTtk (BV-BRC)
+
+## Identification of related genomes
+
+Related genomes were identified using the Similar Genome Finder tool from the BV-BRC database.
+
+## Phylogenomic analysis
+
+Phylogenomic classification and tree reconstruction were performed using the TYGS server (Type Strain Genome Server).
+
+## Genome mining
+
+Biosynthetic gene clusters (BGCs) were identified using antiSMASH.
+
+Detected clusters included several conserved clusters such as:
+
+- ectoine biosynthesis
+- desferrioxamine siderophore clusters
+- melanin biosynthesis
+- alkylresorcinol clusters
+
+In addition, several clusters showed low similarity to known reference clusters, suggesting the presence of potentially novel secondary metabolite pathways.
+
+## Comparative genomics
+
+Comparative genome analysis included:
+
+- Average Nucleotide Identity (ANI)
+- genome synteny analysis using Mauve
+- comparison of biosynthetic gene cluster repertoires between strains
+
+## Research focus
+
+Comparative genomics and biosynthetic potential of Streptomyces silvae strains.
