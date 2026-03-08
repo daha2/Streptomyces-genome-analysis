@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Streptomyces silvae Project</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      line-height: 1.6;
+      padding: 0 20px;
+      color: #222;
+    }
+    h1, h2 {
+      color: #1a4d7a;
+    }
+    a {
+      color: #0b66c3;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .box {
+      background: #f7f9fb;
+      padding: 16px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    code, pre {
+      background: #f3f3f3;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    pre {
+      padding: 12px;
+      overflow-x: auto;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Comparative Genomics and Physiological Characterization of <i>Streptomyces silvae</i></h1>
+
+  <p>
+    This project documents genomic and physiological analyses of <i>Streptomyces silvae</i> strains
+    performed during doctoral research.
+  </p>
+
+  <div class="box">
+    <h2>Project Sections</h2>
+    <ul>
+      <li><a href="analysis/comparative_genomics.html">Comparative Genomics</a></li>
+      <li><a href="analysis/phylogenomics.html">Phylogenomics</a></li>
+      <li><a href="analysis/physiology_TMS4I1.html">Physiological Characterization of TMS4I1</a></li>
+    </ul>
+  </div>
+
+  <h2>Project Overview</h2>
+  <p>
+    The study investigates genomic diversity and ecological adaptability within the
+    <i>Streptomyces silvae</i> clade using comparative genomics, phylogenomics,
+    genome mining, and physiological characterization.
+  </p>
+
+  <h2>Repository Structure</h2>
+  <pre>
+streptomyces-genome-analysis
+│
+├── index.html
+│
+└── analysis
+    ├── comparative_genomics.html
+    ├── phylogenomics.html
+    ├── physiology_TMS4I1.html
+    └── phylogeny_tree.png
+  </pre>
+
+  <h2>Example Phylogenetic Tree</h2>
+  <img src="analysis/phylogeny_tree.png" alt="Phylogenetic tree of Streptomyces silvae strains">
+
+</body>
+</html>
