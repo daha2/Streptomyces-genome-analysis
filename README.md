@@ -40,3 +40,15 @@ Comparative genomics and biosynthetic potential of Streptomyces species.
 ## Author
 
 PhD research in microbial genomics and characterization of Streptomyces isolates.
+## Repository Structure
+
+```
+streptomyces-genome-analysis
+│
+├── README.md
+│
+└── analysis
+    ├── comparative_genomics.md
+    ├── phylogenomics.md
+    └── physiology_S. silvae TMS4I1.md
+```
