@@ -19,15 +19,17 @@ Typical workflow used for bacterial genome analysis:
 ## Tools used
 
 - Galaxy platform
+- Trim Galore
 - FastQC
 - Trimmomatic
 - Unicycler
 - Bowtie2
 - Pilon
-- Prokka
-- antiSMASH
-- Mauve
 - FastANI
+- Mauve
+- BV-BRC
+- rastK
+- similar genome finder
 
 ## Example organism
 
