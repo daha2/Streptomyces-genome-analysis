@@ -4,24 +4,9 @@ Welcome to the project page for the genomic and physiological characterization o
 
 ## Project Sections
 
-- [Comparative Genomics](analysis/comparative_genomics.md)
-- [Phylogenomics](analysis/phylogenomics.md)
-- [Physiological Characterization](analysis/physiology_TMS4I1.md)
-
-## Repository Structure
-
-streptomyces-genome-analysis
-│
-├── index.md
-├── README.md
-│
-└── analysis
-├── comparative_genomics.md
-├── phylogenomics.md
-├── physiology_TMS4I1.md
-└── phylogeny_tree.png
-
----
+- [Comparative Genomics](analysis/comparative_genomics.html)
+- [Phylogenomics](analysis/phylogenomics.html)
+- [Physiological Characterization](analysis/physiology_TMS4I1.html)
 
 # Research Focus
 
