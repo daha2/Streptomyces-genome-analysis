@@ -50,5 +50,6 @@ streptomyces-genome-analysis
 └── analysis
     ├── comparative_genomics.md
     ├── phylogenomics.md
+    ├── phylogeny_tree.png
     └── physiology_S. silvae TMS4I1.md
 ```
