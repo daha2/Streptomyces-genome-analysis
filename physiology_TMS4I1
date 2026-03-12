@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Physiology of TMS4I1</title>
+</head>
+<body>
+  <p><a href="../index.html">← Back to homepage</a></p>
+
+  <h1>Physiological Characterization of <i>Streptomyces silvae</i> TMS4I1</h1>
+
+  <h2>Phenotypic characterization</h2>
+  <ul>
+    <li>Colony morphology</li>
+    <li>Carbon source utilization</li>
+    <li>Salt tolerance</li>
+    <li>pH tolerance</li>
+    <li>Temperature range</li>
+    <li>Lysozyme resistance</li>
+    <li>Hemolytic activity</li>
+  </ul>
+
+  <h2>Summary</h2>
+  <p>
+    The physiological characterization showed broad environmental adaptability and stress tolerance.
+  </p>
+</body>
+</html>
