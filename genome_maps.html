@@ -67,11 +67,28 @@
       border-radius: 3px;
       margin-right: 8px;
       vertical-align: middle;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .dot {
+      display: inline-block;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      margin: 0 4px 0 2px;
+      vertical-align: middle;
     }
 
     .small {
       font-size: 0.95em;
       color: #444;
+    }
+
+    .legend {
+      background: #f7f9fb;
+      padding: 14px 16px;
+      border-radius: 8px;
+      margin-top: 12px;
     }
   </style>
 </head>
@@ -102,30 +119,8 @@
     </p>
   </div>
 
- <p>
-    Circular genome maps of four <i>Streptomyces</i> strains analysed in the
-    comparative genomic study.
-  </p>
-
-  <h2>Strains included</h2>
-
-  <div class="box">
-    <ul>
-      <li><b><i>Streptomyces silvae</i> #12I2</b></li>
-      <li><b><i>Streptomyces silvae</i> #4I1</b></li>
-      <li><b><i>Streptomyces silvae</i> For3<sup>T</sup></b> – type strain</li>
-      <li><b><i>Streptomyces</i> sp. M3</b></li>
-    </ul>
-
-    <p class="small">
-      Detailed information on strain origin and experimental background
-      is described in the associated doctoral dissertation.
-    </p>
-  </div>
-
   <h2>Circular Genome Maps</h2>
 
- 
   <img src="genome_maps.png" alt="Genome maps of four Streptomyces silvae strains">
 
   <div class="legend small">
@@ -160,10 +155,9 @@
   <h2>Functional Color Code (SEED Viewer)</h2>
 
   <p>
-    Protein-coding genes were functionally annotated using the RAST
-    annotation pipeline. Functional categories correspond to the
-    SEED subsystem classification and are represented by specific
-    colors in the genome maps.
+    Protein-coding genes were functionally annotated using the RAST annotation pipeline.
+    Functional categories correspond to the SEED subsystem classification and are represented
+    by specific colours in the genome maps.
   </p>
 
   <table>
@@ -171,32 +165,111 @@
       <th>Color</th>
       <th>Functional category</th>
     </tr>
-    <tr><td><span class="colorbox" style="background:#1f77b4"></span></td><td>Nucleosides and nucleotides</td></tr>
-    <tr><td><span class="colorbox" style="background:#2ca02c"></span></td><td>Amino acids and derivatives</td></tr>
-    <tr><td><span class="colorbox" style="background:#ff7f0e"></span></td><td>Protein metabolism</td></tr>
-    <tr><td><span class="colorbox" style="background:#9467bd"></span></td><td>Sulfur metabolism</td></tr>
-    <tr><td><span class="colorbox" style="background:#17becf"></span></td><td>Cell division and cell cycle</td></tr>
-    <tr><td><span class="colorbox" style="background:#bcbd22"></span></td><td>Phosphorus metabolism</td></tr>
-    <tr><td><span class="colorbox" style="background:#e377c2"></span></td><td>Motility and chemotaxis</td></tr>
-    <tr><td><span class="colorbox" style="background:#8c564b"></span></td><td>Carbohydrate metabolism</td></tr>
-    <tr><td><span class="colorbox" style="background:#7f7f7f"></span></td><td>Regulation and cell signaling</td></tr>
-    <tr><td><span class="colorbox" style="background:#d62728"></span></td><td>Cofactors, vitamins, prosthetic groups and pigments</td></tr>
-    <tr><td><span class="colorbox" style="background:#ff9896"></span></td><td>Secondary metabolism</td></tr>
-    <tr><td><span class="colorbox" style="background:#98df8a"></span></td><td>Cell wall and capsule</td></tr>
-    <tr><td><span class="colorbox" style="background:#aec7e8"></span></td><td>DNA metabolism</td></tr>
-    <tr><td><span class="colorbox" style="background:#c5b0d5"></span></td><td>Virulence, disease and defense</td></tr>
-    <tr><td><span class="colorbox" style="background:#ffbb78"></span></td><td>Fatty acids, lipids and isoprenoids</td></tr>
-    <tr><td><span class="colorbox" style="background:#c49c94"></span></td><td>Potassium metabolism</td></tr>
-    <tr><td><span class="colorbox" style="background:#dbdb8d"></span></td><td>Nitrogen metabolism</td></tr>
-    <tr><td><span class="colorbox" style="background:#9edae5"></span></td><td>Miscellaneous</td></tr>
-    <tr><td><span class="colorbox" style="background:#f7b6d2"></span></td><td>Dormancy and sporulation</td></tr>
-    <tr><td><span class="colorbox" style="background:#c7c7c7"></span></td><td>Phages, prophages, transposable elements and plasmids</td></tr>
-    <tr><td><span class="colorbox" style="background:#dbdbdb"></span></td><td>Respiration</td></tr>
-    <tr><td><span class="colorbox" style="background:#fdd0a2"></span></td><td>Membrane transport</td></tr>
-    <tr><td><span class="colorbox" style="background:#fdae6b"></span></td><td>Stress response</td></tr>
-    <tr><td><span class="colorbox" style="background:#6baed6"></span></td><td>Iron acquisition and metabolism</td></tr>
-    <tr><td><span class="colorbox" style="background:#74c476"></span></td><td>Metabolism of aromatic compounds</td></tr>
-    <tr><td><span class="colorbox" style="background:#9e9ac8"></span></td><td>RNA metabolism</td></tr>
+
+    <tr>
+      <td><span class="colorbox" style="background:#1f77b4"></span></td>
+      <td>Nucleosides and nucleotides</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#2ca02c"></span></td>
+      <td>Amino acids and derivatives</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#ff7f0e"></span></td>
+      <td>Protein metabolism</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#9467bd"></span></td>
+      <td>Sulfur metabolism</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#17becf"></span></td>
+      <td>Cell division and cell cycle</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#bcbd22"></span></td>
+      <td>Phosphorus metabolism</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#e377c2"></span></td>
+      <td>Motility and chemotaxis</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#8c564b"></span></td>
+      <td>Carbohydrate metabolism</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#7f7f7f"></span></td>
+      <td>Regulation and cell signaling</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#d62728"></span></td>
+      <td>Cofactors, vitamins, prosthetic groups and pigments</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#ff9896"></span></td>
+      <td>Secondary metabolism</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#98df8a"></span></td>
+      <td>Cell wall and capsule</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#aec7e8"></span></td>
+      <td>DNA metabolism</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#c5b0d5"></span></td>
+      <td>Virulence, disease and defense</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#ffbb78"></span></td>
+      <td>Fatty acids, lipids and isoprenoids</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#c49c94"></span></td>
+      <td>Potassium metabolism</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#dbdb8d"></span></td>
+      <td>Nitrogen metabolism</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#9edae5"></span></td>
+      <td>Miscellaneous</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#f7b6d2"></span></td>
+      <td>Dormancy and sporulation</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#c7c7c7"></span></td>
+      <td>Phages, prophages, transposable elements and plasmids</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#dbdbdb"></span></td>
+      <td>Respiration</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#fdd0a2"></span></td>
+      <td>Membrane transport</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#fdae6b"></span></td>
+      <td>Stress response</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#6baed6"></span></td>
+      <td>Iron acquisition and metabolism</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#74c476"></span></td>
+      <td>Metabolism of aromatic compounds</td>
+    </tr>
+    <tr>
+      <td><span class="colorbox" style="background:#9e9ac8"></span></td>
+      <td>RNA metabolism</td>
+    </tr>
   </table>
 
   <h2>Methods</h2>
@@ -205,26 +278,24 @@
     <li>Genome scaffolding: RagTag</li>
     <li>Reference genome: <i>Streptomyces</i> sp. M3</li>
     <li>Genome annotation: RASTtk</li>
-    <li>Secondary metabolite prediction: antiSMASH</li>
     <li>Genome visualization: Circos</li>
   </ul>
 
   <h2>Interpretation</h2>
 
   <p>
-    The genome maps illustrate the conserved genomic architecture
-    within the <i>Streptomyces silvae</i> clade. While the overall
-    structure appears similar across strains, variations in gene
-    distribution and GC content patterns can be observed along
-    the chromosome, reflecting differences in gene content and
+    The genome maps illustrate the conserved genomic architecture within the
+    <i>Streptomyces silvae</i> clade. While the overall structure appears similar
+    across strains, variations in gene distribution and compositional patterns can
+    be observed along the chromosome, reflecting differences in gene content and
     potential metabolic capabilities.
   </p>
 
   <h2>Reference</h2>
 
   <p class="small">
-    Krzywinski M. et al. 2009. Circos: an information aesthetic for
-    comparative genomics. <i>Genome Research</i>.
+    Krzywinski M. et al. 2009. Circos: an information aesthetic for comparative
+    genomics. <i>Genome Research</i>.
   </p>
 
 </body>
