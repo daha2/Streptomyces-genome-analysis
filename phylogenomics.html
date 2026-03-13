@@ -3,10 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Phylogenomics</title>
+  <title>Phylogenomics – Streptomyces silvae</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 950px;
+      margin: 40px auto;
+      line-height: 1.6;
+      padding: 0 20px;
+      color: #222;
+    }
+
+    h1, h2 {
+      color: #1a4d7a;
+    }
+
+    a {
+      color: #0b66c3;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .box {
+      background: #f7f9fb;
+      padding: 16px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      display: block;
+      margin: 10px 0 0 0;
+    }
+
+    .small {
+      font-size: 0.95em;
+      color: #444;
+    }
+
+    .legend {
+      background: #f7f9fb;
+      padding: 14px 16px;
+      border-radius: 8px;
+      margin-top: 12px;
+    }
+  </style>
 </head>
 <body>
-  <p><a href="index.html">← Back to homepage</a></p>
+
+  <p><a href="/Streptomyces-genome-analysis/">← Back to homepage</a></p>
 
   <h1>Phylogenomics of <i>Streptomyces silvae</i></h1>
 
@@ -16,18 +68,26 @@
   </p>
 
   <h2>Tree reconstruction</h2>
-  <p>
-    The phylogenetic tree was reconstructed using FastME based on GBDP distances
-    calculated from complete genome sequences.
-  </p>
+
+  <div class="box">
+    <p>
+      The phylogenetic tree was reconstructed using FastME based on GBDP distances
+      calculated from complete genome sequences.
+    </p>
+  </div>
 
   <h2>Phylogenetic tree</h2>
-  <img src="phylogeny_tree.png" alt="Phylogenetic tree of Streptomyces silvae strains" style="max-width:100%;height:auto;">
 
-  <p>
-    <b>Figure:</b> Phylogenetic tree based on GBDP distances for the <i>S. silvae</i> dataset.
-    Branch lengths are scaled according to the GBDP distance formula d5.
-    Values at the nodes represent pseudo-bootstrap support values from 100 replicates.
-  </p>
+  <img src="phylogeny_tree.png" alt="Phylogenetic tree of Streptomyces silvae strains">
+
+  <div class="legend small">
+    <p>
+      <b>Figure:</b> Phylogenetic tree based on GBDP distances for the
+      <i>Streptomyces silvae</i> dataset. Branch lengths are scaled according to
+      the GBDP distance formula d5. Values at the nodes represent pseudo-bootstrap
+      support values from 100 replicates.
+    </p>
+  </div>
+
 </body>
 </html>
