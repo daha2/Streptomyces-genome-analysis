@@ -3,19 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Genome Architecture – Streptomyces silvae</title>
+  <title>Genome Architecture of Streptomyces silvae</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 950px;
-      margin: 40px auto;
-      line-height: 1.6;
-      padding: 0 20px;
+      max-width: 1280px;
+      margin: 36px auto;
+      line-height: 1.65;
+      padding: 0 24px;
       color: #222;
+      background: #ffffff;
     }
 
     h1, h2 {
       color: #1a4d7a;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 2.1rem;
+    }
+
+    h2 {
+      margin-top: 42px;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #d9e6f2;
+      padding-bottom: 6px;
     }
 
     a {
@@ -27,37 +40,115 @@
       text-decoration: underline;
     }
 
+    .hero {
+      background: linear-gradient(135deg, #f4f8fc, #eef4f9);
+      border: 1px solid #d9e6f2;
+      border-radius: 12px;
+      padding: 22px 24px;
+      margin: 20px 0 30px 0;
+    }
+
     .box {
       background: #f7f9fb;
-      padding: 16px;
-      border-radius: 8px;
+      padding: 16px 18px;
+      border-radius: 10px;
+      margin: 20px 0;
+      border-left: 5px solid #7fa9d1;
+    }
+
+    .highlight {
+      background: #eef6ff;
+      border-left: 5px solid #5b9bd5;
+      padding: 16px 18px;
+      border-radius: 10px;
       margin: 20px 0;
     }
 
-    img {
+    .small {
+      font-size: 0.95em;
+      color: #444;
+    }
+
+    .figure {
+      margin: 24px 0 30px 0;
+      text-align: center;
+    }
+
+    .figure img {
       max-width: 100%;
       height: auto;
-      border: 1px solid #ddd;
-      border-radius: 6px;
+      border: 1px solid #d8d8d8;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      background: white;
       display: block;
-      margin: 10px 0 0 0;
+    }
+
+    .figure a {
+      display: inline-block;
+    }
+
+    .caption {
+      text-align: left;
+      font-size: 0.95em;
+      color: #444;
+      margin-top: 12px;
+    }
+
+    ul {
+      padding-left: 22px;
+    }
+
+    .twocol {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 850px) {
+      .twocol {
+        grid-template-columns: 1fr;
+      }
+
+      body {
+        padding: 0 16px;
+      }
+    }
+
+    .card {
+      background: #fbfcfd;
+      border: 1px solid #dde7f0;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .note {
+      font-size: 0.92em;
+      color: #555;
+      margin-top: 8px;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 15px;
+      margin-top: 18px;
+      background: #fff;
+      border: 1px solid #dde7f0;
+      border-radius: 8px;
+      overflow: hidden;
     }
 
     th, td {
-      padding: 8px;
-      border-bottom: 1px solid #ddd;
+      padding: 10px 12px;
+      border-bottom: 1px solid #e5edf5;
       text-align: left;
       vertical-align: middle;
     }
 
     th {
-      background: #f7f9fb;
+      background: #f4f8fc;
+      color: #1a4d7a;
     }
 
     .colorbox {
@@ -70,25 +161,17 @@
       border: 1px solid rgba(0, 0, 0, 0.08);
     }
 
-    .dot {
+    .legend-inline {
       display: inline-block;
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      margin: 0 4px 0 2px;
+      width: 12px;
+      height: 12px;
+      border: 1px solid rgba(0,0,0,0.18);
       vertical-align: middle;
+      margin: 0 4px;
     }
 
-    .small {
-      font-size: 0.95em;
-      color: #444;
-    }
-
-    .legend {
-      background: #f7f9fb;
-      padding: 14px 16px;
-      border-radius: 8px;
-      margin-top: 12px;
+    .method-list li {
+      margin-bottom: 6px;
     }
   </style>
 </head>
@@ -98,10 +181,26 @@
 
   <h1>Genome Architecture of <i>Streptomyces silvae</i> Strains</h1>
 
-  <p>
-    Circular genome maps of four <i>Streptomyces</i> strains analysed in the
-    comparative genomic study.
-  </p>
+  <div class="hero">
+    <p>
+      This page presents circular genome maps of four strains within the
+      <i>Streptomyces silvae</i> clade. The figure summarizes genome architecture,
+      contig organization, distribution of coding sequences, non-coding RNA genes,
+      antibiotic resistance determinants, GC skew, and GC content.
+    </p>
+    <p>
+      Together, these maps provide a genome-wide visual comparison of structural
+      organization and annotated functional features across the analyzed strains.
+    </p>
+  </div>
+
+  <div class="highlight">
+    <b>Key findings.</b>
+    The circular genome maps show a broadly conserved genomic architecture across
+    the <i>S. silvae</i> clade. At the same time, variation in contig organization,
+    gene distribution, and compositional features suggests strain-specific
+    differences in genomic organization and functional potential.
+  </div>
 
   <h2>Strains included</h2>
 
@@ -113,40 +212,56 @@
       <li><b><i>Streptomyces</i> sp. M3</b></li>
     </ul>
   </div>
-    
 
   <h2>Circular Genome Maps</h2>
 
-  <img src="genome_maps.png" alt="Genome maps of four Streptomyces silvae strains">
+  <div class="figure">
+    <a href="genome_maps.png" target="_blank">
+      <img src="genome_maps.png" alt="Genome maps of four Streptomyces silvae strains">
+    </a>
+    <div class="caption">
+      <b>Figure.</b> Genome maps of the four <i>Streptomyces silvae</i> strains
+      #12I2, #4I1, For3 and M3. The concentric circles arranged from the outside
+      to the inside show, for each genome, the contig lengths in megabase pairs
+      (Mbp) in the first ring, followed by a strain-specific colour coding of the
+      contigs in the second ring. Contigs with a length of &lt; 149 kbp were merged
+      and are shown in white.
+      <br><br>
+      The third and fourth rings display the positions of protein-coding genes on
+      the forward and reverse strands, coloured according to their functional
+      categories. The fifth ring marks the localisation of
+      <span class="legend-inline" style="background:rgb(0,0,0);"></span>tRNAs and
+      <span class="legend-inline" style="background:rgb(255,0,0);"></span>rRNAs,
+      followed by the sixth ring showing
+      <span class="legend-inline" style="background:rgb(139,0,139);"></span>antibiotic resistance genes.
+      <br><br>
+      The innermost three rings represent
+      <span class="legend-inline" style="background:rgb(31,73,124);"></span>positive GC skew,
+      <span class="legend-inline" style="background:rgb(192,81,78);"></span>negative GC skew,
+      and
+      <span class="legend-inline" style="background:rgb(78,97,39);"></span>GC content.
+    </div>
+    <div class="note">
+      Click the figure to open the full-size image.
+    </div>
+  </div>
 
- <div class="legend small">
-  <p>
-    <b>Figure:</b> Genome maps of the four <i>Streptomyces silvae</i> strains
-    #12I2, #4I1, For3 and M3. The concentric circles arranged from the outside
-    to the inside show, for each genome, the contig lengths in megabase pairs
-    (Mbp) in the first ring, followed by a strain-specific colour coding of the
-    contigs in the second ring. Contigs with a length of &lt; 149 kbp were merged
-    and are shown in white.
-  </p>
-
-  <p>
-    The third and fourth rings display the positions of protein-coding genes on
-    the forward and reverse strands, coloured according to their functional
-    categories. The fifth ring marks the localisation of
-    <span style="display:inline-block;width:12px;height:12px;background:rgb(0,0,0);border:1px solid rgba(0,0,0,0.18);vertical-align:middle;margin:0 4px;"></span>tRNAs and
-    <span style="display:inline-block;width:12px;height:12px;background:rgb(255,0,0);border:1px solid rgba(0,0,0,0.18);vertical-align:middle;margin:0 4px;"></span>rRNAs,
-    followed by the sixth ring showing
-    <span style="display:inline-block;width:12px;height:12px;background:rgb(139,0,139);border:1px solid rgba(0,0,0,0.18);vertical-align:middle;margin:0 4px;"></span>antibiotic resistance genes.
-  </p>
-
-  <p>
-    The innermost three rings represent
-    <span style="display:inline-block;width:12px;height:12px;background:rgb(31,73,124);border:1px solid rgba(0,0,0,0.18);vertical-align:middle;margin:0 4px;"></span>positive GC skew,
-    <span style="display:inline-block;width:12px;height:12px;background:rgb(192,81,78);border:1px solid rgba(0,0,0,0.18);vertical-align:middle;margin:0 4px;"></span>negative GC skew,
-    and
-    <span style="display:inline-block;width:12px;height:12px;background:rgb(78,97,39);border:1px solid rgba(0,0,0,0.18);vertical-align:middle;margin:0 4px;"></span>GC content.
-  </p>
-</div>
+  <div class="twocol">
+    <div class="card">
+      <b>Structural organization</b>
+      <p class="small">
+        The maps allow comparison of contig structure, genome size distribution,
+        and chromosome-wide organization across the four analyzed strains.
+      </p>
+    </div>
+    <div class="card">
+      <b>Functional distribution</b>
+      <p class="small">
+        Protein-coding genes, RNA features, resistance determinants, GC skew,
+        and GC content can be compared directly across genomes.
+      </p>
+    </div>
+  </div>
 
   <h2>Functional Color Code (SEED Viewer)</h2>
 
@@ -161,7 +276,6 @@
       <th>Color</th>
       <th>Functional category</th>
     </tr>
-
     <tr>
       <td><span class="colorbox" style="background:#1f77b4"></span></td>
       <td>Nucleosides and nucleotides</td>
@@ -270,22 +384,24 @@
 
   <h2>Methods</h2>
 
-  <ul>
-    <li>Genome scaffolding: RagTag</li>
-    <li>Reference genome: <i>Streptomyces</i> sp. M3</li>
-    <li>Genome annotation: RASTtk</li>
-    <li>Genome visualization: Circos</li>
-  </ul>
+  <div class="box">
+    <ul class="method-list">
+      <li>Genome scaffolding: RagTag</li>
+      <li>Reference genome: <i>Streptomyces</i> sp. M3</li>
+      <li>Genome annotation: RASTtk</li>
+      <li>Genome visualization: Circos</li>
+    </ul>
+  </div>
 
   <h2>Interpretation</h2>
 
-  <p>
+  <div class="box">
     The genome maps illustrate the conserved genomic architecture within the
     <i>Streptomyces silvae</i> clade. While the overall structure appears similar
     across strains, variations in gene distribution and compositional patterns can
     be observed along the chromosome, reflecting differences in gene content and
     potential metabolic capabilities.
-  </p>
+  </div>
 
   <h2>Reference</h2>
 
