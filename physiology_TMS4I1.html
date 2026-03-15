@@ -7,15 +7,28 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 950px;
-      margin: 40px auto;
-      line-height: 1.6;
-      padding: 0 20px;
+      max-width: 1280px;
+      margin: 36px auto;
+      line-height: 1.65;
+      padding: 0 24px;
       color: #222;
+      background: #ffffff;
     }
 
     h1, h2 {
       color: #1a4d7a;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 2.1rem;
+    }
+
+    h2 {
+      margin-top: 42px;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #d9e6f2;
+      padding-bottom: 6px;
     }
 
     a {
@@ -27,10 +40,27 @@
       text-decoration: underline;
     }
 
+    .hero {
+      background: linear-gradient(135deg, #f4f8fc, #eef4f9);
+      border: 1px solid #d9e6f2;
+      border-radius: 12px;
+      padding: 22px 24px;
+      margin: 20px 0 30px 0;
+    }
+
     .box {
       background: #f7f9fb;
-      padding: 16px;
-      border-radius: 8px;
+      padding: 16px 18px;
+      border-radius: 10px;
+      margin: 20px 0;
+      border-left: 5px solid #7fa9d1;
+    }
+
+    .highlight {
+      background: #eef6ff;
+      border-left: 5px solid #5b9bd5;
+      padding: 16px 18px;
+      border-radius: 10px;
       margin: 20px 0;
     }
 
@@ -39,15 +69,63 @@
       color: #444;
     }
 
-    img {
+    .figure {
+      margin: 24px 0 30px 0;
+      text-align: center;
+    }
+
+    .figure img {
       max-width: 100%;
       height: auto;
-      border: 1px solid #ddd;
-      border-radius: 6px;
+      border: 1px solid #d8d8d8;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      background: white;
+    }
+
+    .figure a {
+      display: inline-block;
+    }
+
+    .caption {
+      text-align: left;
+      font-size: 0.95em;
+      color: #444;
+      margin-top: 12px;
     }
 
     ul {
       padding-left: 22px;
+    }
+
+    .twocol {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 850px) {
+      .twocol {
+        grid-template-columns: 1fr;
+      }
+
+      body {
+        padding: 0 16px;
+      }
+    }
+
+    .card {
+      background: #fbfcfd;
+      border: 1px solid #dde7f0;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .note {
+      font-size: 0.92em;
+      color: #555;
+      margin-top: 8px;
     }
   </style>
 </head>
@@ -57,11 +135,26 @@
 
   <h1>Morphological and Physiological Characterization of <i>Streptomyces silvae</i> TMS4I1</h1>
 
-  <p>
-    This page summarizes the morphological and physiological characterization of
-    <i>S. silvae</i> TMS4I1 based on experimental analyses performed
-    during the dissertation project.
-  </p>
+  <div class="hero">
+    <p>
+      This page summarizes the morphological and physiological characterization of
+      <i>S. silvae</i> TMS4I1 based on experimental analyses performed during the
+      dissertation project.
+    </p>
+    <p>
+      The presented data combine colony morphology, scanning electron microscopy,
+      and physiological stress assays in order to characterize growth behavior,
+      morphological traits, and environmental adaptability of the strain.
+    </p>
+  </div>
+
+  <div class="highlight">
+    <b>Key findings.</b>
+    <i>S. silvae</i> TMS4I1 shows characteristic streptomycete morphology with
+    differentiated colony structures and filamentous hyphae. In addition, the
+    strain displays broad physiological adaptability, including tolerance to salt,
+    pH variation, and lysozyme, together with pronounced β-hemolytic activity.
+  </div>
 
   <h2>Overview</h2>
 
@@ -78,47 +171,105 @@
 
   <h2>Macro- and Micromorphology</h2>
 
-  <img src="macro-_mikromorphology.png" alt="Micro- and macromorphology of Streptomyces silvae TMS4I1">
-
-  <p class="small">
-    <b>Figure:</b> Macro- and micromorphology of <i>S. silvae</i> TMS4I1.
-    <b>(A)</b> Colony morphology on standardized media and detection of melanoid pigment
-    production on synthetic culture media. Cultivation was carried out on ISP2–ISP7
-    and synthetic media, both with and without L-tyrosine (Suter, 1978). The panels
-    show colony morphology after 14 days of incubation at 28°C.
-    <b>(B)</b> Scanning electron micrograph of <i>S. silvae</i> TMS4I1 after 10 days
-    of incubation on MYM agar at 28°C.
+  <p>
+    Colony morphology was documented on standardized media in order to capture
+    medium-dependent variation in growth pattern, pigmentation, and aerial mycelium
+    formation. Scanning electron microscopy was used to visualize filamentous
+    growth and microstructural features of the strain.
   </p>
+
+  <div class="figure">
+    <a href="macro-_mikromorphology.png" target="_blank">
+      <img src="macro-_mikromorphology.png" alt="Micro- and macromorphology of Streptomyces silvae TMS4I1">
+    </a>
+    <div class="caption">
+      <b>Figure.</b> Macro- and micromorphology of <i>S. silvae</i> TMS4I1.
+      <b>(A)</b> Colony morphology on standardized media and detection of melanoid pigment
+      production on synthetic culture media. Cultivation was carried out on ISP2–ISP7
+      and synthetic media, both with and without L-tyrosine (Suter, 1978). The panels
+      show colony morphology after 14 days of incubation at 28°C.
+      <b>(B)</b> Scanning electron micrograph of <i>S. silvae</i> TMS4I1 after 10 days
+      of incubation on MYM agar at 28°C.
+    </div>
+    <div class="note">
+      Click the figure to open the full-size image.
+    </div>
+  </div>
+
+  <div class="twocol">
+    <div class="card">
+      <b>Macromorphology</b>
+      <p class="small">
+        Colony morphology varies substantially depending on the cultivation medium,
+        including differences in pigmentation, surface texture, and colony architecture.
+      </p>
+    </div>
+    <div class="card">
+      <b>Micromorphology</b>
+      <p class="small">
+        SEM imaging reveals typical filamentous hyphae and differentiated
+        streptomycete morphology at the microscopic level.
+      </p>
+    </div>
+  </div>
 
   <h2>Physiological Characterization and Stress Tolerance</h2>
 
-  <img src="physiology.png" alt="Physiological characterization and stress tolerance of Streptomyces silvae TMS4I1">
-
-  <p class="small">
-    <b>Figure:</b> Physiological characterization and stress tolerance of
-    <i>S. silvae</i> TMS4I1. Unless otherwise indicated, all assays were
-    performed in basal medium 5339 and cultures were incubated for 14 days
-    at 28°C.
-    <br><br>
-    <b>(A) Salt tolerance:</b> growth at increasing NaCl concentrations
-    (0, 2.5, 5, 7.5, and 10%);
-    <br>
-    <b>(B) Hemolysis:</b> β-hemolytic activity on Columbia blood agar,
-    indicated by a clear halo around colonies;
-    <br>
-    <b>(C) Lysozyme resistance:</b> growth at increasing concentrations of
-    lysozyme (0, 10, 25, 50, 75, and 100 µg/ml);
-    <br>
-    <b>(D) Temperature optimum:</b> colony growth on MYM agar incubated at
-    constant temperatures ranging from 7 to 37°C;
-    <br>
-    <b>(E) pH tolerance:</b> growth at pH values from 2 to 10, with incubation
-    on a shaker at 90 rpm.
+  <p>
+    To assess ecological adaptability and stress response, the strain was tested
+    under a range of environmental conditions including salt stress, lysozyme
+    exposure, temperature variation, and different pH conditions.
   </p>
 
-  <h2>Interpretation</h2>
+  <div class="figure">
+    <a href="physiology.png" target="_blank">
+      <img src="physiology.png" alt="Physiological characterization and stress tolerance of Streptomyces silvae TMS4I1">
+    </a>
+    <div class="caption">
+      <b>Figure.</b> Physiological characterization and stress tolerance of
+      <i>S. silvae</i> TMS4I1. Unless otherwise indicated, all assays were
+      performed in basal medium 5339 and cultures were incubated for 14 days
+      at 28°C.
+      <br><br>
+      <b>(A) Salt tolerance:</b> growth at increasing NaCl concentrations
+      (0, 2.5, 5, 7.5, and 10%);
+      <br>
+      <b>(B) Hemolysis:</b> β-hemolytic activity on Columbia blood agar,
+      indicated by a clear halo around colonies;
+      <br>
+      <b>(C) Lysozyme resistance:</b> growth at increasing concentrations of
+      lysozyme (0, 10, 25, 50, 75, and 100 µg/ml);
+      <br>
+      <b>(D) Temperature optimum:</b> colony growth on MYM agar incubated at
+      constant temperatures ranging from 7 to 37°C;
+      <br>
+      <b>(E) pH tolerance:</b> growth at pH values from 2 to 10, with incubation
+      on a shaker at 90 rpm.
+    </div>
+    <div class="note">
+      Click the figure to open the full-size image.
+    </div>
+  </div>
 
-  <p>
+  <div class="twocol">
+    <div class="card">
+      <b>Environmental tolerance</b>
+      <p class="small">
+        The strain maintains growth across a broad range of salt concentrations,
+        temperatures, and pH conditions, indicating substantial ecological flexibility.
+      </p>
+    </div>
+    <div class="card">
+      <b>Stress response</b>
+      <p class="small">
+        Resistance to lysozyme and pronounced β-hemolytic activity further
+        emphasize the robust physiological profile of TMS4I1.
+      </p>
+    </div>
+  </div>
+
+  <div class="box">
+    <b>Interpretation.</b>
     The combined morphological and physiological characterization of
     <i>S. silvae</i> TMS4I1 shows that the strain displays both
     characteristic streptomycete colony and hyphal morphology as well as a broad
@@ -127,7 +278,7 @@
     and also displays resistance to lysozyme as well as pronounced β-hemolytic
     activity. Together, these observations support the view that strain TMS4I1 is
     physiologically adaptable and well suited to variable environmental conditions.
-  </p>
+  </div>
 
 </body>
 </html>
