@@ -3,19 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Phylogenomics – Streptomyces silvae</title>
+  <title>Phylogenomics of Streptomyces silvae</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 950px;
-      margin: 40px auto;
-      line-height: 1.6;
-      padding: 0 20px;
+      max-width: 1280px;
+      margin: 36px auto;
+      line-height: 1.65;
+      padding: 0 24px;
       color: #222;
+      background: #ffffff;
     }
 
     h1, h2 {
       color: #1a4d7a;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 2.1rem;
+    }
+
+    h2 {
+      margin-top: 42px;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #d9e6f2;
+      padding-bottom: 6px;
     }
 
     a {
@@ -27,20 +40,28 @@
       text-decoration: underline;
     }
 
-    .box {
-      background: #f7f9fb;
-      padding: 16px;
-      border-radius: 8px;
-      margin: 20px 0;
+    .hero {
+      background: linear-gradient(135deg, #f4f8fc, #eef4f9);
+      border: 1px solid #d9e6f2;
+      border-radius: 12px;
+      padding: 22px 24px;
+      margin: 20px 0 30px 0;
     }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      display: block;
-      margin: 10px 0 0 0;
+    .box {
+      background: #f7f9fb;
+      padding: 16px 18px;
+      border-radius: 10px;
+      margin: 20px 0;
+      border-left: 5px solid #7fa9d1;
+    }
+
+    .highlight {
+      background: #eef6ff;
+      border-left: 5px solid #5b9bd5;
+      padding: 16px 18px;
+      border-radius: 10px;
+      margin: 20px 0;
     }
 
     .small {
@@ -48,11 +69,60 @@
       color: #444;
     }
 
-    .legend {
-      background: #f7f9fb;
-      padding: 14px 16px;
+    .figure {
+      margin: 24px 0 30px 0;
+      text-align: center;
+    }
+
+    .figure img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #d8d8d8;
       border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      background: white;
+      display: block;
+    }
+
+    .figure a {
+      display: inline-block;
+    }
+
+    .caption {
+      text-align: left;
+      font-size: 0.95em;
+      color: #444;
       margin-top: 12px;
+    }
+
+    .twocol {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 850px) {
+      .twocol {
+        grid-template-columns: 1fr;
+      }
+
+      body {
+        padding: 0 16px;
+      }
+    }
+
+    .card {
+      background: #fbfcfd;
+      border: 1px solid #dde7f0;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .note {
+      font-size: 0.92em;
+      color: #555;
+      margin-top: 8px;
     }
   </style>
 </head>
@@ -62,30 +132,87 @@
 
   <h1>Phylogenomics of <i>Streptomyces silvae</i></h1>
 
-  <p>
-    Genome-based phylogenetic reconstruction was performed using the TYGS platform
-    and Genome BLAST Distance Phylogeny (GBDP).
-  </p>
-
-  <h2>Tree reconstruction</h2>
-
-  <div class="box">
+  <div class="hero">
     <p>
-      The phylogenetic tree was reconstructed using FastME based on GBDP distances
-      calculated from complete genome sequences.
+      This page summarizes the genome-based phylogenetic reconstruction of the
+      <i>Streptomyces silvae</i> clade. Phylogenomics was performed using the TYGS
+      platform and Genome BLAST Distance Phylogeny (GBDP).
+    </p>
+    <p>
+      The resulting tree provides a genome-scale view of evolutionary relationships
+      within the analyzed strains and supports species-level assignment as well as
+      intraspecific diversification.
     </p>
   </div>
 
-  <h2>Phylogenetic tree</h2>
+  <div class="highlight">
+    <b>Key findings.</b>
+    All analyzed strains cluster within a coherent <i>Streptomyces silvae</i>
+    lineage. At the same time, the phylogenomic reconstruction reveals clear
+    internal branching patterns, indicating evolutionary diversification within
+    the species. Closely related genome pairs such as
+    <i>Streptomyces</i> sp. LamerLS–316 and SID4921 group tightly together, while
+    other strains occupy more distinct positions within the clade.
+  </div>
 
-  <img src="phylogeny_tree.png" alt="Phylogenetic tree of <i>S. silvae</i> strains">
+  <h2>Tree Reconstruction</h2>
 
-  <div class="legend small">
+  <div class="box">
     <p>
-      <b>Figure:</b> Phylogenetic tree based on GBDP distances for the
+      Phylogenetic reconstruction was based on GBDP distances calculated from
+      complete genome sequences. Tree inference was performed using FastME,
+      and branch support values were calculated using 100 pseudo-bootstrap replicates.
+    </p>
+  </div>
+
+  <div class="twocol">
+    <div class="card">
+      <b>Method</b>
+      <p class="small">
+        Genome BLAST Distance Phylogeny (GBDP) as implemented in the TYGS platform.
+      </p>
+    </div>
+    <div class="card">
+      <b>Tree inference</b>
+      <p class="small">
+        FastME reconstruction with branch lengths scaled according to the GBDP
+        distance formula d5 and support values from 100 replicates.
+      </p>
+    </div>
+  </div>
+
+  <h2>Phylogenetic Tree</h2>
+
+  <div class="figure">
+    <a href="phylogeny_tree.png" target="_blank">
+      <img src="phylogeny_tree.png" alt="Phylogenetic tree of Streptomyces silvae strains">
+    </a>
+    <div class="caption">
+      <b>Figure.</b> Phylogenetic tree based on GBDP distances for the
       <i>S. silvae</i> dataset. Branch lengths are scaled according to
       the GBDP distance formula d5. Values at the nodes represent pseudo-bootstrap
       support values from 100 replicates.
+    </div>
+    <div class="note">
+      Click the figure to open the full-size image.
+    </div>
+  </div>
+
+  <h2>Interpretation</h2>
+
+  <div class="box">
+    <p>
+      The phylogenomic tree supports the assignment of all analyzed genomes to
+      the species <i>Streptomyces silvae</i>. At the same time, the branching
+      structure reveals internal phylogenomic differentiation within the clade.
+      This indicates that the species is genomically coherent but not uniform.
+    </p>
+    <p>
+      The close grouping of certain strains, in particular
+      <i>Streptomyces</i> sp. LamerLS–316 and SID4921, is consistent with their
+      extremely high genome similarity in ANI analyses. Other strains show more
+      distinct phylogenomic positions, reflecting evolutionary diversification
+      within the species.
     </p>
   </div>
 
