@@ -7,10 +7,10 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 1050px;
-      margin: 40px auto;
+      max-width: 1280px;
+      margin: 36px auto;
       line-height: 1.65;
-      padding: 0 20px;
+      padding: 0 24px;
       color: #222;
       background: #ffffff;
     }
@@ -21,10 +21,11 @@
 
     h1 {
       margin-bottom: 10px;
+      font-size: 2.1rem;
     }
 
     h2 {
-      margin-top: 40px;
+      margin-top: 42px;
       margin-bottom: 12px;
       border-bottom: 2px solid #d9e6f2;
       padding-bottom: 6px;
@@ -82,6 +83,26 @@
       background: white;
     }
 
+    .figure a {
+      display: inline-block;
+    }
+
+    .wide-figure {
+      margin: 28px 0 34px 0;
+      text-align: center;
+    }
+
+    .wide-figure img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #d8d8d8;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      background: white;
+      display: block;
+    }
+
     .caption {
       text-align: left;
       font-size: 0.95em;
@@ -100,9 +121,13 @@
       margin: 20px 0;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 850px) {
       .twocol {
         grid-template-columns: 1fr;
+      }
+
+      body {
+        padding: 0 16px;
       }
     }
 
@@ -115,6 +140,12 @@
 
     .method-list li {
       margin-bottom: 6px;
+    }
+
+    .note {
+      font-size: 0.92em;
+      color: #555;
+      margin-top: 8px;
     }
   </style>
 </head>
@@ -173,7 +204,9 @@
   </p>
 
   <div class="figure">
-    <img src="ANI_values.png" alt="ANI values of Streptomyces silvae strains">
+    <a href="ANI_values.png" target="_blank">
+      <img src="ANI_values.png" alt="ANI values of Streptomyces silvae strains">
+    </a>
     <div class="caption">
       <b>Table.</b> Pairwise ANI values (%) calculated for the analyzed
       <i>S. silvae</i> strains. Values above 95% indicate assignment to the same
@@ -210,8 +243,10 @@
     with local rearrangements, inversions, and strain-specific structural variation.
   </p>
 
-  <div class="figure">
-    <img src="mauve.png" alt="Mauve alignment of Streptomyces silvae genomes">
+  <div class="wide-figure">
+    <a href="mauve.png" target="_blank">
+      <img src="mauve.png" alt="Mauve alignment of Streptomyces silvae genomes">
+    </a>
     <div class="caption">
       <b>Figure.</b> MAUVE alignment of <i>S. silvae</i> isolates. Multiple genome
       alignment was performed using progressiveMauve with
@@ -219,6 +254,10 @@
       collinear blocks (LCBs) represent homologous genomic regions; inverted
       segments are shown below the midline. Shifts and inversions reflect
       structural genomic variation among strains.
+    </div>
+    <div class="note">
+      Click the alignment to open the full-size image. For best display quality,
+      a high-resolution PNG or SVG export is recommended.
     </div>
   </div>
 
@@ -259,7 +298,9 @@
   </p>
 
   <div class="figure">
-    <img src="BGC.png" alt="BGC comparison of Streptomyces silvae strains">
+    <a href="BGC.png" target="_blank">
+      <img src="BGC.png" alt="BGC comparison of Streptomyces silvae strains">
+    </a>
     <div class="caption">
       <b>Table.</b> Biosynthetic gene clusters (BGCs) identified in the analyzed
       <i>S. silvae</i> genomes and their similarity (%) to known reference clusters
