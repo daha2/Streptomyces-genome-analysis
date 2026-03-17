@@ -74,7 +74,8 @@
       text-align: center;
     }
 
-    .figure img {
+    .figure img,
+    .figure object {
       max-width: 100%;
       height: auto;
       border: 1px solid #d8d8d8;
@@ -86,6 +87,7 @@
 
     .figure a {
       display: inline-block;
+      width: 100%;
     }
 
     .caption {
@@ -184,22 +186,25 @@
   <div class="hero">
     <p>
       This page presents circular genome maps of four strains within the
-      <i>Streptomyces silvae</i> clade. The figure summarizes genome architecture,
-      contig organization, distribution of coding sequences, non-coding RNA genes,
-      antibiotic resistance determinants, GC skew, and GC content.
+      <i>Streptomyces silvae</i> clade. The figures summarize genome architecture,
+      contig organization, distribution of coding sequences, RNA genes,
+      antibiotic resistance determinants, GC skew, GC content, and selected
+      assembly and annotation parameters.
     </p>
     <p>
-      Together, these maps provide a genome-wide visual comparison of structural
-      organization and annotated functional features across the analyzed strains.
+      Together, these visualizations provide a genome-wide comparison of structural
+      organization and quantitative genome features across the analyzed strains.
     </p>
   </div>
 
   <div class="highlight">
     <b>Key findings.</b>
-    The circular genome maps show a broadly conserved genomic architecture across
-    the <i>S. silvae</i> clade. At the same time, variation in contig organization,
-    gene distribution, and compositional features suggests strain-specific
-    differences in genomic organization and functional potential.
+    The analyzed genomes show highly similar genome sizes (approximately 8.1–8.3 Mb)
+    and nearly identical GC contents (~71.3–71.43%), supporting their assignment to
+    the same species. At the same time, differences in contig structure, assembly
+    continuity, and tRNA/rRNA gene copy numbers reveal meaningful intraspecific
+    variation. In particular, strain M3 shows the most contiguous assembly,
+    whereas the other genomes are more fragmented.
   </div>
 
   <h2>Strains included</h2>
@@ -217,7 +222,7 @@
 
   <div class="figure">
     <a href="genome_maps.png" target="_blank">
-      <img src="genome_maps.png" alt="Genome maps of four Streptomyces silvae strains">
+      <img src="genome_maps.svg" alt="Genome maps of four Streptomyces silvae strains">
     </a>
     <div class="caption">
       <b>Figure 1.</b> Genome maps of the four <i>Streptomyces silvae</i> strains
@@ -250,17 +255,74 @@
     <div class="card">
       <b>Structural organization</b>
       <p class="small">
-        The maps allow comparison of contig structure, genome size distribution,
-        and chromosome-wide organization across the four analyzed strains.
+        The genome maps allow direct comparison of contig structure, chromosome-wide
+        organization, and the distribution of annotated features across strains.
       </p>
     </div>
     <div class="card">
       <b>Functional distribution</b>
       <p class="small">
         Protein-coding genes, RNA features, resistance determinants, GC skew,
-        and GC content can be compared directly across genomes.
+        and GC content can be compared directly across all four genomes.
       </p>
     </div>
+  </div>
+
+  <h2>Genome Statistics and Assembly Quality</h2>
+
+  <p>
+    Comparative genome analysis revealed highly similar genome sizes and GC contents
+    across all four strains, consistent with their classification within the species
+    <i>Streptomyces silvae</i>. Despite this overall similarity, the assemblies differ
+    in contiguity and annotation metrics. Strain M3 shows the highest assembly continuity,
+    whereas the remaining strains are more fragmented. In addition, variation in tRNA
+    and rRNA gene copy numbers indicates functional differences that may reflect
+    strain-specific adaptation.
+  </p>
+
+  <div class="figure">
+    <a href="genome_parameter.svg" target="_blank">
+      <img src="genome_parameter.svg" alt="Genome statistics and assembly parameters of Streptomyces silvae strains">
+    </a>
+    <div class="caption">
+      <b>Tabelle 1.</b> Selected genome assembly and annotation parameters of the
+      <i>Streptomyces silvae</i> strains #12I2, #4I1, For3<sup>T</sup>, and M3.
+      The table summarizes contig number, genome size, maximum and minimum contig
+      length, N50, L50, completeness, number of coding sequences, tRNA genes,
+      rRNA genes, antibiotic resistance genes, and GC content.
+    </div>
+    <div class="note">
+      Click the figure to open the full-size image.
+    </div>
+  </div>
+
+  <div class="twocol">
+    <div class="card">
+      <b>Most contiguous assembly</b>
+      <p class="small">
+        Strain M3 shows the strongest assembly quality, with only three contigs,
+        the highest N50 value, and an L50 value of 1, indicating a highly contiguous genome reconstruction.
+      </p>
+    </div>
+    <div class="card">
+      <b>Functional variation</b>
+      <p class="small">
+        Although genome size and GC content are highly similar, differences in
+        tRNA and rRNA gene copy numbers suggest variability in translational capacity
+        and potential ecological adaptation among strains.
+      </p>
+    </div>
+  </div>
+
+  <div class="box">
+    <b>Interpretation.</b>
+    The combined visualization of circular genome maps and assembly statistics shows
+    that the four strains are genomically very similar, yet not identical. Shared
+    genome size and GC content support their close relationship, while differences
+    in contig continuity, rRNA/tRNA gene numbers, and local feature distribution
+    point to intraspecific diversification. This combination of structural conservation
+    and quantitative variation provides a useful framework for further comparative
+    and evolutionary analyses within the <i>S. silvae</i> clade.
   </div>
 
   <h2>Functional Color Code (SEED Viewer)</h2>
@@ -391,16 +453,6 @@
       <li>Genome annotation: RASTtk</li>
       <li>Genome visualization: Circos</li>
     </ul>
-  </div>
-
-  <h2>Interpretation</h2>
-
-  <div class="box">
-    The genome maps illustrate the conserved genomic architecture within the
-    <i>Streptomyces silvae</i> clade. While the overall structure appears similar
-    across strains, variations in gene distribution and compositional patterns can
-    be observed along the chromosome, reflecting differences in gene content and
-    potential metabolic capabilities.
   </div>
 
   <h2>Reference</h2>
