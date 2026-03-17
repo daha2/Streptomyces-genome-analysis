@@ -76,6 +76,7 @@
 
     .figure img,
     .figure object {
+      width: 100%;
       max-width: 100%;
       height: auto;
       border: 1px solid #d8d8d8;
@@ -83,11 +84,6 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.06);
       background: white;
       display: block;
-    }
-
-    .figure a {
-      display: inline-block;
-      width: 100%;
     }
 
     .caption {
@@ -207,7 +203,7 @@
     whereas the other genomes are more fragmented.
   </div>
 
-  <h2>Strains included</h2>
+  <h2>Strains Included</h2>
 
   <div class="box">
     <ul>
@@ -221,9 +217,7 @@
   <h2>Circular Genome Maps</h2>
 
   <div class="figure">
-    <a href="genome_maps.png" target="_blank">
-      <img src="genome_maps.svg" alt="Genome maps of four Streptomyces silvae strains">
-    </a>
+    <img src="genome_maps.svg" alt="Genome maps of four Streptomyces silvae strains">
     <div class="caption">
       <b>Figure 1.</b> Genome maps of the four <i>Streptomyces silvae</i> strains
       #12I2, #4I1, For3 and M3. The concentric circles arranged from the outside
@@ -246,9 +240,6 @@
       and
       <span class="legend-inline" style="background:rgb(78,97,39);"></span>GC content.
     </div>
-    <div class="note">
-      Click the figure to open the full-size image.
-    </div>
   </div>
 
   <div class="twocol">
@@ -268,63 +259,6 @@
     </div>
   </div>
 
-  <h2>Genome Statistics and Assembly Quality</h2>
-
-  <p>
-    Comparative genome analysis revealed highly similar genome sizes and GC contents
-    across all four strains, consistent with their classification within the species
-    <i>Streptomyces silvae</i>. Despite this overall similarity, the assemblies differ
-    in contiguity and annotation metrics. Strain M3 shows the highest assembly continuity,
-    whereas the remaining strains are more fragmented. In addition, variation in tRNA
-    and rRNA gene copy numbers indicates functional differences that may reflect
-    strain-specific adaptation.
-  </p>
-
-  <div class="figure">
-    <a href="genome_parameter.svg" target="_blank">
-      <img src="genome_parameter.svg" alt="Genome statistics and assembly parameters of Streptomyces silvae strains">
-    </a>
-    <div class="caption">
-      <b>Tabelle 1.</b> Selected genome assembly and annotation parameters of the
-      <i>Streptomyces silvae</i> strains #12I2, #4I1, For3<sup>T</sup>, and M3.
-      The table summarizes contig number, genome size, maximum and minimum contig
-      length, N50, L50, completeness, number of coding sequences, tRNA genes,
-      rRNA genes, antibiotic resistance genes, and GC content.
-    </div>
-    <div class="note">
-      Click the figure to open the full-size image.
-    </div>
-  </div>
-
-  <div class="twocol">
-    <div class="card">
-      <b>Most contiguous assembly</b>
-      <p class="small">
-        Strain M3 shows the strongest assembly quality, with only three contigs,
-        the highest N50 value, and an L50 value of 1, indicating a highly contiguous genome reconstruction.
-      </p>
-    </div>
-    <div class="card">
-      <b>Functional variation</b>
-      <p class="small">
-        Although genome size and GC content are highly similar, differences in
-        tRNA and rRNA gene copy numbers suggest variability in translational capacity
-        and potential ecological adaptation among strains.
-      </p>
-    </div>
-  </div>
-
-  <div class="box">
-    <b>Interpretation.</b>
-    The combined visualization of circular genome maps and assembly statistics shows
-    that the four strains are genomically very similar, yet not identical. Shared
-    genome size and GC content support their close relationship, while differences
-    in contig continuity, rRNA/tRNA gene numbers, and local feature distribution
-    point to intraspecific diversification. This combination of structural conservation
-    and quantitative variation provides a useful framework for further comparative
-    and evolutionary analyses within the <i>S. silvae</i> clade.
-  </div>
-
   <h2>Functional Color Code (SEED Viewer)</h2>
 
   <p>
@@ -338,110 +272,32 @@
       <th>Color</th>
       <th>Functional category</th>
     </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#1f77b4"></span></td>
-      <td>Nucleosides and nucleotides</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#2ca02c"></span></td>
-      <td>Amino acids and derivatives</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#ff7f0e"></span></td>
-      <td>Protein metabolism</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#9467bd"></span></td>
-      <td>Sulfur metabolism</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#17becf"></span></td>
-      <td>Cell division and cell cycle</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#bcbd22"></span></td>
-      <td>Phosphorus metabolism</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#e377c2"></span></td>
-      <td>Motility and chemotaxis</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#8c564b"></span></td>
-      <td>Carbohydrate metabolism</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#7f7f7f"></span></td>
-      <td>Regulation and cell signaling</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#d62728"></span></td>
-      <td>Cofactors, vitamins, prosthetic groups and pigments</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#ff9896"></span></td>
-      <td>Secondary metabolism</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#98df8a"></span></td>
-      <td>Cell wall and capsule</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#aec7e8"></span></td>
-      <td>DNA metabolism</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#c5b0d5"></span></td>
-      <td>Virulence, disease and defense</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#ffbb78"></span></td>
-      <td>Fatty acids, lipids and isoprenoids</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#c49c94"></span></td>
-      <td>Potassium metabolism</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#dbdb8d"></span></td>
-      <td>Nitrogen metabolism</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#9edae5"></span></td>
-      <td>Miscellaneous</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#f7b6d2"></span></td>
-      <td>Dormancy and sporulation</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#c7c7c7"></span></td>
-      <td>Phages, prophages, transposable elements and plasmids</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#dbdbdb"></span></td>
-      <td>Respiration</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#fdd0a2"></span></td>
-      <td>Membrane transport</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#fdae6b"></span></td>
-      <td>Stress response</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#6baed6"></span></td>
-      <td>Iron acquisition and metabolism</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#74c476"></span></td>
-      <td>Metabolism of aromatic compounds</td>
-    </tr>
-    <tr>
-      <td><span class="colorbox" style="background:#9e9ac8"></span></td>
-      <td>RNA metabolism</td>
-    </tr>
+    <tr><td><span class="colorbox" style="background:#1f77b4"></span></td><td>Nucleosides and nucleotides</td></tr>
+    <tr><td><span class="colorbox" style="background:#2ca02c"></span></td><td>Amino acids and derivatives</td></tr>
+    <tr><td><span class="colorbox" style="background:#ff7f0e"></span></td><td>Protein metabolism</td></tr>
+    <tr><td><span class="colorbox" style="background:#9467bd"></span></td><td>Sulfur metabolism</td></tr>
+    <tr><td><span class="colorbox" style="background:#17becf"></span></td><td>Cell division and cell cycle</td></tr>
+    <tr><td><span class="colorbox" style="background:#bcbd22"></span></td><td>Phosphorus metabolism</td></tr>
+    <tr><td><span class="colorbox" style="background:#e377c2"></span></td><td>Motility and chemotaxis</td></tr>
+    <tr><td><span class="colorbox" style="background:#8c564b"></span></td><td>Carbohydrate metabolism</td></tr>
+    <tr><td><span class="colorbox" style="background:#7f7f7f"></span></td><td>Regulation and cell signaling</td></tr>
+    <tr><td><span class="colorbox" style="background:#d62728"></span></td><td>Cofactors, vitamins, prosthetic groups and pigments</td></tr>
+    <tr><td><span class="colorbox" style="background:#ff9896"></span></td><td>Secondary metabolism</td></tr>
+    <tr><td><span class="colorbox" style="background:#98df8a"></span></td><td>Cell wall and capsule</td></tr>
+    <tr><td><span class="colorbox" style="background:#aec7e8"></span></td><td>DNA metabolism</td></tr>
+    <tr><td><span class="colorbox" style="background:#c5b0d5"></span></td><td>Virulence, disease and defense</td></tr>
+    <tr><td><span class="colorbox" style="background:#ffbb78"></span></td><td>Fatty acids, lipids and isoprenoids</td></tr>
+    <tr><td><span class="colorbox" style="background:#c49c94"></span></td><td>Potassium metabolism</td></tr>
+    <tr><td><span class="colorbox" style="background:#dbdb8d"></span></td><td>Nitrogen metabolism</td></tr>
+    <tr><td><span class="colorbox" style="background:#9edae5"></span></td><td>Miscellaneous</td></tr>
+    <tr><td><span class="colorbox" style="background:#f7b6d2"></span></td><td>Dormancy and sporulation</td></tr>
+    <tr><td><span class="colorbox" style="background:#c7c7c7"></span></td><td>Phages, prophages, transposable elements and plasmids</td></tr>
+    <tr><td><span class="colorbox" style="background:#dbdbdb"></span></td><td>Respiration</td></tr>
+    <tr><td><span class="colorbox" style="background:#fdd0a2"></span></td><td>Membrane transport</td></tr>
+    <tr><td><span class="colorbox" style="background:#fdae6b"></span></td><td>Stress response</td></tr>
+    <tr><td><span class="colorbox" style="background:#6baed6"></span></td><td>Iron acquisition and metabolism</td></tr>
+    <tr><td><span class="colorbox" style="background:#74c476"></span></td><td>Metabolism of aromatic compounds</td></tr>
+    <tr><td><span class="colorbox" style="background:#9e9ac8"></span></td><td>RNA metabolism</td></tr>
   </table>
 
   <h2>Methods</h2>
@@ -453,6 +309,56 @@
       <li>Genome annotation: RASTtk</li>
       <li>Genome visualization: Circos</li>
     </ul>
+  </div>
+
+  <h2>Interpretation</h2>
+
+  <div class="box">
+    The circular genome maps indicate a broadly conserved genome architecture across
+    the <i>Streptomyces silvae</i> clade. Similar overall structure, genome size,
+    and GC content support close relatedness, whereas differences in contig continuity,
+    local feature distribution, and RNA gene copy numbers point to intraspecific
+    diversification and possible functional specialization.
+  </div>
+
+  <h2>Genome Statistics and Assembly Quality</h2>
+
+  <p>
+    Comparative genome analysis revealed highly similar genome sizes and GC contents
+    across all four strains, consistent with their classification within the species
+    <i>Streptomyces silvae</i>. Despite this overall similarity, the assemblies differ
+    in contiguity and annotation metrics. Strain M3 shows the highest assembly continuity,
+    whereas the remaining strains are more fragmented. In addition, variation in tRNA
+    and rRNA gene copy numbers indicates functional differences that may reflect
+    strain-specific adaptation.
+  </p>
+
+  <div class="figure">
+    <img src="genome_parameter.svg" alt="Genome statistics and assembly parameters of Streptomyces silvae strains">
+    <div class="caption">
+      <b>Table 1.</b> Selected genome assembly and annotation parameters of the
+      <i>Streptomyces silvae</i> strains #12I2, #4I1, For3<sup>T</sup>, and M3.
+      The table summarizes contig number, genome size, maximum and minimum contig
+      length, N50, L50, completeness, number of coding sequences, tRNA genes,
+      rRNA genes, antibiotic resistance genes, and GC content.
+    </div>
+  </div>
+
+  <div class="twocol">
+    <div class="card">
+      <b>Most contiguous assembly</b>
+      <p class="small">
+        Strain M3 shows the strongest assembly quality, with only three contigs,
+        the highest N50 value, and an L50 value of 1.
+      </p>
+    </div>
+    <div class="card">
+      <b>Functional variation</b>
+      <p class="small">
+        Differences in tRNA and rRNA gene copy numbers suggest variation in translational
+        capacity and possible ecological adaptation among strains.
+      </p>
+    </div>
   </div>
 
   <h2>Reference</h2>
