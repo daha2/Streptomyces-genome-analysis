@@ -1,22 +1,19 @@
-<head>
-  <meta charset="UTF-10">
-  <meta name="viewport" content="width=device-width, initial-scale=2">
-  <meta name="description" content="Interactive genome analysis of Streptomyces silvae including comparative genomics, genome maps, phylogenomics and physiological characterization">
-  <title>Streptomyces silvae Project</title>
-  <style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-10">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive genome analysis of Streptomyces silvae including comparative genomics, genome maps, phylogenomics and physiological characterization">
   <title>Streptomyces silvae Project</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 1280px;
-      margin: 36px auto;
+      font-size: 16px; /* 👈 sorgt für konsistente Schriftgröße */
+      max-width: 1050px; /* 👈 wie bei deinen anderen Seiten */
+      margin: 40px auto;
       line-height: 1.65;
-      padding: 0 24px;
+      padding: 0 20px;
       color: #222;
       background: #ffffff;
     }
@@ -31,7 +28,7 @@
     }
 
     h2 {
-      margin-top: 42px;
+      margin-top: 40px;
       margin-bottom: 12px;
       border-bottom: 2px solid #d9e6f2;
       padding-bottom: 6px;
@@ -92,6 +89,7 @@
 
     .figure a {
       display: inline-block;
+      width: 100%;
     }
 
     .caption {
@@ -112,13 +110,9 @@
       margin: 20px 0;
     }
 
-    @media (max-width: 850px) {
+    @media (max-width: 800px) {
       .twocol {
         grid-template-columns: 1fr;
-      }
-
-      body {
-        padding: 0 16px;
       }
     }
 
@@ -140,6 +134,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <h1>Comparative Genomics and Physiological Characterization of <i>Streptomyces silvae</i></h1>
@@ -168,10 +163,10 @@
 
   <div class="box">
     <ul class="section-list">
-      <li><a href="comparative_genomics.html"><b>Comparative Genomics</b></a> – ANI, Mauve alignment, and BGC comparison across the <i>S. silvae</i> clade</li>
-      <li><a href="genome_maps.html"><b>Genome Architecture</b></a> – circular genome maps and functional annotation patterns</li>
-      <li><a href="phylogenomics.html"><b>Phylogenomics</b></a> – genome-based phylogenetic reconstruction using GBDP distances</li>
-      <li><a href="physiology_TMS4I1.html"><b>Morphological and Physiological Characterization of <i>Streptomyces silvae</i> TMS4I1</b></a> – morphology, stress tolerance, and physiological profiling</li>
+      <li><a href="comparative_genomics.html"><b>Comparative Genomics</b></a> – ANI, Mauve alignment, and BGC comparison</li>
+      <li><a href="genome_maps.html"><b>Genome Architecture</b></a> – circular genome maps and functional annotation</li>
+      <li><a href="phylogenomics.html"><b>Phylogenomics</b></a> – genome-based phylogeny</li>
+      <li><a href="physiology_TMS4I1.html"><b>Physiology of TMS4I1</b></a> – morphology and stress tolerance</li>
     </ul>
   </div>
 
@@ -181,39 +176,31 @@
     The study investigates genomic diversity and ecological adaptability within the
     <i>S. silvae</i> clade using comparative genomics, genome
     architecture analysis, phylogenomics, and physiological characterization.
-    Together, these approaches provide a broad view of species coherence,
-    intraspecific diversification, and functional potential.
   </p>
 
   <div class="twocol">
     <div class="card">
       <b>Genomic perspective</b>
       <p class="small">
-        Comparative analysis includes ANI-based similarity assessment, genome-wide
-        synteny analysis, circular genome maps, and biosynthetic gene cluster profiling.
+        Includes ANI, synteny analysis, genome maps, and BGC profiling.
       </p>
     </div>
     <div class="card">
       <b>Experimental perspective</b>
       <p class="small">
-        Physiological and morphological analyses reveal medium-dependent colony
-        morphology, filamentous microstructure, and broad tolerance towards
-        different environmental stress conditions.
+        Reveals morphology, microstructure, and stress tolerance.
       </p>
     </div>
   </div>
 
-  <h2>Macromorphology of Selected <i>S. silvae</i> Strains on Different Culture Media</h2>
+  <h2>Macromorphology of Selected <i>S. silvae</i> Strains</h2>
 
   <div class="figure">
     <a href="macromorphology.png" target="_blank">
-      <img src="macromorphology.png" alt="Macromorphology of <i>S. silvae</i> strains on different culture media">
+      <img src="macromorphology.png" alt="Macromorphology of Streptomyces silvae strains">
     </a>
     <div class="caption">
-      <b>Figure 1.</b> Macromorphology of selected <i>S. silvae</i> strains on
-      different culture media. Colony morphology varies depending on strain and
-      growth conditions, illustrating the phenotypic diversity present within the
-      analyzed group.
+      <b>Figure 1.</b> Macromorphology of selected <i>S. silvae</i> strains on different culture media.
     </div>
     <div class="note">
       Click the figure to open the full-size image.
