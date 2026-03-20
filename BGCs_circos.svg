@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   width="9000"
-   height="9000"
+   width="4500"
+   height="4500"
    version="1.1"
    id="svg2"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="BGCs_Circos_Plot.svg"
+   sodipodi:docname="BGCs_circos.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +52,7 @@
     <inkscape:grid
        id="grid5"
        units="px"
-       originx="-745.87915"
+       originx="-1125.8792"
        originy="-675.56348"
        spacingx="1"
        spacingy="1"
@@ -66,8 +66,8 @@
     <inkscape:page
        x="0"
        y="0"
-       width="9000"
-       height="9000"
+       width="4500"
+       height="4500"
        id="page2"
        margin="0"
        bleed="0" />
@@ -76,7 +76,7 @@
      id="defs234" />
   <g
      id="g6"
-     transform="translate(-745.8792,-675.56349)">
+     transform="matrix(0.5,0,0,0.5,-372.9396,-337.78175)">
     <g
        id="ideograms"
        style="fill:#ffffff;stroke:none"
