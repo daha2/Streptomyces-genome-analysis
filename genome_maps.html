@@ -148,63 +148,40 @@
       border: 1px solid rgba(0, 0, 0, 0.08);
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 12px;
-      background: #fff;
-      border: 1px solid #dde7f0;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    th, td {
-      padding: 8px 10px;
-      border-bottom: 1px solid #e5edf5;
-      text-align: left;
-      vertical-align: middle;
-      font-size: 0.92em;
-    }
-
-    th {
-      background: #f4f8fc;
-      color: #1a4d7a;
-    }
-
     .method-list li {
       margin-bottom: 6px;
     }
 
-    .function-wrapper {
+    .shared-wrapper {
       margin: 24px 0 30px 0;
     }
 
-    .function-intro {
+    .shared-intro {
       margin-bottom: 14px;
     }
 
-    .function-outer {
+    .shared-block {
       border: 1px solid #dde7f0;
       border-radius: 10px;
       background: #fbfcfd;
       padding: 14px;
     }
 
-    .function-row {
+    .shared-row {
       display: grid;
       grid-template-columns: 1.02fr 0.98fr;
       gap: 16px;
       align-items: stretch;
     }
 
-    .function-image {
+    .shared-image {
       display: flex;
       align-items: stretch;
       justify-content: center;
       min-width: 0;
     }
 
-    .function-image a {
+    .shared-image a {
       display: flex;
       width: 100%;
       height: 100%;
@@ -212,7 +189,7 @@
       justify-content: center;
     }
 
-    .function-image img {
+    .shared-image img {
       width: 100%;
       height: 100%;
       object-fit: contain;
@@ -264,8 +241,12 @@
       min-height: 22px;
     }
 
+    .section-break {
+      margin-top: 50px;
+    }
+
     @media (max-width: 920px) {
-      .function-row,
+      .shared-row,
       .twocol {
         grid-template-columns: 1fr;
       }
@@ -274,7 +255,7 @@
         grid-template-columns: 1fr;
       }
 
-      .function-image img {
+      .shared-image img {
         height: auto;
       }
 
@@ -292,27 +273,20 @@
 
   <div class="hero">
     <p>
-      This page presents circular genome maps of four strains within the
-      <i>S. silvae</i> clade. The figures summarize genome architecture,
-      contig organization, distribution of coding sequences, RNA genes,
-      antibiotic resistance determinants, GC skew, GC content, and selected
-      assembly and annotation parameters.
+      This page presents circular genome maps and selected comparative features of four strains within the
+      <i>Streptomyces silvae</i> clade. Together, the figures summarize contig organization, structural
+      genome characteristics, functional annotation patterns, and assembly statistics.
     </p>
     <p>
-      Together, these visualizations provide a genome-wide comparison of structural
-      organization and quantitative genome features across the analyzed strains.
+      These visualizations provide a genome-wide comparison of conserved and variable properties across the analyzed strains.
     </p>
   </div>
 
   <div class="highlight">
     <b>Key findings.</b>
-    The analyzed genomes show highly similar genome sizes (approximately 8.1–8.3 Mb)
-    and nearly identical GC contents (~71.3–71.43%), supporting their assignment to
-    the same species. At the same time, differences in contig structure, assembly
-    continuity, and tRNA/rRNA gene copy numbers reveal meaningful intraspecific
-    variation. In particular, strain #4I1 stands out by showing increased gene
-    numbers in several metabolic categories, whereas #12I2, For3<sup>T</sup>, and M3
-    are more similar to one another.
+    The analyzed genomes show highly similar genome sizes (approximately 8.1–8.3 Mb) and nearly identical GC contents
+    (~71.3–71.43%), supporting their classification within the same species. At the same time, differences in assembly
+    contiguity, functional gene distribution, and biosynthetic repertoires reveal meaningful intraspecific variation.
   </div>
 
   <h2>Strains Included</h2>
@@ -333,7 +307,7 @@
       <img src="genome_maps.png" alt="Genome maps of four Streptomyces silvae strains">
     </a>
     <div class="caption">
-      <b>Figure 1.</b> Genome maps of the four <i>S. silvae</i> strains
+      <b>Figure 1.</b> Genome maps of the four <i>Streptomyces silvae</i> strains
       #12I2, #4I1, For3<sup>T</sup>, and M3. The concentric circles arranged from
       the outside to the inside show, for each genome, contig lengths in megabase pairs
       (Mbp), strain-specific colour coding of contigs, positions of protein-coding
@@ -353,37 +327,62 @@
     </div>
   </div>
 
+  <h2>Genome Statistics and Assembly Quality</h2>
+
+  <p>
+    Comparative genome analysis revealed highly similar genome sizes and GC contents across all four strains,
+    consistent with their classification within the species <i>Streptomyces silvae</i>. Despite this overall similarity,
+    the assemblies differ in contiguity and annotation metrics. Strain M3 shows the highest assembly continuity,
+    whereas the remaining strains are more fragmented. In addition, variation in tRNA and rRNA gene copy numbers
+    indicates functional differences that may reflect strain-specific adaptation.
+  </p>
+
+  <div class="figure">
+    <a href="genome_parameter.svg" target="_blank">
+      <img src="genome_parameter.svg" alt="Genome statistics and assembly parameters of Streptomyces silvae strains">
+    </a>
+    <div class="caption">
+      <b>Table 1.</b> Selected genome assembly and annotation parameters of the
+      <i>Streptomyces silvae</i> strains #12I2, #4I1, For3<sup>T</sup>, and M3.
+      The table summarizes contig number, genome size, maximum and minimum contig length,
+      N50, L50, completeness, number of coding sequences, tRNA genes, rRNA genes,
+      antibiotic resistance genes, and GC content.
+    </div>
+    <div class="note">
+      Click the figure to open the full-size image.
+    </div>
+  </div>
+
   <div class="twocol">
     <div class="card">
-      <b>Structural organization</b>
+      <b>Most contiguous assembly</b>
       <p class="small">
-        The genome maps allow direct comparison of contig structure, chromosome-wide
-        organization, and the distribution of annotated features across strains.
+        Strain M3 shows the strongest assembly quality, with only three contigs, the highest N50 value,
+        and an L50 value of 1.
       </p>
     </div>
     <div class="card">
-      <b>Functional distribution</b>
+      <b>Functional variation</b>
       <p class="small">
-        Protein-coding genes, RNA features, resistance determinants, GC skew,
-        and GC content can be compared directly across all four genomes.
+        Differences in tRNA and rRNA gene copy numbers suggest variation in translational capacity
+        and possible ecological adaptation among strains.
       </p>
     </div>
   </div>
 
   <h2>Functional Gene Category Distribution and SEED Color Code</h2>
 
-  <div class="function-wrapper">
-    <p class="function-intro">
-      To complement the structural genome maps, gene numbers per functional category
-      were visualized for the four <i>S. silvae</i> strains using circular diagrams
-      based on RASTtk annotation. The corresponding SEED Viewer color code is shown
-      directly alongside the circular representation to facilitate direct comparison
-      between functional categories and their quantitative distribution.
+  <div class="shared-wrapper">
+    <p class="shared-intro">
+      To complement the structural genome maps, gene numbers per functional category were visualized for the four
+      <i>S. silvae</i> strains using circular diagrams based on RASTtk annotation. The corresponding SEED Viewer
+      color code is shown directly alongside the circular representation to facilitate direct comparison between
+      functional categories and their quantitative distribution.
     </p>
 
-    <div class="function-outer">
-      <div class="function-row">
-        <div class="function-image">
+    <div class="shared-block">
+      <div class="shared-row">
+        <div class="shared-image">
           <a href="functional_categories.svg" target="_blank">
             <img src="functional_categories.svg" alt="Circular representation of gene numbers per functional category in Streptomyces silvae strains">
           </a>
@@ -429,10 +428,13 @@
       </div>
 
       <div class="full-caption">
-        <b>Figure 2.</b> Circular representation of functional gene category composition in the genomes of the 
-        <i>S. silvae</i> strains #12I2, #4I1, For3<sup>T</sup>, and M3. The concentric rings depict individual genomes from outer to inner. 
-        Functional annotation was performed with RASTtk, and categories were coloured according to the SEED Viewer classification. 
-        Segment size scales with the number of genes assigned to each functional category.
+        <b>Figure 2.</b> Circular representation of gene numbers per functional category
+        in the genomes of the <i>S. silvae</i> strains #12I2, #4I1, For3<sup>T</sup>, and M3.
+        The four concentric circles represent the genomes of the four strains from the
+        outside to the inside. Functional annotation was performed using RASTtk. Each
+        segment corresponds to the absolute gene number assigned to a functional category,
+        coloured according to the SEED Viewer scheme. Segment area reflects the number
+        of genes within the respective category.
       </div>
 
       <div class="note">
@@ -441,34 +443,13 @@
     </div>
   </div>
 
-  <div class="twocol">
-    <div class="card">
-      <b>Dominant categories</b>
-      <p class="small">
-        The largest gene fractions are associated with amino acid metabolism and
-        carbohydrate metabolism, indicating that these pathways form the major
-        functional backbone of the analyzed genomes.
-      </p>
-    </div>
-    <div class="card">
-      <b>Stable low-abundance category</b>
-      <p class="small">
-        Motility and chemotaxis represent the smallest functional category and show
-        only minimal variation across strains, consistent with the primarily sessile
-        lifestyle of soil-dwelling streptomycetes.
-      </p>
-    </div>
-  </div>
-
   <div class="box">
-    <b>Interpretation.</b>
-    The circular functional profiles show that the four strains are broadly similar
-    in their overall functional gene repertoire, supporting their close relatedness.
-    At the same time, the most pronounced quantitative differences occur in amino acid
-    metabolism, carbohydrate metabolism, lipid and fatty acid metabolism, respiration,
-    and cell wall-associated functions. In particular, strain #4I1 displays elevated
-    gene numbers in several of these categories, in some cases by up to about 22%
-    relative to the other genomes. This suggests strain-specific metabolic adaptation,
+    <b>Interpretation of genome architecture.</b>
+    The combined structural and functional analyses show that the four strains are genomically closely related,
+    yet not identical. Similar genome size, GC content, and broad functional profiles support their close
+    taxonomic relationship. At the same time, differences in assembly contiguity, tRNA/rRNA copy number,
+    and selected functional categories indicate intraspecific diversification. In particular, strain #4I1
+    displays elevated gene numbers in several metabolic categories, suggesting strain-specific adaptation,
     whereas #12I2, For3<sup>T</sup>, and M3 remain more similar to one another.
   </div>
 
@@ -483,58 +464,94 @@
     </ul>
   </div>
 
-  <h2>Interpretation of Genome Statistics and Assembly Quality</h2>
+  <h2 class="section-break">Biosynthetic Gene Cluster Distribution and antiSMASH Color Code</h2>
+
+  <div class="bgc-wrapper">
+    <p class="bgc-intro">
+      To further assess the secondary-metabolite potential of the four analyzed genomes, biosynthetic gene clusters (BGCs)
+      were visualized in circular form. The corresponding antiSMASH biosynthetic classes are shown alongside the circular
+      representation to allow direct comparison between BGC class and genomic localization.
+    </p>
+
+    <div class="shared-block">
+      <div class="shared-row">
+        <div class="shared-image">
+          <a href="BGCs_circos.svg" target="_blank">
+            <img src="BGCs_circos.svg" alt="Circular representation of biosynthetic gene clusters in Streptomyces silvae strains">
+          </a>
+        </div>
+
+        <div class="legend-side">
+          <div class="legend-title">antiSMASH biosynthetic classes</div>
+
+          <div class="legend-columns">
+            <div class="legend-column">
+              <div class="legend-item"><span class="colorbox" style="background:#f781bf"></span>RiPP-like; class II and III lanthipeptides</div>
+              <div class="legend-item"><span class="colorbox" style="background:#fb8072"></span>β-Lactams</div>
+              <div class="legend-item"><span class="colorbox" style="background:#fdb462"></span>Butyrolactones</div>
+              <div class="legend-item"><span class="colorbox" style="background:#8dd3c7"></span>Ectoine</div>
+              <div class="legend-item"><span class="colorbox" style="background:#bebada"></span>PKS: type II and III; hglE-KS; hglE-KS with T1PKS</div>
+              <div class="legend-item"><span class="colorbox" style="background:#80b1d3"></span>NAPAA; NRPS; NRPS with NRP-metallophores</div>
+            </div>
+
+            <div class="legend-column">
+              <div class="legend-item"><span class="colorbox" style="background:#bc80bd"></span>T1PKS; T2PKS/NRPS with terpenes; butyrolactone; NRPS; hglE-KS; hybrid NRPS, T3PKS, PKS- and NRPS-like</div>
+              <div class="legend-item"><span class="colorbox" style="background:#ffed6f"></span>Class I lanthipeptides</div>
+              <div class="legend-item"><span class="colorbox" style="background:#b3b3b3"></span>Melanin</div>
+              <div class="legend-item"><span class="colorbox" style="background:#66c2a5"></span>Siderophores</div>
+              <div class="legend-item"><span class="colorbox" style="background:#b3de69"></span>Terpenes</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="full-caption">
+        <b>Figure 3.</b> Circular representation of biosynthetic gene clusters in the
+        genomes of the <i>S. silvae</i> strains #12I2, #4I1, For3<sup>T</sup>, and M3.
+        Biosynthetic regions were identified using antiSMASH. The circular plot shows
+        the chromosomal distribution and biosynthetic class assignment of BGCs in the
+        four genomes.
+      </div>
+
+      <div class="note">
+        Click the figure to open the full-size image.
+      </div>
+    </div>
+  </div>
 
   <div class="box">
-    Comparative genome analysis revealed highly similar genome sizes and GC contents
-    across all four strains, consistent with their classification within the species
-    <i>Streptomyces silvae</i>. Despite this overall similarity, the assemblies differ
-    in contiguity and annotation metrics. Strain M3 shows the highest assembly continuity,
-    whereas the remaining strains are more fragmented. In addition, variation in tRNA
-    and rRNA gene copy numbers indicates functional differences that may reflect
-    strain-specific adaptation.
-  </div>
-
-  <h2>Genome Statistics and Assembly Quality</h2>
-
-  <div class="figure">
-    <a href="genome_parameter.svg" target="_blank">
-      <img src="genome_parameter.svg" alt="Genome statistics and assembly parameters of Streptomyces silvae strains">
-    </a>
-    <div class="caption">
-      <b>Table 1.</b> Selected genome assembly and annotation parameters of the
-      <i>Streptomyces silvae</i> strains #12I2, #4I1, For3<sup>T</sup>, and M3.
-      The table summarizes contig number, genome size, maximum and minimum contig
-      length, N50, L50, completeness, number of coding sequences, tRNA genes,
-      rRNA genes, antibiotic resistance genes, and GC content.
-    </div>
-    <div class="note">
-      Click the figure to open the full-size image.
-    </div>
-  </div>
-
-  <div class="twocol">
-    <div class="card">
-      <b>Most contiguous assembly</b>
-      <p class="small">
-        Strain M3 shows the strongest assembly quality, with only three contigs,
-        the highest N50 value, and an L50 value of 1.
-      </p>
-    </div>
-    <div class="card">
-      <b>Functional variation</b>
-      <p class="small">
-        Differences in tRNA and rRNA gene copy numbers suggest variation in translational
-        capacity and possible ecological adaptation among strains.
-      </p>
-    </div>
+    <b>Interpretation of biosynthetic gene clusters.</b>
+    The BGC comparison reveals a highly conserved core biosynthetic repertoire across the four analyzed strains.
+    All four genomes contain fully identical clusters for alkylresorcinol, desferrioxamine B, ectoine,
+    isorenieratene, and melanin. In addition, ten further clusters are shared by all strains and show
+    similarities to known reference clusters ranging from very low correspondence, such as 3% for tetronasin
+    and lactonamycin, to markedly higher similarity values such as 90% for coelichelin.
+    <br><br>
+    Despite this broad conservation, divergence between the strains is also evident. Hopene-associated clusters
+    occur in all four genomes, but their similarity differs, reaching 76% in #12I2 and For3<sup>T</sup> and 84%
+    in #4I1 and M3. The clearest distinction is visible in the genomic region positioned approximately between
+    4 and 5 o’clock in the circular representation. At nearly corresponding loci, antiSMASH assigned different
+    BGC classes, reflected by different colors in the circular plot. Closer inspection showed that the cluster
+    in strain #12I2 lacks the genes associated with butyrolactone biosynthesis. Accordingly, the #12I2 cluster
+    displayed a 77% similarity to the maduralactomycin A cluster, whereas the corresponding clusters in #4I1,
+    For3<sup>T</sup>, and M3 showed initial similarities of 25–33% to prejadomycin. Additional BLAST- and
+    subcluster-based analyses nevertheless demonstrated that these loci still retain high relatedness overall,
+    including 86% similarity to maduralactomycin A in #4I1 and M3, 72% in For3<sup>T</sup>, and strong agreement
+    with landomycin/simocyclinone-associated regions.
+    <br><br>
+    Further strain-specific differences are also apparent. Strain #12I2 contains a unique cluster with 8% similarity
+    to an arseno-polyketide, whereas clusters related to stenothricin and griseobactin, present in the other strains,
+    are absent. Strain #4I1, in turn, contains additional unique clusters showing similarity to kinamycin (25%) and
+    nataxazole (7%). A cluster weakly related to hexacosalactone A occurs in all four strains at about 4% similarity,
+    while M3 contains an additional cluster with a 6% similarity to the same reference. Overall, the results indicate
+    that BGC divergence within the <i>S. silvae</i> clade is real but moderate: despite locus-specific variation and
+    differences in annotation details, the strains retain a strongly conserved shared biosynthetic backbone.
   </div>
 
   <h2>Reference</h2>
 
   <p class="small">
-    Krzywinski M. et al. 2009. Circos: an information aesthetic for comparative
-    genomics. <i>Genome Research</i>.
+    Krzywinski M. et al. 2009. Circos: an information aesthetic for comparative genomics. <i>Genome Research</i>.
   </p>
 
 </body>
