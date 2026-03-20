@@ -111,7 +111,7 @@
 
     .sidebyside {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 0.95fr 1.05fr;
       gap: 24px;
       align-items: start;
       margin: 24px 0 30px 0;
@@ -128,10 +128,38 @@
       padding: 16px;
     }
 
+    .half-figure a {
+      width: 82%;
+    }
+
+    .half-figure img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .seed-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .seed-grid table {
+      margin-top: 0;
+    }
+
     @media (max-width: 900px) {
       .sidebyside,
-      .twocol {
+      .twocol,
+      .seed-grid {
         grid-template-columns: 1fr;
+      }
+
+      .half-figure a {
+        width: 100%;
       }
 
       body {
@@ -167,7 +195,7 @@
       border-bottom: 1px solid #e5edf5;
       text-align: left;
       vertical-align: middle;
-      font-size: 0.95em;
+      font-size: 0.92em;
     }
 
     th {
@@ -294,7 +322,7 @@
   </p>
 
   <div class="sidebyside">
-    <div class="figure">
+    <div class="figure half-figure">
       <a href="functional_categories.svg" target="_blank">
         <img src="functional_categories.svg" alt="Circular representation of gene numbers per functional category in Streptomyces silvae strains">
       </a>
@@ -320,38 +348,47 @@
         by specific colours in the genome maps and circular category plots.
       </p>
 
-      <table>
-        <tr>
-          <th>Color</th>
-          <th>Functional category</th>
-        </tr>
-        <tr><td><span class="colorbox" style="background:rgb(102,0,102)"></span></td><td>Nucleosides and nucleotides</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(204,255,204)"></span></td><td>Amino acids and derivatives</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(255,128,128)"></span></td><td>Protein metabolism</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(255,255,153)"></span></td><td>Sulfur metabolism</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(0,102,204)"></span></td><td>Cell division and cell cycle</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(153,204,255)"></span></td><td>Phosphorus metabolism</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(204,204,255)"></span></td><td>Motility and chemotaxis</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(255,153,204)"></span></td><td>Carbohydrate metabolism</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(255,0,255)"></span></td><td>Regulation and cell signaling</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(255,0,0)"></span></td><td>Cofactors, vitamins, prosthetic groups and pigments</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(255,255,0)"></span></td><td>Secondary metabolism</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(0,128,0)"></span></td><td>Cell wall and capsule</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(0,255,255)"></span></td><td>DNA metabolism</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(0,0,128)"></span></td><td>Virulence, disease and defense</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(128,0,128)"></span></td><td>Fatty acids, lipids and isoprenoids</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(128,128,0)"></span></td><td>Potassium metabolism</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(128,0,0)"></span></td><td>Nitrogen metabolism</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(192,192,192)"></span></td><td>Miscellaneous</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(0,128,128)"></span></td><td>Dormancy and sporulation</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(128,128,128)"></span></td><td>Phages, prophages, transposable elements and plasmids</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(0,0,255)"></span></td><td>Respiration</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(153,153,255)"></span></td><td>Membrane transport</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(0,204,204)"></span></td><td>Stress response</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(153,51,102)"></span></td><td>Iron acquisition and metabolism</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(204,255,255)"></span></td><td>Metabolism of aromatic compounds</td></tr>
-        <tr><td><span class="colorbox" style="background:rgb(255,255,201)"></span></td><td>RNA metabolism</td></tr>
-      </table>
+      <div class="seed-grid">
+        <table>
+          <tr>
+            <th>Color</th>
+            <th>Functional category</th>
+          </tr>
+          <tr><td><span class="colorbox" style="background:rgb(102,0,102)"></span></td><td>Nucleosides and nucleotides</td></tr>
+          <tr><td><span class="colorbox" style="background:rgb(204,255,204)"></span></td><td>Amino acids and derivatives</td></tr>
+          <tr><td><span class="colorbox" style="background:rgb(255,128,128)"></span></td><td>Protein metabolism</td></tr>
+          <tr><td><span class="colorbox" style="background:rgb(255,255,153)"></span></td><td>Sulfur metabolism</td></tr>
+          <tr><td><span class="colorbox" style="background:rgb(0,102,204)"></span></td><td>Cell division and cell cycle</td></tr>
+          <tr><td><span class="colorbox" style="background:rgb(153,204,255)"></span></td><td>Phosphorus metabolism</td></tr>
+          <tr><td><span class="colorbox" style="background:rgb(204,204,255)"></span></td><td>Motility and chemotaxis</td></tr>
+          <tr><td><span class="colorbox" style="background:rgb(255,153,204)"></span></td><td>Carbohydrate metabolism</td></tr>
+          <tr><td><span class="colorbox" style="background:rgb(255,0,255)"></span></td><td>Regulation and cell signaling</td></tr>
+          <tr><td><span class="colorbox" style="background:rgb(255,0,0)"></span></td><td>Cofactors, vitamins, prosthetic groups and pigments</td></tr>
+          <tr><td><span class="colorbox" style="background:rgb(255,255,0)"></span></td><td>Secondary metabolism</td></tr>
+          <tr><td><span class="colorbox" style="background:rgb(0,128,0)"></span></td><td>Cell wall and capsule</td></tr>
+          <tr><td><span class="colorbox" style="background:rgb(0,255,255)"></span></td><td>DNA metabolism</td></tr>
+        </table>
+
+        <table>
+          <tr>
+            <th>Color</th>
+            <th>Functional category</th>
+          </tr>
+          <tr><td><span class="colorbox" style="background:rgb(0,0,128)"></span></td><td>Virulence, disease and defense</td></tr>
+          <tr><td><span class="colorbox" style="background:rgb(128,0,128)"></span></td><td>Fatty acids, lipids and isoprenoids</td></tr>
+          <tr><td><span class="colorbox" style="background:rgb(128,128,0)"></span></td><td>Potassium metabolism</td></tr>
+          <tr><td><span class="colorbox" style="background:rgb(128,0,0)"></span></td><td>Nitrogen metabolism</td></tr>
+          <tr><td><span class="colorbox" style="background:rgb(192,192,192)"></span></td><td>Miscellaneous</td></tr>
+          <tr><td><span class="colorbox" style="background:rgb(0,128,128)"></span></td><td>Dormancy and sporulation</td></tr>
+          <tr><td><span class="colorbox" style="background:rgb(128,128,128)"></span></td><td>Phages, prophages, transposable elements and plasmids</td></tr>
+          <tr><td><span class="colorbox" style="background:rgb(0,0,255)"></span></td><td>Respiration</td></tr>
+          <tr><td><span class="colorbox" style="background:rgb(153,153,255)"></span></td><td>Membrane transport</td></tr>
+          <tr><td><span class="colorbox" style="background:rgb(0,204,204)"></span></td><td>Stress response</td></tr>
+          <tr><td><span class="colorbox" style="background:rgb(153,51,102)"></span></td><td>Iron acquisition and metabolism</td></tr>
+          <tr><td><span class="colorbox" style="background:rgb(204,255,255)"></span></td><td>Metabolism of aromatic compounds</td></tr>
+          <tr><td><span class="colorbox" style="background:rgb(255,255,201)"></span></td><td>RNA metabolism</td></tr>
+        </table>
+      </div>
     </div>
   </div>
 
