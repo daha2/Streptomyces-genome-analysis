@@ -7,10 +7,11 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 1280px;
-      margin: 36px auto;
+      font-size: 16px;
+      max-width: 1050px;
+      margin: 40px auto;
       line-height: 1.65;
-      padding: 0 24px;
+      padding: 0 20px;
       color: #222;
       background: #ffffff;
     }
@@ -25,7 +26,7 @@
     }
 
     h2 {
-      margin-top: 42px;
+      margin-top: 40px;
       margin-bottom: 12px;
       border-bottom: 2px solid #d9e6f2;
       padding-bottom: 6px;
@@ -203,8 +204,9 @@
     and nearly identical GC contents (~71.3–71.43%), supporting their assignment to
     the same species. At the same time, differences in contig structure, assembly
     continuity, and tRNA/rRNA gene copy numbers reveal meaningful intraspecific
-    variation. In particular, strain M3 shows the most contiguous assembly,
-    whereas the other genomes are more fragmented.
+    variation. In particular, strain #4I1 stands out by showing increased gene
+    numbers in several metabolic categories, whereas #12I2, For3<sup>T</sup>, and M3
+    are more similar to one another.
   </div>
 
   <h2>Strains Included</h2>
@@ -226,21 +228,15 @@
     </a>
     <div class="caption">
       <b>Figure 1.</b> Genome maps of the four <i>Streptomyces silvae</i> strains
-      #12I2, #4I1, For3 and M3. The concentric circles arranged from the outside
-      to the inside show, for each genome, the contig lengths in megabase pairs
-      (Mbp) in the first ring, followed by a strain-specific colour coding of the
-      contigs in the second ring. Contigs with a length of &lt; 149 kbp were merged
-      and are shown in white.
-      <br><br>
-      The third and fourth rings display the positions of protein-coding genes on
-      the forward and reverse strands, coloured according to their functional
-      categories. The fifth ring marks the localisation of
+      #12I2, #4I1, For3<sup>T</sup>, and M3. The concentric circles arranged from
+      the outside to the inside show, for each genome, contig lengths in megabase pairs
+      (Mbp), strain-specific colour coding of contigs, positions of protein-coding
+      genes on the forward and reverse strands, localisation of
       <span class="legend-inline" style="background:rgb(0,0,0);"></span>tRNAs and
       <span class="legend-inline" style="background:rgb(255,0,0);"></span>rRNAs,
-      followed by the sixth ring showing
-      <span class="legend-inline" style="background:rgb(139,0,139);"></span>antibiotic resistance genes.
-      <br><br>
-      The innermost three rings represent
+      antibiotic resistance genes
+      <span class="legend-inline" style="background:rgb(139,0,139);"></span>,
+      as well as
       <span class="legend-inline" style="background:rgb(31,73,124);"></span>positive GC skew,
       <span class="legend-inline" style="background:rgb(192,81,78);"></span>negative GC skew,
       and
@@ -268,12 +264,69 @@
     </div>
   </div>
 
+  <h2>Functional Gene Category Distribution</h2>
+
+  <p>
+    To complement the structural genome maps, gene numbers per functional category
+    were visualized for the four <i>S. silvae</i> strains using circular diagrams
+    based on RASTtk annotation and SEED Viewer colour coding.
+  </p>
+
+  <div class="figure">
+    <a href="functional_catagories.svg" target="_blank">
+      <img src="functional_catagories.svg" alt="Circular representation of gene numbers per functional category in Streptomyces silvae strains">
+    </a>
+    <div class="caption">
+      <b>Figure 2.</b> Circular representation of gene numbers per functional category
+      in the genomes of the <i>S. silvae</i> strains #12I2, #4I1, For3<sup>T</sup>, and M3.
+      The four concentric circles represent the genomes of the four strains from
+      the outside to the inside. Functional annotation was performed using RASTtk.
+      Each segment corresponds to the absolute gene number assigned to a functional
+      category, coloured according to the SEED Viewer scheme. Segment area reflects
+      the number of genes within the respective category.
+    </div>
+    <div class="note">
+      Click the figure to open the full-size image.
+    </div>
+  </div>
+
+  <div class="twocol">
+    <div class="card">
+      <b>Dominant categories</b>
+      <p class="small">
+        The largest gene fractions are associated with amino acid metabolism and
+        carbohydrate metabolism, indicating that these pathways form the major
+        functional backbone of the analyzed genomes.
+      </p>
+    </div>
+    <div class="card">
+      <b>Stable low-abundance category</b>
+      <p class="small">
+        Motility and chemotaxis represent the smallest functional category and show
+        only minimal variation across strains, consistent with the primarily sessile
+        lifestyle of soil-dwelling streptomycetes.
+      </p>
+    </div>
+  </div>
+
+  <div class="box">
+    <b>Interpretation.</b>
+    The circular functional profiles show that the four strains are broadly similar
+    in their overall functional gene repertoire, supporting their close relatedness.
+    At the same time, the most pronounced quantitative differences occur in amino acid
+    metabolism, carbohydrate metabolism, lipid and fatty acid metabolism, respiration,
+    and cell wall-associated functions. In particular, strain #4I1 displays elevated
+    gene numbers in several of these categories, in some cases by up to about 22%
+    relative to the other genomes. This suggests strain-specific metabolic adaptation,
+    whereas #12I2, For3<sup>T</sup>, and M3 remain more similar to one another.
+  </div>
+
   <h2>Functional Color Code (SEED Viewer)</h2>
 
   <p>
     Protein-coding genes were functionally annotated using the RAST annotation pipeline.
     Functional categories correspond to the SEED subsystem classification and are represented
-    by specific colours in the genome maps.
+    by specific colours in the genome maps and circular category plots.
   </p>
 
   <table>
@@ -320,19 +373,9 @@
     </ul>
   </div>
 
-  <h2>Interpretation</h2>
+  <h2>Interpretation of Genome Statistics and Assembly Quality</h2>
 
   <div class="box">
-    The circular genome maps indicate a broadly conserved genome architecture across
-    the <i>Streptomyces silvae</i> clade. Similar overall structure, genome size,
-    and GC content support close relatedness, whereas differences in contig continuity,
-    local feature distribution, and RNA gene copy numbers point to intraspecific
-    diversification and possible functional specialization.
-  </div>
-
-  <h2>Genome Statistics and Assembly Quality</h2>
-
-  <p>
     Comparative genome analysis revealed highly similar genome sizes and GC contents
     across all four strains, consistent with their classification within the species
     <i>Streptomyces silvae</i>. Despite this overall similarity, the assemblies differ
@@ -340,7 +383,9 @@
     whereas the remaining strains are more fragmented. In addition, variation in tRNA
     and rRNA gene copy numbers indicates functional differences that may reflect
     strain-specific adaptation.
-  </p>
+  </div>
+
+  <h2>Genome Statistics and Assembly Quality</h2>
 
   <div class="figure">
     <a href="genome_parameter.svg" target="_blank">
