@@ -98,6 +98,13 @@
       margin-top: 12px;
     }
 
+    .full-caption {
+      text-align: justify;
+      font-size: 0.95em;
+      color: #444;
+      margin-top: 14px;
+    }
+
     ul {
       padding-left: 22px;
     }
@@ -109,78 +116,11 @@
       margin: 20px 0;
     }
 
-    .function-block {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 24px;
-      align-items: stretch;
-      margin: 24px 0 30px 0;
-    }
-
-    .function-figure {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-
-    .function-figure a {
-      display: block;
-      width: 78%;
-      margin: 0 auto;
-    }
-
-    .function-figure img {
-      width: 100%;
-      height: auto;
-      border: 1px solid #d8d8d8;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-      background: white;
-      display: block;
-    }
-
-    .legend-panel {
+    .card {
       background: #fbfcfd;
       border: 1px solid #dde7f0;
       border-radius: 10px;
       padding: 16px;
-      display: flex;
-      flex-direction: column;
-      justify-content: stretch;
-      height: 100%;
-    }
-
-    .legend-title {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #1a4d7a;
-      margin-bottom: 12px;
-    }
-
-    .legend-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px 20px;
-      align-content: start;
-      flex-grow: 1;
-    }
-
-    .legend-item {
-      display: flex;
-      align-items: center;
-      font-size: 0.92em;
-      line-height: 1.35;
-      min-height: 30px;
-    }
-
-    .colorbox {
-      width: 18px;
-      height: 18px;
-      display: inline-block;
-      border-radius: 3px;
-      margin-right: 8px;
-      flex-shrink: 0;
-      border: 1px solid rgba(0, 0, 0, 0.08);
     }
 
     .note {
@@ -196,6 +136,16 @@
       border: 1px solid rgba(0,0,0,0.18);
       vertical-align: middle;
       margin: 0 4px;
+    }
+
+    .colorbox {
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      border-radius: 3px;
+      margin-right: 7px;
+      flex-shrink: 0;
+      border: 1px solid rgba(0, 0, 0, 0.08);
     }
 
     table {
@@ -221,29 +171,105 @@
       color: #1a4d7a;
     }
 
-    .card {
-      background: #fbfcfd;
-      border: 1px solid #dde7f0;
-      border-radius: 10px;
-      padding: 16px;
-    }
-
     .method-list li {
       margin-bottom: 6px;
     }
 
-    @media (max-width: 900px) {
-      .function-block,
+    .function-wrapper {
+      margin: 24px 0 30px 0;
+    }
+
+    .function-intro {
+      margin-bottom: 16px;
+    }
+
+    .function-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.72fr 0.72fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .function-image {
+      display: flex;
+      flex-direction: column;
+      justify-content: stretch;
+    }
+
+    .function-image a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .function-image-box {
+      height: 100%;
+      min-height: 640px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .function-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border: 1px solid #d8d8d8;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      background: white;
+      display: block;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .legend-column {
+      background: #fbfcfd;
+      border: 1px solid #dde7f0;
+      border-radius: 10px;
+      padding: 12px 12px;
+      min-height: 640px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .legend-header {
+      grid-column: 2 / 4;
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #1a4d7a;
+      margin-bottom: -4px;
+      padding-left: 2px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      font-size: 0.87em;
+      line-height: 1.15;
+      padding: 3px 0;
+      margin: 0;
+    }
+
+    @media (max-width: 980px) {
+      .function-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .legend-header {
+        grid-column: auto;
+        margin-bottom: 6px;
+      }
+
+      .legend-column,
+      .function-image-box {
+        min-height: auto;
+      }
+
       .twocol {
         grid-template-columns: 1fr;
-      }
-
-      .legend-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .function-figure a {
-        width: 100%;
       }
 
       body {
@@ -340,76 +366,71 @@
 
   <h2>Functional Gene Category Distribution and SEED Color Code</h2>
 
-  <p>
-    To complement the structural genome maps, gene numbers per functional category
-    were visualized for the four <i>S. silvae</i> strains using circular diagrams
-    based on RASTtk annotation. The corresponding SEED Viewer color code is shown
-    directly alongside the circular representation to facilitate comparison between
-    functional categories and their quantitative distribution.
-  </p>
+  <div class="function-wrapper">
+    <p class="function-intro">
+      To complement the structural genome maps, gene numbers per functional category
+      were visualized for the four <i>S. silvae</i> strains using circular diagrams
+      based on RASTtk annotation. The corresponding SEED Viewer color code is shown
+      directly alongside the circular representation to facilitate direct comparison
+      between functional categories and their quantitative distribution.
+    </p>
 
-  <div class="function-block">
-    <div class="function-figure">
-      <a href="functional_categories.svg" target="_blank">
-        <img src="functional_categories.svg" alt="Circular representation of gene numbers per functional category in Streptomyces silvae strains">
-      </a>
-      <div class="caption">
-        <b>Figure 2.</b> Circular representation of gene numbers per functional category
-        in the genomes of the <i>S. silvae</i> strains #12I2, #4I1, For3<sup>T</sup>, and M3.
-        The four concentric circles represent the genomes of the four strains from
-        the outside to the inside. Functional annotation was performed using RASTtk.
-        Each segment corresponds to the absolute gene number assigned to a functional
-        category, coloured according to the SEED Viewer scheme. Segment area reflects
-        the number of genes within the respective category.
+    <div class="function-grid">
+      <div class="function-image">
+        <div class="function-image-box">
+          <a href="functional_categories.svg" target="_blank">
+            <img src="functional_categories.svg" alt="Circular representation of gene numbers per functional category in Streptomyces silvae strains">
+          </a>
+        </div>
       </div>
-      <div class="note">
-        Click the figure to open the full-size image.
+
+      <div class="legend-header">SEED functional categories</div>
+
+      <div class="legend-column">
+        <div class="legend-item"><span class="colorbox" style="background:rgb(102,0,102)"></span>Nucleosides and nucleotides</div>
+        <div class="legend-item"><span class="colorbox" style="background:rgb(204,255,204)"></span>Amino acids and derivatives</div>
+        <div class="legend-item"><span class="colorbox" style="background:rgb(255,128,128)"></span>Protein metabolism</div>
+        <div class="legend-item"><span class="colorbox" style="background:rgb(255,255,153)"></span>Sulfur metabolism</div>
+        <div class="legend-item"><span class="colorbox" style="background:rgb(0,102,204)"></span>Cell division and cell cycle</div>
+        <div class="legend-item"><span class="colorbox" style="background:rgb(153,204,255)"></span>Phosphorus metabolism</div>
+        <div class="legend-item"><span class="colorbox" style="background:rgb(204,204,255)"></span>Motility and chemotaxis</div>
+        <div class="legend-item"><span class="colorbox" style="background:rgb(255,153,204)"></span>Carbohydrate metabolism</div>
+        <div class="legend-item"><span class="colorbox" style="background:rgb(255,0,255)"></span>Regulation and cell signaling</div>
+        <div class="legend-item"><span class="colorbox" style="background:rgb(255,0,0)"></span>Cofactors, vitamins, prosthetic groups and pigments</div>
+        <div class="legend-item"><span class="colorbox" style="background:rgb(255,255,0)"></span>Secondary metabolism</div>
+        <div class="legend-item"><span class="colorbox" style="background:rgb(0,128,0)"></span>Cell wall and capsule</div>
+        <div class="legend-item"><span class="colorbox" style="background:rgb(0,255,255)"></span>DNA metabolism</div>
+      </div>
+
+      <div class="legend-column">
+        <div class="legend-item"><span class="colorbox" style="background:rgb(0,0,128)"></span>Virulence, disease and defense</div>
+        <div class="legend-item"><span class="colorbox" style="background:rgb(128,0,128)"></span>Fatty acids, lipids and isoprenoids</div>
+        <div class="legend-item"><span class="colorbox" style="background:rgb(128,128,0)"></span>Potassium metabolism</div>
+        <div class="legend-item"><span class="colorbox" style="background:rgb(128,0,0)"></span>Nitrogen metabolism</div>
+        <div class="legend-item"><span class="colorbox" style="background:rgb(192,192,192)"></span>Miscellaneous</div>
+        <div class="legend-item"><span class="colorbox" style="background:rgb(0,128,128)"></span>Dormancy and sporulation</div>
+        <div class="legend-item"><span class="colorbox" style="background:rgb(128,128,128)"></span>Phages, prophages, transposable elements and plasmids</div>
+        <div class="legend-item"><span class="colorbox" style="background:rgb(0,0,255)"></span>Respiration</div>
+        <div class="legend-item"><span class="colorbox" style="background:rgb(153,153,255)"></span>Membrane transport</div>
+        <div class="legend-item"><span class="colorbox" style="background:rgb(0,204,204)"></span>Stress response</div>
+        <div class="legend-item"><span class="colorbox" style="background:rgb(153,51,102)"></span>Iron acquisition and metabolism</div>
+        <div class="legend-item"><span class="colorbox" style="background:rgb(204,255,255)"></span>Metabolism of aromatic compounds</div>
+        <div class="legend-item"><span class="colorbox" style="background:rgb(255,255,201)"></span>RNA metabolism</div>
       </div>
     </div>
 
-    <div class="legend-panel">
-      <div class="legend-title">SEED functional categories</div>
+    <div class="full-caption">
+      <b>Figure 2.</b> Circular representation of gene numbers per functional category
+      in the genomes of the <i>S. silvae</i> strains #12I2, #4I1, For3<sup>T</sup>, and M3.
+      The four concentric circles represent the genomes of the four strains from the
+      outside to the inside. Functional annotation was performed using RASTtk. Each
+      segment corresponds to the absolute gene number assigned to a functional category,
+      coloured according to the SEED Viewer scheme. Segment area reflects the number
+      of genes within the respective category.
+    </div>
 
-      <div class="legend-grid">
-        <div class="legend-item"><span class="colorbox" style="background:rgb(102,0,102)"></span>Nucleosides and nucleotides</div>
-        <div class="legend-item"><span class="colorbox" style="background:rgb(0,0,128)"></span>Virulence, disease and defense</div>
-
-        <div class="legend-item"><span class="colorbox" style="background:rgb(204,255,204)"></span>Amino acids and derivatives</div>
-        <div class="legend-item"><span class="colorbox" style="background:rgb(128,0,128)"></span>Fatty acids, lipids and isoprenoids</div>
-
-        <div class="legend-item"><span class="colorbox" style="background:rgb(255,128,128)"></span>Protein metabolism</div>
-        <div class="legend-item"><span class="colorbox" style="background:rgb(128,128,0)"></span>Potassium metabolism</div>
-
-        <div class="legend-item"><span class="colorbox" style="background:rgb(255,255,153)"></span>Sulfur metabolism</div>
-        <div class="legend-item"><span class="colorbox" style="background:rgb(128,0,0)"></span>Nitrogen metabolism</div>
-
-        <div class="legend-item"><span class="colorbox" style="background:rgb(0,102,204)"></span>Cell division and cell cycle</div>
-        <div class="legend-item"><span class="colorbox" style="background:rgb(192,192,192)"></span>Miscellaneous</div>
-
-        <div class="legend-item"><span class="colorbox" style="background:rgb(153,204,255)"></span>Phosphorus metabolism</div>
-        <div class="legend-item"><span class="colorbox" style="background:rgb(0,128,128)"></span>Dormancy and sporulation</div>
-
-        <div class="legend-item"><span class="colorbox" style="background:rgb(204,204,255)"></span>Motility and chemotaxis</div>
-        <div class="legend-item"><span class="colorbox" style="background:rgb(128,128,128)"></span>Phages, prophages, transposable elements and plasmids</div>
-
-        <div class="legend-item"><span class="colorbox" style="background:rgb(255,153,204)"></span>Carbohydrate metabolism</div>
-        <div class="legend-item"><span class="colorbox" style="background:rgb(0,0,255)"></span>Respiration</div>
-
-        <div class="legend-item"><span class="colorbox" style="background:rgb(255,0,255)"></span>Regulation and cell signaling</div>
-        <div class="legend-item"><span class="colorbox" style="background:rgb(153,153,255)"></span>Membrane transport</div>
-
-        <div class="legend-item"><span class="colorbox" style="background:rgb(255,0,0)"></span>Cofactors, vitamins, prosthetic groups and pigments</div>
-        <div class="legend-item"><span class="colorbox" style="background:rgb(0,204,204)"></span>Stress response</div>
-
-        <div class="legend-item"><span class="colorbox" style="background:rgb(255,255,0)"></span>Secondary metabolism</div>
-        <div class="legend-item"><span class="colorbox" style="background:rgb(153,51,102)"></span>Iron acquisition and metabolism</div>
-
-        <div class="legend-item"><span class="colorbox" style="background:rgb(0,128,0)"></span>Cell wall and capsule</div>
-        <div class="legend-item"><span class="colorbox" style="background:rgb(204,255,255)"></span>Metabolism of aromatic compounds</div>
-
-        <div class="legend-item"><span class="colorbox" style="background:rgb(0,255,255)"></span>DNA metabolism</div>
-        <div class="legend-item"><span class="colorbox" style="background:rgb(255,255,201)"></span>RNA metabolism</div>
-      </div>
+    <div class="note">
+      Click the figure to open the full-size image.
     </div>
   </div>
 
