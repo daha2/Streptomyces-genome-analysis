@@ -16,9 +16,7 @@
       background: #ffffff;
     }
 
-    h1, h2 {
-      color: #1a4d7a;
-    }
+    h1, h2 { color: #1a4d7a; }
 
     h1 {
       margin-bottom: 10px;
@@ -32,14 +30,8 @@
       padding-bottom: 6px;
     }
 
-    a {
-      color: #0b66c3;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    a { color: #0b66c3; text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
     .hero {
       background: linear-gradient(135deg, #f4f8fc, #eef4f9);
@@ -65,10 +57,7 @@
       margin: 20px 0;
     }
 
-    .small {
-      font-size: 0.95em;
-      color: #444;
-    }
+    .small { font-size: 0.95em; color: #444; }
 
     .figure {
       margin: 24px 0 30px 0;
@@ -105,9 +94,7 @@
       margin-top: 14px;
     }
 
-    ul {
-      padding-left: 22px;
-    }
+    ul { padding-left: 22px; }
 
     .twocol {
       display: grid;
@@ -148,17 +135,10 @@
       border: 1px solid rgba(0, 0, 0, 0.08);
     }
 
-    .method-list li {
-      margin-bottom: 6px;
-    }
+    .method-list li { margin-bottom: 6px; }
 
-    .shared-wrapper {
-      margin: 24px 0 30px 0;
-    }
-
-    .shared-intro {
-      margin-bottom: 14px;
-    }
+    .shared-wrapper { margin: 24px 0 30px 0; }
+    .shared-intro { margin-bottom: 14px; }
 
     .shared-block {
       border: 1px solid #dde7f0;
@@ -241,11 +221,12 @@
       min-height: 22px;
     }
 
-    .section-break {
-      margin-top: 50px;
-    }
+    .section-break { margin-top: 50px; }
 
-    /* BGC-Block: eine Spalte, bündig oben und unten */
+    /* =========================
+       BGC-Block (Fix für Legend-Alignment)
+       ========================= */
+
     .bgc-row {
       display: grid;
       grid-template-columns: 1.06fr 0.94fr;
@@ -296,11 +277,17 @@
       margin: 0 0 8px 0;
     }
 
+    /* FIX 1: nicht "space-between" (das drückt Terpenes nach unten),
+       sondern normal von oben stapeln. */
     .bgc-legend-column {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start; /* <- geändert */
+      align-items: stretch;
       height: 100%;
+      gap: 2px; /* kleine, konsistente Abstände */
+      /* FIX 2: Legende unten bündig zur Grafik ausrichten */
+      margin-top: auto; /* erlaubt "nach unten rutschen", ohne Einträge zu strecken */
     }
 
     .bgc-item {
@@ -311,6 +298,10 @@
       padding: 1px 0;
       margin: 0;
       min-height: 18px;
+
+      /* Optionale Robustheit bei langen Texten: */
+      word-break: break-word;
+      overflow-wrap: anywhere;
     }
 
     .bgc-colorbox {
@@ -330,9 +321,7 @@
         grid-template-columns: 1fr;
       }
 
-      .legend-columns {
-        grid-template-columns: 1fr;
-      }
+      .legend-columns { grid-template-columns: 1fr; }
 
       .shared-image img,
       .bgc-image img {
@@ -340,9 +329,7 @@
         max-height: none;
       }
 
-      body {
-        padding: 0 16px;
-      }
+      body { padding: 0 16px; }
     }
   </style>
 </head>
