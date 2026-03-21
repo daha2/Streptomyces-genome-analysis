@@ -241,32 +241,113 @@
       min-height: 22px;
     }
 
-    .legend-item-tight {
-      display: flex;
-      align-items: center;
-      font-size: 0.82em;
-      line-height: 1.05;
-      padding: 1px 0;
-      margin: 0;
-      min-height: 18px;
-    }
-
     .section-break {
       margin-top: 50px;
     }
 
+    /* --- speziell für den BGC-Block, kompakter als oben --- */
+
+    .bgc-row {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .bgc-image {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .bgc-image a {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .bgc-image img {
+      width: 100%;
+      max-height: 505px;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
+      background: transparent;
+      padding: 0;
+      margin: 0;
+    }
+
+    .bgc-legend-side {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      min-width: 0;
+    }
+
+    .bgc-legend-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #1a4d7a;
+      margin: 0 0 6px 0;
+    }
+
+    .bgc-legend-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 10px;
+      row-gap: 0;
+      height: 100%;
+      align-content: stretch;
+    }
+
+    .bgc-legend-column {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-height: 100%;
+    }
+
+    .bgc-item {
+      display: flex;
+      align-items: center;
+      font-size: 0.77em;
+      line-height: 0.98;
+      padding: 1px 0;
+      margin: 0;
+      min-height: 15px;
+    }
+
+    .bgc-colorbox {
+      width: 13px;
+      height: 13px;
+      display: inline-block;
+      border-radius: 3px;
+      margin-right: 6px;
+      flex-shrink: 0;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
     @media (max-width: 920px) {
       .shared-row,
+      .bgc-row,
       .twocol {
         grid-template-columns: 1fr;
       }
 
-      .legend-columns {
+      .legend-columns,
+      .bgc-legend-columns {
         grid-template-columns: 1fr;
       }
 
-      .shared-image img {
+      .shared-image img,
+      .bgc-image img {
         height: auto;
+        max-height: none;
       }
 
       body {
@@ -484,32 +565,32 @@
     </p>
 
     <div class="shared-block">
-      <div class="shared-row">
-        <div class="shared-image">
+      <div class="bgc-row">
+        <div class="bgc-image">
           <a href="BGCs_circos.svg" target="_blank">
             <img src="BGCs_circos.svg" alt="Circular representation of biosynthetic gene clusters in Streptomyces silvae strains">
           </a>
         </div>
 
-        <div class="legend-side">
-          <div class="legend-title">antiSMASH biosynthetic classes</div>
+        <div class="bgc-legend-side">
+          <div class="bgc-legend-title">antiSMASH biosynthetic classes</div>
 
-          <div class="legend-columns">
-            <div class="legend-column">
-              <div class="legend-item-tight"><span class="colorbox" style="background:#f781bf"></span>RiPP-like; class II and III lanthipeptides</div>
-              <div class="legend-item-tight"><span class="colorbox" style="background:#fb8072"></span>β-Lactams</div>
-              <div class="legend-item-tight"><span class="colorbox" style="background:#fdb462"></span>Butyrolactones</div>
-              <div class="legend-item-tight"><span class="colorbox" style="background:#8dd3c7"></span>Ectoine</div>
-              <div class="legend-item-tight"><span class="colorbox" style="background:#bebada"></span>PKS: type II and III; hglE-KS; hglE-KS with T1PKS</div>
-              <div class="legend-item-tight"><span class="colorbox" style="background:#80b1d3"></span>NAPAA; NRPS; NRPS with NRP-metallophores</div>
+          <div class="bgc-legend-columns">
+            <div class="bgc-legend-column">
+              <div class="bgc-item"><span class="bgc-colorbox" style="background:#f781bf"></span>RiPP-like; class II and III lanthipeptides</div>
+              <div class="bgc-item"><span class="bgc-colorbox" style="background:#fb8072"></span>β-Lactams</div>
+              <div class="bgc-item"><span class="bgc-colorbox" style="background:#fdb462"></span>Butyrolactones</div>
+              <div class="bgc-item"><span class="bgc-colorbox" style="background:#8dd3c7"></span>Ectoine</div>
+              <div class="bgc-item"><span class="bgc-colorbox" style="background:#bebada"></span>PKS: type II and III; hglE-KS; hglE-KS with T1PKS</div>
+              <div class="bgc-item"><span class="bgc-colorbox" style="background:#80b1d3"></span>NAPAA; NRPS; NRPS with NRP-metallophores</div>
             </div>
 
-            <div class="legend-column">
-              <div class="legend-item-tight"><span class="colorbox" style="background:#bc80bd"></span>T1PKS; T2PKS/NRPS with terpenes; butyrolactone; NRPS; hglE-KS; hybrid NRPS, T3PKS, PKS- and NRPS-like</div>
-              <div class="legend-item-tight"><span class="colorbox" style="background:#ffed6f"></span>Class I lanthipeptides</div>
-              <div class="legend-item-tight"><span class="colorbox" style="background:#b3b3b3"></span>Melanin</div>
-              <div class="legend-item-tight"><span class="colorbox" style="background:#66c2a5"></span>Siderophores</div>
-              <div class="legend-item-tight"><span class="colorbox" style="background:#b3de69"></span>Terpenes</div>
+            <div class="bgc-legend-column">
+              <div class="bgc-item"><span class="bgc-colorbox" style="background:#bc80bd"></span>T1PKS; T2PKS/NRPS with terpenes; butyrolactone; NRPS; hglE-KS; hybrid NRPS, T3PKS, PKS- and NRPS-like</div>
+              <div class="bgc-item"><span class="bgc-colorbox" style="background:#ffed6f"></span>Class I lanthipeptides</div>
+              <div class="bgc-item"><span class="bgc-colorbox" style="background:#b3b3b3"></span>Melanin</div>
+              <div class="bgc-item"><span class="bgc-colorbox" style="background:#66c2a5"></span>Siderophores</div>
+              <div class="bgc-item"><span class="bgc-colorbox" style="background:#b3de69"></span>Terpenes</div>
             </div>
           </div>
         </div>
