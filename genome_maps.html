@@ -220,15 +220,11 @@
 
     .section-break { margin-top: 50px; }
 
-    /* =========================
-       BGC-Block (luftig + bündig zum Bildende)
-       ========================= */
-
     .bgc-row {
       display: grid;
       grid-template-columns: 1.06fr 0.94fr;
       gap: 16px;
-      align-items: stretch; /* gleiche Höhe links/rechts */
+      align-items: stretch; 
     }
 
     .bgc-image {
@@ -249,7 +245,7 @@
     .bgc-image img {
       width: 100%;
       height: 100%;
-      max-height: 560px; /* bleibt wie zuvor */
+      max-height: 560px; 
       object-fit: contain;
       display: block;
       border: none;
@@ -274,19 +270,15 @@
       margin: 0 0 10px 0;
     }
 
-    /* Hier wird's "luftiger" + endet sauber kurz über der Bildunterkante */
     .bgc-legend-column {
       display: flex;
       flex-direction: column;
       height: 100%;
 
-      /* verteilt Items über die gesamte verfügbare Höhe (macht's weniger "geklatscht") */
       justify-content: space-between;
 
-      /* verhindert, dass es bei wenig Höhe zu sehr zusammengequetscht wirkt */
       gap: 8px;
 
-      /* sorgt dafür, dass der Block optisch knapp vor der Bildunterkante endet */
       padding-bottom: 6px;
     }
 
@@ -294,16 +286,13 @@
       display: flex;
       align-items: center;
 
-      /* etwas mehr Luft */
       font-size: 0.90em;
       line-height: 1.18;
       padding: 2px 0;
       margin: 0;
 
-      /* stabile Zeilenhöhe für gleichmäßige Optik */
       min-height: 22px;
 
-      /* robust bei langen Einträgen */
       word-break: break-word;
       overflow-wrap: anywhere;
     }
@@ -346,7 +335,7 @@
   <div class="hero">
     <p>
       This page presents circular genome maps and selected comparative features of four strains within the
-      <i>Streptomyces silvae</i> clade. Together, the figures summarize contig organization, structural
+      <i>S. silvae</i> clade. Together, the figures summarize contig organization, structural
       genome characteristics, functional annotation patterns, and assembly statistics.
     </p>
     <p>
@@ -376,10 +365,10 @@
 
   <div class="figure">
     <a href="genome_maps.png" target="_blank">
-      <img src="genome_maps.png" alt="Genome maps of four Streptomyces silvae strains">
+      <img src="genome_maps.png" alt="Genome maps of four <i>S. silvae</i> strains">
     </a>
     <div class="caption">
-      <b>Figure 1.</b> Genome maps of the four <i>Streptomyces silvae</i> strains
+      <b>Figure 1.</b> Genome maps of the four <i>S. silvae</i> strains
       #12I2, #4I1, For3<sup>T</sup>, and M3. The concentric circles arranged from
       the outside to the inside show, for each genome, contig lengths in megabase pairs
       (Mbp), strain-specific colour coding of contigs, positions of protein-coding
@@ -403,7 +392,7 @@
 
   <p>
     Comparative genome analysis revealed highly similar genome sizes and GC contents across all four strains,
-    consistent with their classification within the species <i>Streptomyces silvae</i>. Despite this overall similarity,
+    consistent with their classification within the species <i>S. silvae</i>. Despite this overall similarity,
     the assemblies differ in contiguity and annotation metrics. Strain M3 shows the highest assembly continuity,
     whereas the remaining strains are more fragmented. In addition, variation in tRNA and rRNA gene copy numbers
     indicates functional differences that may reflect strain-specific adaptation.
@@ -411,11 +400,11 @@
 
   <div class="figure">
     <a href="genome_parameter.svg" target="_blank">
-      <img src="genome_parameter.svg" alt="Genome statistics and assembly parameters of Streptomyces silvae strains">
+      <img src="genome_parameter.svg" alt="Genome statistics and assembly parameters of <i>S. silvae</i> strains">
     </a>
     <div class="caption">
       <b>Table 1.</b> Selected genome assembly and annotation parameters of the
-      <i>Streptomyces silvae</i> strains #12I2, #4I1, For3<sup>T</sup>, and M3.
+      <i>S. silvae</i> strains #12I2, #4I1, For3<sup>T</sup>, and M3.
       The table summarizes contig number, genome size, maximum and minimum contig length,
       N50, L50, completeness, number of coding sequences, tRNA genes, rRNA genes,
       antibiotic resistance genes, and GC content.
@@ -549,7 +538,7 @@
       <div class="bgc-row">
         <div class="bgc-image">
           <a href="BGCs_circos.svg" target="_blank">
-            <img src="BGCs_circos.svg" alt="Circular representation of biosynthetic gene clusters in Streptomyces silvae strains">
+            <img src="BGCs_circos.svg" alt="Circular representation of biosynthetic gene clusters in <i>S. silvae</i> strains">
           </a>
         </div>
 
@@ -557,17 +546,17 @@
           <div class="bgc-legend-title">antiSMASH biosynthetic classes</div>
 
           <div class="bgc-legend-column">
-            <div class="bgc-item"><span class="bgc-colorbox" style="background:#f781bf"></span>RiPP-like; class II and III lanthipeptides</div>
-            <div class="bgc-item"><span class="bgc-colorbox" style="background:#fb8072"></span>β-Lactams</div>
-            <div class="bgc-item"><span class="bgc-colorbox" style="background:#fdb462"></span>Butyrolactones</div>
-            <div class="bgc-item"><span class="bgc-colorbox" style="background:#8dd3c7"></span>Ectoine</div>
-            <div class="bgc-item"><span class="bgc-colorbox" style="background:#bebada"></span>PKS: type II and III; hglE-KS; hglE-KS with T1PKS</div>
-            <div class="bgc-item"><span class="bgc-colorbox" style="background:#80b1d3"></span>NAPAA; NRPS; NRPS with NRP-metallophores</div>
-            <div class="bgc-item"><span class="bgc-colorbox" style="background:#bc80bd"></span>T1PKS; T2PKS/NRPS with terpenes; butyrolactone; NRPS; hglE-KS; hybrid NRPS, T3PKS, PKS- and NRPS-like</div>
-            <div class="bgc-item"><span class="bgc-colorbox" style="background:#ffed6f"></span>Class I lanthipeptides</div>
-            <div class="bgc-item"><span class="bgc-colorbox" style="background:#b3b3b3"></span>Melanin</div>
-            <div class="bgc-item"><span class="bgc-colorbox" style="background:#66c2a5"></span>Siderophores</div>
-            <div class="bgc-item"><span class="bgc-colorbox" style="background:#b3de69"></span>Terpenes</div>
+            <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(65,105,255)"></span>RiPP-like; class II and III lanthipeptides</div>
+            <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(240,248,255)"></span>β-Lactams</div>
+            <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(147,112,219)"></span>Butyrolactones</div>
+            <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(154,205,50)"></span>Ectoine</div>
+            <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(244,164,96)"></span>PKS: type II and III; hglE-KS; hglE-KS with T1PKS</div>
+            <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(46,139,87)"></span>NAPAA; NRPS; NRPS with NRP-metallophores</div>
+            <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(176,196,222)"></span>T1PKS; T2PKS/NRPS with terpenes; butyrolactone; NRPS; hglE-KS; hybrid NRPS, T3PKS, PKS- and NRPS-like</div>
+            <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(255,255,119)"></span>Class I lanthipeptides</div>
+            <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(205,133,63)"></span>Melanin</div>
+            <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(220,20,60)"></span>Siderophores</div>
+            <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(128,0,128)"></span>Terpenes</div>
           </div>
         </div>
       </div>
