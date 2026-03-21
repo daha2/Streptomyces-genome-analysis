@@ -75,10 +75,7 @@
       display: block;
     }
 
-    .figure a {
-      display: inline-block;
-      width: 100%;
-    }
+    .figure a { display: inline-block; width: 100%; }
 
     .caption {
       text-align: left;
@@ -224,14 +221,14 @@
     .section-break { margin-top: 50px; }
 
     /* =========================
-       BGC-Block (Fix für Legend-Alignment)
+       BGC-Block (luftig + bündig zum Bildende)
        ========================= */
 
     .bgc-row {
       display: grid;
       grid-template-columns: 1.06fr 0.94fr;
       gap: 16px;
-      align-items: stretch;
+      align-items: stretch; /* gleiche Höhe links/rechts */
     }
 
     .bgc-image {
@@ -252,7 +249,7 @@
     .bgc-image img {
       width: 100%;
       height: 100%;
-      max-height: 560px;
+      max-height: 560px; /* bleibt wie zuvor */
       object-fit: contain;
       display: block;
       border: none;
@@ -265,7 +262,7 @@
 
     .bgc-legend-side {
       display: grid;
-      grid-template-rows: auto 1fr;
+      grid-template-rows: auto 1fr; /* Title + Liste */
       min-width: 0;
       height: 100%;
     }
@@ -274,32 +271,39 @@
       font-size: 0.98rem;
       font-weight: 700;
       color: #1a4d7a;
-      margin: 0 0 8px 0;
+      margin: 0 0 10px 0;
     }
 
-    /* FIX 1: nicht "space-between" (das drückt Terpenes nach unten),
-       sondern normal von oben stapeln. */
+    /* Hier wird's "luftiger" + endet sauber kurz über der Bildunterkante */
     .bgc-legend-column {
       display: flex;
       flex-direction: column;
-      justify-content: flex-start; /* <- geändert */
-      align-items: stretch;
       height: 100%;
-      gap: 2px; /* kleine, konsistente Abstände */
-      /* FIX 2: Legende unten bündig zur Grafik ausrichten */
-      margin-top: auto; /* erlaubt "nach unten rutschen", ohne Einträge zu strecken */
+
+      /* verteilt Items über die gesamte verfügbare Höhe (macht's weniger "geklatscht") */
+      justify-content: space-between;
+
+      /* verhindert, dass es bei wenig Höhe zu sehr zusammengequetscht wirkt */
+      gap: 8px;
+
+      /* sorgt dafür, dass der Block optisch knapp vor der Bildunterkante endet */
+      padding-bottom: 6px;
     }
 
     .bgc-item {
       display: flex;
       align-items: center;
-      font-size: 0.88em;
-      line-height: 1.08;
-      padding: 1px 0;
-      margin: 0;
-      min-height: 18px;
 
-      /* Optionale Robustheit bei langen Texten: */
+      /* etwas mehr Luft */
+      font-size: 0.90em;
+      line-height: 1.18;
+      padding: 2px 0;
+      margin: 0;
+
+      /* stabile Zeilenhöhe für gleichmäßige Optik */
+      min-height: 22px;
+
+      /* robust bei langen Einträgen */
       word-break: break-word;
       overflow-wrap: anywhere;
     }
