@@ -241,6 +241,16 @@
       min-height: 22px;
     }
 
+    .legend-item-tight {
+      display: flex;
+      align-items: center;
+      font-size: 0.82em;
+      line-height: 1.05;
+      padding: 1px 0;
+      margin: 0;
+      min-height: 18px;
+    }
+
     .section-break {
       margin-top: 50px;
     }
@@ -466,11 +476,11 @@
 
   <h2 class="section-break">Biosynthetic Gene Cluster Distribution and antiSMASH Color Code</h2>
 
-  <div class="bgc-wrapper">
-    <p class="bgc-intro">
+  <div class="shared-wrapper">
+    <p class="shared-intro">
       To further assess the secondary-metabolite potential of the four analyzed genomes, biosynthetic gene clusters (BGCs)
-      were visualized in circular form. The corresponding antiSMASH biosynthetic classes are shown alongside the circular
-      representation to allow direct comparison between BGC class and genomic localization.
+      were visualized in circular form. The corresponding antiSMASH biosynthetic classes are shown directly alongside the
+      circular representation to allow direct comparison between BGC class and genomic localization.
     </p>
 
     <div class="shared-block">
@@ -486,20 +496,20 @@
 
           <div class="legend-columns">
             <div class="legend-column">
-              <div class="legend-item"><span class="colorbox" style="background:#f781bf"></span>RiPP-like; class II and III lanthipeptides</div>
-              <div class="legend-item"><span class="colorbox" style="background:#fb8072"></span>β-Lactams</div>
-              <div class="legend-item"><span class="colorbox" style="background:#fdb462"></span>Butyrolactones</div>
-              <div class="legend-item"><span class="colorbox" style="background:#8dd3c7"></span>Ectoine</div>
-              <div class="legend-item"><span class="colorbox" style="background:#bebada"></span>PKS: type II and III; hglE-KS; hglE-KS with T1PKS</div>
-              <div class="legend-item"><span class="colorbox" style="background:#80b1d3"></span>NAPAA; NRPS; NRPS with NRP-metallophores</div>
+              <div class="legend-item-tight"><span class="colorbox" style="background:#f781bf"></span>RiPP-like; class II and III lanthipeptides</div>
+              <div class="legend-item-tight"><span class="colorbox" style="background:#fb8072"></span>β-Lactams</div>
+              <div class="legend-item-tight"><span class="colorbox" style="background:#fdb462"></span>Butyrolactones</div>
+              <div class="legend-item-tight"><span class="colorbox" style="background:#8dd3c7"></span>Ectoine</div>
+              <div class="legend-item-tight"><span class="colorbox" style="background:#bebada"></span>PKS: type II and III; hglE-KS; hglE-KS with T1PKS</div>
+              <div class="legend-item-tight"><span class="colorbox" style="background:#80b1d3"></span>NAPAA; NRPS; NRPS with NRP-metallophores</div>
             </div>
 
             <div class="legend-column">
-              <div class="legend-item"><span class="colorbox" style="background:#bc80bd"></span>T1PKS; T2PKS/NRPS with terpenes; butyrolactone; NRPS; hglE-KS; hybrid NRPS, T3PKS, PKS- and NRPS-like</div>
-              <div class="legend-item"><span class="colorbox" style="background:#ffed6f"></span>Class I lanthipeptides</div>
-              <div class="legend-item"><span class="colorbox" style="background:#b3b3b3"></span>Melanin</div>
-              <div class="legend-item"><span class="colorbox" style="background:#66c2a5"></span>Siderophores</div>
-              <div class="legend-item"><span class="colorbox" style="background:#b3de69"></span>Terpenes</div>
+              <div class="legend-item-tight"><span class="colorbox" style="background:#bc80bd"></span>T1PKS; T2PKS/NRPS with terpenes; butyrolactone; NRPS; hglE-KS; hybrid NRPS, T3PKS, PKS- and NRPS-like</div>
+              <div class="legend-item-tight"><span class="colorbox" style="background:#ffed6f"></span>Class I lanthipeptides</div>
+              <div class="legend-item-tight"><span class="colorbox" style="background:#b3b3b3"></span>Melanin</div>
+              <div class="legend-item-tight"><span class="colorbox" style="background:#66c2a5"></span>Siderophores</div>
+              <div class="legend-item-tight"><span class="colorbox" style="background:#b3de69"></span>Terpenes</div>
             </div>
           </div>
         </div>
@@ -555,4 +565,4 @@
   </p>
 
 </body>
-</html>
+        </html>
