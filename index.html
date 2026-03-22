@@ -1,231 +1,819 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Interactive genome analysis of Streptomyces silvae including comparative genomics, genome maps, phylogenomics and physiological characterization">
-  <title>Streptomyces silvae Project</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Microbial genomics researcher portfolio featuring comparative genomics, phylogenomics, genome architecture, biosynthetic gene cluster analysis, and physiology of Streptomyces silvae."
+  />
+  <title>Dr. Daniela Hartmann | Microbial Genomics Researcher</title>
 
   <style>
+    :root {
+      --navy: #0f2341;
+      --navy-2: #16345f;
+      --blue: #2d6cdf;
+      --blue-soft: #eaf2ff;
+      --text: #1f2a37;
+      --muted: #5b6675;
+      --border: #dce5f0;
+      --bg: #f6f8fb;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(10, 25, 50, 0.08);
+      --radius: 16px;
+      --maxw: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      font-size: 16px;
-      max-width: 1050px;
-      margin: 40px auto;
+      color: var(--text);
+      background: var(--bg);
       line-height: 1.65;
-      padding: 0 20px;
-      color: #222;
-      background: #ffffff;
-    }
-
-    h1, h2 { color: #1a4d7a; }
-
-    h1 {
-      margin-bottom: 6px;
-      font-size: 2.2rem;
-    }
-
-    /* NEW: contact line directly under the title */
-    .contact-line {
-      margin: 0 0 14px 0;
-      font-size: 0.98em;
-      color: #444;
-    }
-    .contact-line a {
-      color: #0b66c3;
-      text-decoration: none;
-    }
-    .contact-line a:hover { text-decoration: underline; }
-
-    h2 {
-      margin-top: 40px;
-      margin-bottom: 12px;
-      border-bottom: 2px solid #d9e6f2;
-      padding-bottom: 6px;
     }
 
     a {
-      color: #0b66c3;
+      color: var(--blue);
       text-decoration: none;
     }
-    a:hover { text-decoration: underline; }
 
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(var(--maxw), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* NAV */
+    .site-header {
+      background: linear-gradient(135deg, var(--navy), var(--navy-2));
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      line-height: 1.15;
+    }
+
+    .brand-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: 0.2px;
+    }
+
+    .brand-subtitle {
+      margin: 4px 0 0 0;
+      color: rgba(255,255,255,0.82);
+      font-size: 0.98rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: white;
+      font-size: 0.98rem;
+      opacity: 0.95;
+    }
+
+    nav a:hover {
+      text-decoration: none;
+      opacity: 1;
+    }
+
+    /* HERO */
     .hero {
-      background: linear-gradient(135deg, #f4f8fc, #eef4f9);
-      border: 1px solid #d9e6f2;
-      border-radius: 12px;
-      padding: 22px 24px;
-      margin: 20px 0 30px 0;
+      padding: 34px 0 24px;
     }
 
-    .box {
-      background: #f7f9fb;
-      padding: 16px 18px;
-      border-radius: 10px;
-      margin: 20px 0;
-      border-left: 5px solid #7fa9d1;
+    .hero-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: 30px;
     }
 
-    .highlight {
-      background: #eef6ff;
-      border-left: 5px solid #5b9bd5;
-      padding: 16px 18px;
-      border-radius: 10px;
-      margin: 20px 0;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 28px;
+      align-items: center;
     }
 
-    .small {
-      font-size: 0.95em;
-      color: #444;
-    }
-
-    .figure {
-      margin: 24px 0 30px 0;
-      text-align: center;
-    }
-
-    .figure img {
-      max-width: 100%;
-      height: auto;
-      border: 1px solid #d8d8d8;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-      background: white;
-      display: block;
-    }
-
-    .figure a {
+    .eyebrow {
       display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: var(--navy-2);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 4vw, 4rem);
+      line-height: 1.08;
+      margin: 0 0 18px 0;
+      color: #132033;
+      letter-spacing: -0.8px;
+    }
+
+    .lead {
+      font-size: 1.08rem;
+      color: var(--muted);
+      margin: 0 0 20px 0;
+      max-width: 760px;
+    }
+
+    .bullet-list {
+      list-style: none;
+      padding: 0;
+      margin: 22px 0 0 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 18px;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 28px;
+      font-weight: 600;
+      color: #243142;
+    }
+
+    .bullet-list li::before {
+      content: "●";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--blue);
+      font-size: 1rem;
+      line-height: 1.3;
+    }
+
+    .hero-actions {
+      margin-top: 24px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #0a1930;
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--navy);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      text-decoration: none;
+      border-color: #b8c7da;
+      background: #f8fbff;
+    }
+
+    .hero-figure img {
       width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 18px;
+      border: 1px solid #d7e0ea;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      background: white;
     }
 
     .caption {
-      text-align: left;
-      font-size: 0.95em;
-      color: #444;
+      margin-top: 10px;
+      font-size: 0.94rem;
+      color: var(--muted);
+    }
+
+    /* QUICK INTRO */
+    .intro-strip {
+      margin: 22px 0 0 0;
+      padding: 20px 22px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .intro-strip p {
+      margin: 0;
+      font-size: 1.02rem;
+      color: #314052;
+    }
+
+    .german-note {
       margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.96rem;
     }
 
-    ul { padding-left: 22px; }
-
-    .twocol {
+    /* STATS / STRENGTHS */
+    .strengths {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(4, 1fr);
       gap: 18px;
-      margin: 20px 0;
+      margin: 28px 0 0 0;
     }
 
-    @media (max-width: 800px) {
-      .twocol { grid-template-columns: 1fr; }
+    .strength-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: var(--shadow);
     }
 
-    .card {
-      background: #fbfcfd;
-      border: 1px solid #dde7f0;
-      border-radius: 10px;
-      padding: 16px;
+    .strength-card h3 {
+      margin: 0 0 8px 0;
+      font-size: 1.05rem;
+      color: #13284a;
     }
 
-    .section-list li { margin-bottom: 8px; }
+    .strength-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
 
-    .note {
-      font-size: 0.92em;
-      color: #555;
-      margin-top: 8px;
+    /* SECTION */
+    section {
+      padding: 24px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin: 0 0 8px 0;
+      color: #13284a;
+      letter-spacing: -0.4px;
+    }
+
+    .section-subtitle {
+      margin: 0 0 22px 0;
+      color: var(--muted);
+      max-width: 850px;
+    }
+
+    /* HIGHLIGHTS */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .highlight-card {
+      background: var(--blue-soft);
+      border: 1px solid #d5e3ff;
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .highlight-card h3 {
+      margin: 0 0 10px 0;
+      color: #123765;
+      font-size: 1.1rem;
+    }
+
+    .highlight-card p {
+      margin: 0;
+      font-size: 0.97rem;
+      color: #304053;
+    }
+
+    /* EXPERTISE */
+    .expertise-wrap {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .panel {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .chip {
+      border: 1px solid #bfd2ea;
+      background: #f7fbff;
+      color: #214266;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.92rem;
+    }
+
+    .metrics {
+      display: grid;
+      gap: 16px;
+    }
+
+    .metric {
+      padding-bottom: 14px;
+      border-bottom: 1px solid #e8eef6;
+    }
+
+    .metric:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 2rem;
+      color: #112b4f;
+      line-height: 1.1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+    }
+
+    /* PROJECT CARDS */
+    .cards-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card-header {
+      background: linear-gradient(135deg, var(--navy), var(--navy-2));
+      color: white;
+      padding: 16px 18px;
+    }
+
+    .project-card-header h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .project-card-body {
+      padding: 18px;
+      flex: 1;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid var(--border);
+      background: #f2f4f8;
+    }
+
+    .project-card ul {
+      padding-left: 18px;
+      margin: 0;
+    }
+
+    .project-card li {
+      margin-bottom: 8px;
+      color: #314052;
+    }
+
+    .tools {
+      margin-top: 14px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 22px;
+    }
+
+    .contact-list p {
+      margin: 0 0 10px 0;
+    }
+
+    .footer {
+      padding: 20px 0 40px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .footer-line {
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1050px) {
+      .hero-grid,
+      .expertise-wrap,
+      .contact-grid,
+      .cards-3,
+      .highlights-grid,
+      .strengths {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        gap: 12px;
+      }
+
+      .hero-card {
+        padding: 22px;
+      }
+
+      .hero-grid,
+      .expertise-wrap,
+      .contact-grid,
+      .cards-3,
+      .highlights-grid,
+      .strengths,
+      .bullet-list {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .brand-title {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
-
 <body>
 
-  <h1>Comparative Genomics and Physiological Characterization of <i>Streptomyces silvae</i></h1>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <div class="brand">
+        <p class="brand-title">Dr. Daniela Hartmann</p>
+        <p class="brand-subtitle">Microbial Genomics Researcher · Comparative Genomics · Phylogenomics</p>
+      </div>
 
-  <p class="contact-line">
-  <b>Dr. Daniela Hartmann</b> · Technische Universität Dresden ·
-  <span>Microbial genomics · Comparative genomics · Phylogenomics · BGC mining (antiSMASH)</span> ·
-  <a href="mailto:daniela.hartmann@tu-dresden.de">daniela.hartmann@tu-dresden.de</a>
- </p>
-  
-    <div class="hero">
-    <p>
-      This project documents genomic and physiological analyses of
-      <i>S. silvae</i> strains performed during doctoral research.
-    </p>
-    <p>
-      The study integrates comparative genomics, genome architecture,
-      phylogenomics, and experimental physiology in order to explore
-      genomic diversity and ecological adaptability within the
-      <i>S. silvae</i> clade.
-    </p>
-  </div>
-
-  <div class="highlight">
-    <b>Project highlights.</b>
-    The analyzed strains form a coherent <i>S. silvae</i> group with
-    high genomic similarity, but also show meaningful intraspecific variation in
-    genome structure, biosynthetic potential, and physiological traits.
-  </div>
-
-  <h2>Project Sections</h2>
-
-  <div class="box">
-    <ul class="section-list">
-      <!-- Scope clarified (8 strains vs 4 strains) -->
-      <li>
-        <a href="comparative_genomics.html"><b>Comparative Genomics (8 strains)</b></a>
-        – ANI, Mauve alignment, and BGC comparison
-      </li>
-      <li>
-        <a href="phylogenomics.html"><b>Phylogenomics (8 strains)</b></a>
-        – genome-based phylogeny
-      </li>
-      <li>
-        <a href="genome_maps.html"><b>Genome Architecture & BGCs (4 representative strains)</b></a>
-        – circular genome maps and functional annotation
-      </li>
-      <li>
-        <a href="physiology_TMS4I1.html"><b>Physiology of <i>S. silvae</i> TMS4I1</b></a>
-        – morphology and stress tolerance
-      </li>
-    </ul>
-  </div>
-
-  <h2>Project Overview</h2>
-
-  <p>
-    The study investigates genomic diversity and ecological adaptability within the
-    <i>S. silvae</i> clade using comparative genomics, genome
-    architecture analysis, phylogenomics, and physiological characterization.
-  </p>
-
-  <div class="twocol">
-    <div class="card">
-      <b>Genomic perspective</b>
-      <p class="small">
-        Includes ANI, synteny analysis, genome maps, and BGC profiling.
-      </p>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#top">Home</a></li>
+          <li><a href="#highlights">Project Highlights</a></li>
+          <li><a href="#expertise">Expertise</a></li>
+          <li><a href="#projects">Research Areas</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-    <div class="card">
-      <b>Experimental perspective</b>
-      <p class="small">
-        Reveals morphology, microstructure, and stress tolerance.
-      </p>
-    </div>
-  </div>
+  </header>
 
-  <h2>Macromorphology of Selected <i>S. silvae</i> Strains</h2>
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="hero-grid">
+            <div>
+              <span class="eyebrow">Microbial genomics · Streptomyces · Bioinformatics</span>
+              <h1>
+                Microbial genomics researcher specializing in comparative genomics,
+                genome assembly, phylogenomics and phenotype-linked analysis of
+                <i>Streptomyces</i>.
+              </h1>
 
-  <div class="figure">
-    <a href="macromorphology.png" target="_blank" rel="noopener">
-      <img src="macromorphology.png" alt="Macromorphology of Streptomyces silvae strains">
-    </a>
-    <div class="caption">
-      <b>Figure 1.</b> Macromorphology of selected <i>S. silvae</i> strains on different culture media.
+              <p class="lead">
+                I combine wet-lab microbiology with genome-centered bioinformatics
+                to resolve taxonomic relationships, analyze genome architecture,
+                identify biosynthetic potential, and link genomic features to
+                physiological traits.
+              </p>
+
+              <ul class="bullet-list">
+                <li>Comparative genomics & ANI-based strain analysis</li>
+                <li>Genome assembly, polishing & quality evaluation</li>
+                <li>Phylogenomics & genome-based taxonomy</li>
+                <li>BGC mining, annotation & phenotype-linked interpretation</li>
+              </ul>
+
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#highlights">View project highlights</a>
+                <a class="btn btn-secondary" href="#contact">Get in touch</a>
+              </div>
+            </div>
+
+            <div class="hero-figure">
+              <a href="macromorphology.png" target="_blank" rel="noopener">
+                <img src="macromorphology.png" alt="Macromorphology of Streptomyces silvae strains on different media" />
+              </a>
+              <div class="caption">
+                <strong>Selected colony morphologies of <i>Streptomyces silvae</i>.</strong>
+                Morphological variation across media illustrates pronounced phenotypic plasticity.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="intro-strip">
+          <p>
+            This website presents a research-focused overview of my doctoral work on
+            <i>Streptomyces silvae</i>, integrating comparative genomics, phylogenomics,
+            genome architecture, biosynthetic gene cluster analysis, and physiology.
+          </p>
+          <p class="german-note">
+            <strong>Kurz auf Deutsch:</strong> Diese Seite zeigt meine Arbeiten an der Schnittstelle
+            von Mikrobiologie und Bioinformatik — mit Fokus auf comparative genomics,
+            Phylogenomik, Genomarchitektur, BGC-Mining und phänotypische Charakterisierung von
+            <i>Streptomyces</i>.
+          </p>
+        </div>
+
+        <div class="strengths">
+          <div class="strength-card">
+            <h3>High-quality data</h3>
+            <p>Hybrid sequencing, assembly improvement, and structured quality assessment.</p>
+          </div>
+          <div class="strength-card">
+            <h3>Robust workflows</h3>
+            <p>Reproducible comparative analyses from raw reads to biological interpretation.</p>
+          </div>
+          <div class="strength-card">
+            <h3>Comparative insight</h3>
+            <p>ANI, synteny, pan-/core-genome logic, and genome context interpretation.</p>
+          </div>
+          <div class="strength-card">
+            <h3>Phenotype linkage</h3>
+            <p>Connecting genomic potential with morphology, stress tolerance, and physiology.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="highlights">
+      <div class="container">
+        <h2 class="section-title">Project Highlights</h2>
+        <p class="section-subtitle">
+          The project does not only document methods. It demonstrates how genomic data,
+          evolutionary context, and physiological assays can be integrated to characterize
+          diversity within the <i>S. silvae</i> clade.
+        </p>
+
+        <div class="highlights-grid">
+          <div class="highlight-card">
+            <h3>Species-level coherence</h3>
+            <p>
+              The analyzed strains form a coherent <i>S. silvae</i> group with strong genomic relatedness,
+              while still showing informative intraspecific variation.
+            </p>
+          </div>
+
+          <div class="highlight-card">
+            <h3>Comparative genome context</h3>
+            <p>
+              ANI, synteny analysis, and genome architecture reveal both conservation and structural
+              divergence across the strain set.
+            </p>
+          </div>
+
+          <div class="highlight-card">
+            <h3>Biosynthetic potential</h3>
+            <p>
+              Biosynthetic gene cluster analysis highlights secondary metabolic capacity and supports
+              interpretation of functional potential.
+            </p>
+          </div>
+
+          <div class="highlight-card">
+            <h3>Genome–phenotype connection</h3>
+            <p>
+              Physiological assays complement the genomic analyses and help relate genetic features
+              to ecological adaptability and stress response.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="expertise">
+      <div class="container">
+        <h2 class="section-title">About Me & Expertise</h2>
+        <p class="section-subtitle">
+          I work at the interface of microbial systematics, comparative genomics,
+          natural product-oriented genome mining, and experimental physiology.
+        </p>
+
+        <div class="expertise-wrap">
+          <div class="panel">
+            <p>
+              As part of my doctoral research, I analyzed genomes of marine-derived
+              <i>Streptomyces</i> isolates in order to resolve taxonomic placement,
+              examine genome structure, assess biosynthetic potential, and connect
+              genomic properties with physiological traits.
+            </p>
+            <p>
+              My work combines sequencing-based analysis with biological interpretation.
+              I value reproducible workflows, clean data presentation, and results that
+              go beyond software output.
+            </p>
+
+            <div class="chips">
+              <span class="chip">Comparative Genomics</span>
+              <span class="chip">Genome Assembly & Polishing</span>
+              <span class="chip">Phylogenomics</span>
+              <span class="chip">Genome-based Taxonomy</span>
+              <span class="chip">BGC Mining</span>
+              <span class="chip">Genome Architecture</span>
+              <span class="chip">Stress Physiology</span>
+              <span class="chip">Phenotype-linked Analysis</span>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="metrics">
+              <div class="metric">
+                <strong>8 strains</strong>
+                <span>included in comparative genomics and phylogenomics.</span>
+              </div>
+              <div class="metric">
+                <strong>4 genomes</strong>
+                <span>selected for representative genome architecture and BGC-centered visualization.</span>
+              </div>
+              <div class="metric">
+                <strong>1 integrated project</strong>
+                <span>combining genomics, phylogenomics, genome context, and physiology.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Research Areas</h2>
+        <p class="section-subtitle">
+          The project is organized into three connected analytical perspectives.
+          Each section highlights a distinct layer of biological interpretation.
+        </p>
+
+        <div class="cards-3">
+          <article class="project-card">
+            <div class="project-card-header">
+              <h3><a href="comparative_genomics.html" style="color:white;">Comparative Genomics</a></h3>
+            </div>
+            <img src="circular_genome_map7I1.png" alt="Comparative genomics and genome structure visualization">
+            <div class="project-card-body">
+              <ul>
+                <li>ANI-based strain comparison and genomic relatedness</li>
+                <li>Synteny and alignment-based structural comparison</li>
+                <li>Pan-/core-genome logic and genome context interpretation</li>
+                <li>BGC-centered comparison across representative strains</li>
+              </ul>
+              <p class="tools">
+                <strong>Linked page:</strong>
+                <a href="comparative_genomics.html">comparative_genomics.html</a>
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card-header">
+              <h3><a href="phylogenomics.html" style="color:white;">Phylogenomics</a></h3>
+            </div>
+            <img src="tree1.png" alt="Phylogenomic tree of Streptomyces silvae and related taxa">
+            <div class="project-card-body">
+              <ul>
+                <li>Genome-based phylogeny for taxonomic placement</li>
+                <li>Relationship of analyzed strains within the <i>Streptomyces</i> clade</li>
+                <li>Contextualization using reference taxa and genome-based approaches</li>
+                <li>Evolutionary framework for downstream interpretation</li>
+              </ul>
+              <p class="tools">
+                <strong>Linked page:</strong>
+                <a href="phylogenomics.html">phylogenomics.html</a>
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card-header">
+              <h3><a href="physiology_TMS4I1.html" style="color:white;">Physiology</a></h3>
+            </div>
+            <img src="physiology.png" alt="Physiological and morphological characterization of Streptomyces silvae">
+            <div class="project-card-body">
+              <ul>
+                <li>Macromorphology and colony-level phenotype assessment</li>
+                <li>Stress tolerance under different environmental conditions</li>
+                <li>Experimental layer complementing genomic inference</li>
+                <li>Phenotypic traits linked to ecological adaptability</li>
+              </ul>
+              <p class="tools">
+                <strong>Linked page:</strong>
+                <a href="physiology_TMS4I1.html">physiology_TMS4I1.html</a>
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container contact-grid" id="contact">
+        <div class="panel">
+          <h2 class="section-title" style="font-size: 1.8rem;">Contact</h2>
+          <p>
+            If you are interested in microbial genomics, actinobacterial systematics,
+            genome-based taxonomy, or the integration of bioinformatics and experimental
+            microbiology, feel free to get in touch.
+          </p>
+
+          <div class="contact-list">
+            <p><strong>Dr. Daniela Hartmann</strong></p>
+            <p>Technische Universität Dresden</p>
+            <p>Email: <a href="mailto:daniela.hartmann@tu-dresden.de">daniela.hartmann@tu-dresden.de</a></p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2 class="section-title" style="font-size: 1.8rem;">Quick Links</h2>
+          <p><a href="comparative_genomics.html">Comparative Genomics</a></p>
+          <p><a href="phylogenomics.html">Phylogenomics</a></p>
+          <p><a href="genome_maps.html">Genome Architecture & BGCs</a></p>
+          <p><a href="physiology_TMS4I1.html">Physiology of <i>S. silvae</i> TMS4I1</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-line">
+      Research website by Dr. Daniela Hartmann · Microbial Genomics · Comparative Genomics · Phylogenomics
     </div>
-    <div class="note">
-      Click the figure to open the full-size image.
-    </div>
-  </div>
+  </footer>
 
 </body>
 </html>
