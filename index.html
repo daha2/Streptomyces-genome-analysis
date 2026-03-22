@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Research website of Dr. Daniela Hartmann featuring comparative genomics, genome assembly, phylogenomics, biosynthetic gene cluster analysis and physiology of Streptomyces silvae."
+    content="Research website of Dr. Daniela Hartmann featuring comparative genomics, genome assembly, phylogenomics, genome architecture, biosynthetic gene cluster analysis and physiology of Streptomyces silvae."
   />
-  <title>Dr. Daniela Hartmann | <i>Streptomyces silvae</i> Project</title>
+  <title>Dr. Daniela Hartmann | Streptomyces silvae Project</title>
 
   <style>
     :root {
@@ -378,9 +378,9 @@
     }
 
     /* Project cards */
-    .cards-3 {
+    .cards-4 {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 22px;
     }
 
@@ -392,6 +392,7 @@
       box-shadow: var(--shadow);
       display: flex;
       flex-direction: column;
+      min-height: 100%;
     }
 
     .project-card-header {
@@ -410,7 +411,7 @@
     }
 
     .project-card-image {
-      height: 190px;
+      height: 210px;
       padding: 16px;
       background: #f4f7fb;
       border-bottom: 1px solid var(--border);
@@ -472,8 +473,7 @@
     /* Responsive */
     @media (max-width: 1080px) {
       .strengths,
-      .highlights-grid,
-      .cards-3 {
+      .highlights-grid {
         grid-template-columns: 1fr 1fr;
       }
 
@@ -501,7 +501,7 @@
 
       .strengths,
       .highlights-grid,
-      .cards-3 {
+      .cards-4 {
         grid-template-columns: 1fr;
       }
 
@@ -694,8 +694,9 @@
             </p>
             <p>
               The project links genome assembly and comparative bioinformatics with experimental
-              characterization, including morphology and physiological testing. The result is not
-              just a list of tools, but an integrated view of strain diversity within the clade.
+              characterization, including morphology and physiological testing. It also includes
+              genome architecture analysis and biosynthetic gene cluster profiling of four
+              representative strains.
             </p>
 
             <div class="chips">
@@ -721,6 +722,10 @@
                 <span>worked with experimentally in the laboratory: TMS4I1, TMS12I2 and the type strain For3<sup>T</sup>.</span>
               </div>
               <div class="metric">
+                <strong>4 genomes</strong>
+                <span>analyzed in detail for genome architecture and BGC-centered visualization.</span>
+              </div>
+              <div class="metric">
                 <strong>8 genomes</strong>
                 <span>included in comparative genomics and phylogenomic analyses across the clade.</span>
               </div>
@@ -734,11 +739,11 @@
       <div class="container">
         <h2 class="section-title">Research Areas</h2>
         <p class="section-subtitle">
-          The project is organized into connected analytical sections, each representing a
-          different level of interpretation.
+          The project is organized into four connected analytical sections, each representing
+          a distinct level of interpretation within the <i>S. silvae</i> study.
         </p>
 
-        <div class="cards-3">
+        <div class="cards-4">
           <article class="project-card">
             <div class="project-card-header">
               <h3><a href="comparative_genomics.html">Comparative Genomics</a></h3>
@@ -746,15 +751,15 @@
             <div class="project-card-image">
               <img
                 src="mauve.svg"
-                alt="Comparative genomics and representative genome structure visualization"
+                alt="Comparative genomics and strain-level genome comparison"
               />
             </div>
             <div class="project-card-body">
               <ul>
                 <li>ANI-based strain comparison and genomic relatedness</li>
                 <li>Synteny and alignment-based structural comparison</li>
-                <li>Genome context and representative architecture analysis</li>
-                <li>Comparison of biosynthetic potential across strains</li>
+                <li>Broad strain-level comparison across the clade</li>
+                <li>Interpretation of conservation and divergence patterns</li>
               </ul>
               <p class="tools">
                 <strong>Linked page:</strong>
@@ -778,11 +783,35 @@
                 <li>Genome-based phylogenetic placement within the clade</li>
                 <li>Reference-based evolutionary context for analyzed strains</li>
                 <li>Taxonomic interpretation supported by genome-scale analysis</li>
-                <li>Framework for connecting genomics and physiology</li>
+                <li>Framework for connecting comparative results and biology</li>
               </ul>
               <p class="tools">
                 <strong>Linked page:</strong>
                 <a href="phylogenomics.html">phylogenomics.html</a>
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card-header">
+              <h3><a href="genome_maps.html">Genome Architecture &amp; BGCs</a></h3>
+            </div>
+            <div class="project-card-image">
+              <img
+                src="genome_maps.svg"
+                alt="Genome architecture and biosynthetic gene cluster visualization of representative strains"
+              />
+            </div>
+            <div class="project-card-body">
+              <ul>
+                <li>Detailed visualization of four representative genomes</li>
+                <li>Circular genome maps and structural organization</li>
+                <li>BGC localization and comparative biosynthetic context</li>
+                <li>Focused analysis beyond broad strain-level comparison</li>
+              </ul>
+              <p class="tools">
+                <strong>Linked page:</strong>
+                <a href="genome_maps.html">genome_maps.html</a>
               </p>
             </div>
           </article>
@@ -820,8 +849,8 @@
           <h2 class="section-title" style="font-size: 1.75rem;">Contact</h2>
           <p>
             If you are interested in microbial genomics, comparative genome analysis,
-            phylogenomics, or the combination of laboratory microbiology and bioinformatics,
-            feel free to get in touch.
+            phylogenomics, genome architecture, biosynthetic gene clusters, or the
+            combination of laboratory microbiology and bioinformatics, feel free to get in touch.
           </p>
 
           <div class="contact-list">
