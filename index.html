@@ -9,7 +9,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      font-size: 16px; 
+      font-size: 16px;
       max-width: 1050px;
       margin: 40px auto;
       line-height: 1.65;
@@ -18,14 +18,24 @@
       background: #ffffff;
     }
 
-    h1, h2 {
-      color: #1a4d7a;
-    }
+    h1, h2 { color: #1a4d7a; }
 
     h1 {
-      margin-bottom: 10px;
+      margin-bottom: 6px;
       font-size: 2.2rem;
     }
+
+    /* NEW: contact line directly under the title */
+    .contact-line {
+      margin: 0 0 14px 0;
+      font-size: 0.98em;
+      color: #444;
+    }
+    .contact-line a {
+      color: #0b66c3;
+      text-decoration: none;
+    }
+    .contact-line a:hover { text-decoration: underline; }
 
     h2 {
       margin-top: 40px;
@@ -38,10 +48,7 @@
       color: #0b66c3;
       text-decoration: none;
     }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    a:hover { text-decoration: underline; }
 
     .hero {
       background: linear-gradient(135deg, #f4f8fc, #eef4f9);
@@ -99,9 +106,7 @@
       margin-top: 12px;
     }
 
-    ul {
-      padding-left: 22px;
-    }
+    ul { padding-left: 22px; }
 
     .twocol {
       display: grid;
@@ -111,9 +116,7 @@
     }
 
     @media (max-width: 800px) {
-      .twocol {
-        grid-template-columns: 1fr;
-      }
+      .twocol { grid-template-columns: 1fr; }
     }
 
     .card {
@@ -123,9 +126,7 @@
       padding: 16px;
     }
 
-    .section-list li {
-      margin-bottom: 8px;
-    }
+    .section-list li { margin-bottom: 8px; }
 
     .note {
       font-size: 0.92em;
@@ -138,6 +139,12 @@
 <body>
 
   <h1>Comparative Genomics and Physiological Characterization of <i>Streptomyces silvae</i></h1>
+
+  <!-- NEW: contact details below the title -->
+  <p class="contact-line">
+    <b>Dr. Daniela Hartmann</b> · Technische Universität Dresden ·
+    <a href="mailto:daniela.hartmann@tu-dresden.de">daniela.hartmann@tu-dresden.de</a>
+  </p>
 
   <div class="hero">
     <p>
@@ -163,10 +170,23 @@
 
   <div class="box">
     <ul class="section-list">
-      <li><a href="comparative_genomics.html"><b>Comparative Genomics</b></a> – ANI, Mauve alignment, and BGC comparison</li>
-      <li><a href="phylogenomics.html"><b>Phylogenomics</b></a> – genome-based phylogeny</li>
-      <li><a href="genome_maps.html"><b>Genome Architecture & BGCs (4 representative strains)</b></a> – circular genome maps and functional annotation</li>
-      <li><a href="physiology_TMS4I1.html"><b>Physiology of <i>S. silvae</i> </i>TMS4I1</b></a> – morphology and stress tolerance</li>
+      <!-- Scope clarified (8 strains vs 4 strains) -->
+      <li>
+        <a href="comparative_genomics.html"><b>Comparative Genomics (8 strains)</b></a>
+        – ANI, Mauve alignment, and BGC comparison
+      </li>
+      <li>
+        <a href="phylogenomics.html"><b>Phylogenomics (8 strains)</b></a>
+        – genome-based phylogeny
+      </li>
+      <li>
+        <a href="genome_maps.html"><b>Genome Architecture & BGCs (4 representative strains)</b></a>
+        – circular genome maps and functional annotation
+      </li>
+      <li>
+        <a href="physiology_TMS4I1.html"><b>Physiology of <i>S. silvae</i> TMS4I1</b></a>
+        – morphology and stress tolerance
+      </li>
     </ul>
   </div>
 
@@ -196,7 +216,7 @@
   <h2>Macromorphology of Selected <i>S. silvae</i> Strains</h2>
 
   <div class="figure">
-    <a href="macromorphology.png" target="_blank">
+    <a href="macromorphology.png" target="_blank" rel="noopener">
       <img src="macromorphology.png" alt="Macromorphology of Streptomyces silvae strains">
     </a>
     <div class="caption">
