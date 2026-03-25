@@ -1,367 +1,598 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Comparative Genomics of Streptomyces silvae</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comparative Genomics | Streptomyces silvae</title>
+  <meta
+    name="description"
+    content="Comparative genomic analysis of Streptomyces silvae including ANI, genome-wide synteny analysis, and biosynthetic gene cluster profiling."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
+    :root {
+      --navy: #234a72;
+      --navy-deep: #1a3655;
+      --blue: #4e7eb6;
+      --blue-soft: #edf4fb;
+      --blue-soft-2: #f7fafd;
+      --bg: #f5f8fb;
+      --white: #ffffff;
+      --text: #223244;
+      --muted: #617285;
+      --border: #d8e2ec;
+      --border-strong: #c8d5e3;
+      --shadow-sm: 0 6px 18px rgba(22, 43, 68, 0.05);
+      --shadow-md: 0 14px 36px rgba(22, 43, 68, 0.08);
+      --shadow-lg: 0 20px 50px rgba(22, 43, 68, 0.10);
+      --radius: 18px;
+      --radius-lg: 24px;
+      --maxw: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      max-width: 1280px;
-      margin: 36px auto;
-      line-height: 1.65;
-      padding: 0 24px;
-      color: #222;
-      background: #ffffff;
+      margin: 0;
+      font-family: "Inter", Arial, sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background: radial-gradient(circle at top left, #f9fcff 0%, #f5f8fb 48%, #f3f7fb 100%);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
-    h1, h2 {
-      color: #1a4d7a;
-    }
-
-    h1 {
-      margin-bottom: 10px;
-      font-size: 2.1rem;
-    }
-
-    h2 {
-      margin-top: 42px;
-      margin-bottom: 12px;
-      border-bottom: 2px solid #d9e6f2;
-      padding-bottom: 6px;
+    img {
+      max-width: 100%;
+      display: block;
     }
 
     a {
-      color: #0b66c3;
+      color: var(--navy);
       text-decoration: none;
+      transition: color 0.2s ease;
     }
 
     a:hover {
-      text-decoration: underline;
+      color: var(--navy-deep);
+    }
+
+    .container {
+      width: min(var(--maxw), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(216, 226, 236, 0.9);
+      box-shadow: 0 4px 18px rgba(18, 38, 63, 0.04);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      line-height: 1.08;
+    }
+
+    .brand-title {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--navy-deep);
+    }
+
+    .brand-subtitle {
+      margin: 6px 0 0 0;
+      font-size: 0.92rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #3a536d;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: transparent;
+    }
+
+    .nav-link:hover {
+      background: var(--blue-soft);
+      color: var(--navy-deep);
+    }
+
+    /* Main */
+    .page {
+      padding: 38px 0 56px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: var(--navy);
+      font-size: 0.83rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      border: 1px solid #d9e6f4;
+    }
+
+    h1, h2, h3 {
+      font-family: "Space Grotesk", sans-serif;
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      margin: 0 0 14px 0;
+      font-size: clamp(2rem, 3.4vw, 3.2rem);
+      line-height: 1.08;
+      color: #17314e;
+      font-weight: 700;
+    }
+
+    h2 {
+      margin: 0 0 14px 0;
+      font-size: 1.6rem;
+      line-height: 1.2;
+      color: #1b3b5d;
+      font-weight: 700;
     }
 
     .hero {
-      background: linear-gradient(135deg, #f4f8fc, #eef4f9);
-      border: 1px solid #d9e6f2;
-      border-radius: 12px;
-      padding: 22px 24px;
-      margin: 20px 0 30px 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(251,253,255,0.98));
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow-lg);
+      padding: 32px;
+      margin-bottom: 24px;
     }
 
-    .box {
-      background: #f7f9fb;
-      padding: 16px 18px;
-      border-radius: 10px;
-      margin: 20px 0;
-      border-left: 5px solid #7fa9d1;
+    .lead {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .section {
+      margin-top: 32px;
+    }
+
+    .section-header {
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #dbe6f0;
+    }
+
+    .highlight,
+    .box,
+    .card,
+    .summary-box {
+      background: rgba(255,255,255,0.94);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow-sm);
     }
 
     .highlight {
-      background: #eef6ff;
-      border-left: 5px solid #5b9bd5;
-      padding: 16px 18px;
-      border-radius: 10px;
-      margin: 20px 0;
+      background: linear-gradient(180deg, #f8fbfe, #f1f6fb);
+      border-color: #dce7f2;
+      padding: 22px 24px;
+      margin: 0 0 28px 0;
+    }
+
+    .box {
+      padding: 20px 22px;
+      margin: 18px 0 0 0;
+    }
+
+    .summary-box {
+      padding: 22px 24px;
+      margin-top: 16px;
     }
 
     .small {
-      font-size: 0.95em;
-      color: #444;
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin: 0;
     }
 
-    .figure {
-      margin: 24px 0 30px 0;
-      text-align: center;
-    }
-
-    .figure img {
-      max-width: 100%;
-      height: auto;
-      border: 1px solid #d8d8d8;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-      background: white;
-    }
-
-    .figure a {
-      display: inline-block;
-    }
-
+    .figure,
     .wide-figure {
-      margin: 28px 0 34px 0;
-      text-align: center;
+      margin: 24px 0 30px 0;
+    }
+
+    .figure a,
+    .wide-figure a {
+      display: block;
+    }
+
+    .figure img,
+    .wide-figure img {
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow-md);
+      background: white;
     }
 
     .wide-figure img {
-      width: 100%;
       max-width: 100%;
-      height: auto;
-      border: 1px solid #d8d8d8;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-      background: white;
-      display: block;
     }
 
     .caption {
       text-align: left;
-      font-size: 0.95em;
-      color: #444;
+      font-size: 0.95rem;
+      color: #475a6d;
       margin-top: 12px;
+    }
+
+    .note {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-top: 8px;
     }
 
     ul {
       padding-left: 22px;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 8px;
     }
 
     .twocol {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 18px;
-      margin: 20px 0;
-    }
-
-    @media (max-width: 850px) {
-      .twocol {
-        grid-template-columns: 1fr;
-      }
-
-      body {
-        padding: 0 16px;
-      }
+      margin: 20px 0 0 0;
     }
 
     .card {
-      background: #fbfcfd;
-      border: 1px solid #dde7f0;
-      border-radius: 10px;
-      padding: 16px;
+      padding: 22px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: #cfdbe8;
+    }
+
+    .card-title {
+      margin: 0 0 8px 0;
+      font-family: "Inter", sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1f4268;
     }
 
     .method-list li {
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
-    .note {
-      font-size: 0.92em;
-      color: #555;
-      margin-top: 8px;
+    .section-intro {
+      margin: 0 0 12px 0;
+      color: #3c4f62;
+    }
+
+    @media (max-width: 900px) {
+      .twocol {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(var(--maxw), calc(100% - 28px));
+      }
+
+      .nav-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero,
+      .box,
+      .card,
+      .highlight,
+      .summary-box {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <p><a href="/Streptomyces-genome-analysis/">← Back to homepage</a></p>
-
-  <h1>Comparative Genomics of <i>Streptomyces silvae</i></h1>
-
-  <div class="hero">
-    <p>
-      This page summarizes the comparative genomic analysis of strains within the
-      <i>S. silvae</i> clade, including Average Nucleotide Identity (ANI),
-      genome-wide synteny analysis using progressiveMauve, and comparison of
-      biosynthetic gene clusters (BGCs) based on antiSMASH 7.0.1.
-    </p>
-    <p>
-      Together, these analyses provide insight into the genomic coherence,
-      structural diversification, and biosynthetic potential of the investigated strains.
-    </p>
-  </div>
-
-  <div class="highlight">
-    <b>Key findings.</b>
-    All analyzed genomes belong to the same species-level cluster, with ANI values
-    ranging from 96.65% to 100%. Despite this high overall genomic similarity, the
-    clade shows clear intraspecific diversification. Genome-wide alignment reveals
-    largely conserved synteny together with strain-specific rearrangements, most
-    prominently in <i>Streptomyces</i> sp. gb1(2016). BGC profiling shows a conserved
-    core biosynthetic repertoire alongside strain-specific and potentially novel clusters.
-  </div>
-
-  <h2>Dataset</h2>
-
-  <div class="box">
-    <ul>
-      <li><b><i>S. silvae</i> For3<sup>T</sup></b> – type strain</li>
-      <li><b><i>Streptomyces</i> sp. M3</b></li>
-      <li><b><i>S. silvae</i> TMS4I1</b></li>
-      <li><b><i>S. silvae</i> TMS12I2</b></li>
-      <li><b><i>Streptomyces</i> sp. gb1(2016)</b></li>
-      <li><b><i>Streptomyces</i> sp. ADI93-02</b></li>
-      <li><b><i>Streptomyces</i> sp. LamerLS–316</b></li>
-      <li><b><i>Streptomyces</i> sp. SID4921</b></li>
-    </ul>
-  </div>
-
-  <h2>Average Nucleotide Identity (ANI)</h2>
-
-  <p>
-    Pairwise ANI analysis confirmed the assignment of all investigated strains to
-    the species <i>S. silvae</i>. Even the lowest ANI value within the
-    dataset (96.65%) remains clearly above the widely accepted 95% species threshold.
-    This indicates a highly coherent species cluster with pronounced internal
-    diversification.
-  </p>
-
-  <div class="figure">
-    <a href="ANI_values.png" target="_blank">
-      <img src="ANI_values.png" alt="ANI values of Streptomyces silvae strains">
-    </a>
-    <div class="caption">
-      <b>Table 1.</b> Pairwise ANI values (%) calculated for the analyzed
-      <i>S. silvae</i> strains. Values above 95% indicate assignment to the same
-      species. The highest sequence identity was observed between
-      <i>Streptomyces</i> sp. LamerLS–316 and <i>Streptomyces</i> sp. SID4921
-      (100%), followed by <i>S. silvae</i> For3<sup>T</sup> and
-      <i>Streptomyces</i> sp. M3 (99.45%).
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <div class="brand">
+        <p class="brand-title">Comparative Genomics</p>
+        <p class="brand-subtitle"><i>Streptomyces silvae</i> · ANI · synteny · BGCs</p>
+      </div>
+      <a class="nav-link" href="/Streptomyces-genome-analysis/">← Back to homepage</a>
     </div>
-  </div>
+  </header>
 
-  <div class="twocol">
-    <div class="card">
-      <b>Main observation</b>
-      <p class="small">
-        ANI values support a taxonomically stable species group with high overall
-        sequence conservation.
-      </p>
+  <main class="page">
+    <div class="container">
+
+      <section class="hero">
+        <span class="eyebrow">Research area · comparative genomics</span>
+        <h1>Comparative Genomics of <i>Streptomyces silvae</i></h1>
+        <p class="lead">
+          This page summarizes the comparative genomic analysis of strains within the
+          <i>S. silvae</i> clade, including Average Nucleotide Identity (ANI),
+          genome-wide synteny analysis using progressiveMauve, and comparison of
+          biosynthetic gene clusters (BGCs) based on antiSMASH 7.0.1.
+        </p>
+        <p class="lead" style="margin-top: 12px;">
+          Together, these analyses provide insight into genomic coherence,
+          structural diversification, and biosynthetic potential across the investigated strains.
+        </p>
+      </section>
+
+      <div class="highlight">
+        <strong>Key findings.</strong>
+        All analyzed genomes belong to the same species-level cluster, with ANI values
+        ranging from 96.65% to 100%. Despite this high overall genomic similarity, the
+        clade shows clear intraspecific diversification. Genome-wide alignment reveals
+        largely conserved synteny together with strain-specific rearrangements, most
+        prominently in <i>Streptomyces</i> sp. gb1(2016). BGC profiling shows a conserved
+        core biosynthetic repertoire alongside strain-specific and potentially novel clusters.
+      </div>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>Dataset</h2>
+        </div>
+        <div class="box">
+          <ul>
+            <li><b><i>S. silvae</i> For3<sup>T</sup></b> – type strain</li>
+            <li><b><i>Streptomyces</i> sp. M3</b></li>
+            <li><b><i>S. silvae</i> TMS4I1</b></li>
+            <li><b><i>S. silvae</i> TMS12I2</b></li>
+            <li><b><i>Streptomyces</i> sp. gb1(2016)</b></li>
+            <li><b><i>Streptomyces</i> sp. ADI93-02</b></li>
+            <li><b><i>Streptomyces</i> sp. LamerLS–316</b></li>
+            <li><b><i>Streptomyces</i> sp. SID4921</b></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>Average Nucleotide Identity (ANI)</h2>
+        </div>
+        <p class="section-intro">
+          Pairwise ANI analysis confirmed the assignment of all investigated strains to
+          the species <i>S. silvae</i>. Even the lowest ANI value within the
+          dataset (96.65%) remains clearly above the widely accepted 95% species threshold.
+          This indicates a highly coherent species cluster with pronounced internal
+          diversification.
+        </p>
+
+        <div class="figure">
+          <a href="ANI_values.png" target="_blank">
+            <img src="ANI_values.png" alt="ANI values of Streptomyces silvae strains" />
+          </a>
+          <div class="caption">
+            <b>Table 1.</b> Pairwise ANI values (%) calculated for the analyzed
+            <i>S. silvae</i> strains. Values above 95% indicate assignment to the same
+            species. The highest sequence identity was observed between
+            <i>Streptomyces</i> sp. LamerLS–316 and <i>Streptomyces</i> sp. SID4921
+            (100%), followed by <i>S. silvae</i> For3<sup>T</sup> and
+            <i>Streptomyces</i> sp. M3 (99.45%).
+          </div>
+        </div>
+
+        <div class="twocol">
+          <div class="card">
+            <div class="card-title">Main observation</div>
+            <p class="small">
+              ANI values support a taxonomically stable species group with high overall
+              sequence conservation.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-title">Biological implication</div>
+            <p class="small">
+              The genomes are closely related but not identical, indicating meaningful
+              intraspecific diversification rather than species-level separation.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>Genome Synteny and Structural Variation</h2>
+        </div>
+        <p class="section-intro">
+          To investigate genome architecture across the <i>S. silvae</i> clade, a
+          whole-genome multiple alignment was performed using progressiveMauve.
+          The alignment reveals extensive synteny across the analyzed genomes, together
+          with local rearrangements, inversions, and strain-specific structural variation.
+        </p>
+
+        <div class="wide-figure">
+          <a href="mauve.svg" target="_blank">
+            <img src="mauve.svg" alt="Mauve alignment of S. silvae genomes" />
+          </a>
+          <div class="caption">
+            <b>Figure 1.</b> MAUVE alignment of <i>S. silvae</i> isolates. Multiple genome
+            alignment was performed using progressiveMauve with
+            <i>S. silvae</i> For3<sup>T</sup> as reference genome. Colored local
+            collinear blocks (LCBs) represent homologous genomic regions; inverted
+            segments are shown below the midline. Shifts and inversions reflect
+            structural genomic variation among strains.
+          </div>
+          <div class="note">
+            Click the alignment to open the full-size image. For best display quality,
+            a high-resolution PNG or SVG export is recommended.
+          </div>
+        </div>
+
+        <div class="twocol">
+          <div class="card">
+            <div class="card-title">Most conserved pair</div>
+            <p class="small">
+              <i>Streptomyces</i> sp. LamerLS–316 and SID4921 show complete synteny,
+              consistent with their 100% ANI identity.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-title">Most rearranged genome</div>
+            <p class="small">
+              <i>Streptomyces</i> sp. gb1(2016) exhibits the strongest rearrangements,
+              fragmentations, and inversions within the clade.
+            </p>
+          </div>
+        </div>
+
+        <div class="box">
+          <b>Interpretation.</b>
+          Genome organization is largely conserved across the clade, indicating strong
+          relatedness at the level of overall chromosome structure. At the same time,
+          strain-specific rearrangements suggest microevolutionary differentiation,
+          especially in gb1(2016), while other strains remain highly stable in genome
+          architecture.
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>Biosynthetic Gene Clusters (BGCs)</h2>
+        </div>
+        <p class="section-intro">
+          Biosynthetic gene clusters were identified using antiSMASH 7.0.1 in order to
+          compare the secondary metabolic potential across the <i>S. silvae</i> clade.
+          The results reveal both a highly conserved core set of BGCs and several
+          strain-specific or weakly characterized clusters, indicating a combination of
+          metabolic stability and diversification.
+        </p>
+
+        <div class="figure">
+          <a href="BGC.svg" target="_blank">
+            <img src="BGC.svg" alt="BGC comparison of Streptomyces silvae strains" />
+          </a>
+          <div class="caption">
+            <b>Table 2.</b> BGCs and similarity to known reference clusters.
+            The table summarizes BGCs identified in the analyzed <i>S. silvae</i> genomes and reports their similarity (%)
+            to the most closely related, previously characterized clusters predicted by antiSMASH 7.0.1.
+            Similarity values are visualized using a color scale: high similarity (blue) indicates close relatedness
+            to known reference BGCs, whereas low similarity (yellow) suggests more divergent or potentially novel clusters.
+            Intermediate similarity is shown by mixed colors (green). A dash (–) indicates that the respective BGC is not
+            detected in the corresponding genome.
+          </div>
+        </div>
+
+        <div class="twocol">
+          <div class="card">
+            <div class="card-title">Conserved core BGCs</div>
+            <p class="small">
+              Core clusters conserved across all strains include
+              isorenieratene, melanin, alkylresorcinol,
+              ectoine, and desferrioxamine B/E, all with 100%
+              similarity to known reference clusters.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-title">Strain-specific diversity</div>
+            <p class="small">
+              The genomes of <i>Streptomyces</i> sp. gb1(2016) and ADI93-02 contain
+              the highest number of unique or uncommon clusters, pointing to increased
+              biosynthetic diversification.
+            </p>
+          </div>
+        </div>
+
+        <div class="box">
+          <b>Interpretation.</b>
+          The BGC profiles indicate that <i>S. silvae</i> combines a conserved
+          species-level metabolic backbone with additional strain-specific biosynthetic
+          traits. Several clusters annotated with very low similarity values
+          (e.g. tetronasin, lactonamycin, hexacosalactone A) may represent previously
+          uncharacterized or strongly diverged pathways.
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>Methods</h2>
+        </div>
+        <div class="box">
+          <ul class="method-list">
+            <li>Read processing and genome assembly: Galaxy workflow</li>
+            <li>Reference-guided scaffolding: RagTag</li>
+            <li>Reference genome for scaffolding: <i>Streptomyces</i> sp. M3</li>
+            <li>Genome annotation: RASTtk</li>
+            <li>ANI calculation: FastANI</li>
+            <li>Whole-genome alignment: progressiveMauve</li>
+            <li>BGC prediction: antiSMASH 7.0.1</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>Summary</h2>
+        </div>
+        <div class="summary-box">
+          Comparative genomics of the <i>S. silvae</i> clade reveals a
+          taxonomically coherent yet evolutionarily dynamic species group. High ANI
+          values support species-level unity, while genome-wide alignment and BGC
+          profiling uncover structural plasticity and diversified biosynthetic
+          potential among strains.
+        </div>
+      </section>
+
     </div>
-    <div class="card">
-      <b>Biological implication</b>
-      <p class="small">
-        The genomes are closely related but not identical, indicating meaningful
-        intraspecific diversification rather than species-level separation.
-      </p>
-    </div>
-  </div>
-
-  <h2>Genome Synteny and Structural Variation</h2>
-
-  <p>
-    To investigate genome architecture across the <i>S. silvae</i> clade, a
-    whole-genome multiple alignment was performed using progressiveMauve.
-    The alignment reveals extensive synteny across the analyzed genomes, together
-    with local rearrangements, inversions, and strain-specific structural variation.
-  </p>
-
-  <div class="wide-figure">
-    <a href="mauve.svg" target="_blank">
-      <img src="mauve.svg" alt="Mauve alignment of <i>S. silvae genomes</i>">
-    </a>
-    <div class="caption">
-      <b>Figure 1.</b> MAUVE alignment of <i>S. silvae</i> isolates. Multiple genome
-      alignment was performed using progressiveMauve with
-      <i>S. silvae</i> For3<sup>T</sup> as reference genome. Colored local
-      collinear blocks (LCBs) represent homologous genomic regions; inverted
-      segments are shown below the midline. Shifts and inversions reflect
-      structural genomic variation among strains.
-    </div>
-    <div class="note">
-      Click the alignment to open the full-size image. For best display quality,
-      a high-resolution PNG or SVG export is recommended.
-    </div>
-  </div>
-
-  <div class="twocol">
-    <div class="card">
-      <b>Most conserved pair</b>
-      <p class="small">
-        <i>Streptomyces</i> sp. LamerLS–316 and SID4921 show complete synteny,
-        consistent with their 100% ANI identity.
-      </p>
-    </div>
-    <div class="card">
-      <b>Most rearranged genome</b>
-      <p class="small">
-        <i>Streptomyces</i> sp. gb1(2016) exhibits the strongest rearrangements,
-        fragmentations, and inversions within the clade.
-      </p>
-    </div>
-  </div>
-
-  <div class="box">
-    <b>Interpretation.</b>
-    Genome organization is largely conserved across the clade, indicating strong
-    relatedness at the level of overall chromosome structure. At the same time,
-    strain-specific rearrangements suggest microevolutionary differentiation,
-    especially in gb1(2016), while other strains remain highly stable in genome
-    architecture.
-  </div>
-
-  <h2>Biosynthetic Gene Clusters (BGCs)</h2>
-
-  <p>
-    Biosynthetic gene clusters were identified using antiSMASH 7.0.1 in order to
-    compare the secondary metabolic potential across the <i>S. silvae</i> clade.
-    The results reveal both a highly conserved core set of BGCs and several
-    strain-specific or weakly characterized clusters, indicating a combination of
-    metabolic stability and diversification.
-  </p>
-
-  <div class="figure">
-    <a href="BGC.svg" target="_blank">
-      <img src="BGC.svg" alt="BGC comparison of Streptomyces silvae strains">
-    </a>
-    <div class="caption">
-      <b>Table 2. </b>BGCs and similarity to known reference clusters.
-                    The table summarizes BGCs identified in the analyzed <i>S. silvae</i> genomes and reports their similarity (%) 
-                    to the most closely related, previously characterized clusters predicted by antiSMASH 7.0.1 Similarity values 
-                    are visualized using a color scale: high similarity (blue) indicates close relatedness to known reference BGCs, 
-                    whereas low similarity (yellow) suggests more divergent or potentially novel clusters. Intermediate similarity 
-                    is shown by mixed colors (green). A dash (–) indicates that the respective BGC is not detected in the corresponding genome.
-  </div>
-
-  <div class="twocol">
-    <div class="card">
-      <b>Conserved core BGCs</b>
-      <p class="small">
-        Core clusters conserved across all strains include
-        isorenieratene, melanin, alkylresorcinol,
-        ectoine, and desferrioxamine B/E, all with 100%
-        similarity to known reference clusters.
-      </p>
-    </div>
-    <div class="card">
-      <b>Strain-specific diversity</b>
-      <p class="small">
-        The genomes of <i>Streptomyces</i> sp. gb1(2016) and ADI93-02 contain
-        the highest number of unique or uncommon clusters, pointing to increased
-        biosynthetic diversification.
-      </p>
-    </div>
-  </div>
-
-  <div class="box">
-    <b>Interpretation.</b>
-    The BGC profiles indicate that <i>S. silvae</i> combines a conserved
-    species-level metabolic backbone with additional strain-specific biosynthetic
-    traits. Several clusters annotated with very low similarity values
-    (e.g. tetronasin, lactonamycin, hexacosalactone A) may represent previously
-    uncharacterized or strongly diverged pathways.
-  </div>
-
-  <h2>Methods</h2>
-
-  <div class="box">
-    <ul class="method-list">
-      <li>Read processing and genome assembly: Galaxy workflow</li>
-      <li>Reference-guided scaffolding: RagTag</li>
-      <li>Reference genome for scaffolding: <i>Streptomyces</i> sp. M3</li>
-      <li>Genome annotation: RASTtk</li>
-      <li>ANI calculation: FastANI</li>
-      <li>Whole-genome alignment: progressiveMauve</li>
-      <li>BGC prediction: antiSMASH 7.0.1</li>
-    </ul>
-  </div>
-
-  <h2>Summary</h2>
-
-  <p>
-    Comparative genomics of the <i>S. silvae</i> clade reveals a
-    taxonomically coherent yet evolutionarily dynamic species group. High ANI
-    values support species-level unity, while genome-wide alignment and BGC
-    profiling uncover structural plasticity and diversified biosynthetic
-    potential among strains.
-  </p>
+  </main>
 
 </body>
 </html>
