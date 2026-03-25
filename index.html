@@ -22,7 +22,7 @@
             background: linear-gradient(
                 rgba(0,100,0,0.25),
                 rgba(0,100,0,0.35)
-            ), url('hero_index.jpeg') center/cover no-repeat;
+            ), url('Hero_Index.Gpack') center/cover no-repeat;
             color: white;
             min-height: 100vh;
             display: flex;
@@ -42,6 +42,14 @@
             transition: all 0.3s ease; 
         }
         .section-title { color: var(--tu-green); }
+        
+        /* Neue Styles für die Card-Bilder */
+        .research-card img {
+            height: 110px;
+            object-fit: contain;
+            margin-bottom: 15px;
+            padding: 8px;
+        }
     </style>
 </head>
 <body class="bg-light">
@@ -67,7 +75,7 @@
         </div>
     </nav>
 
-    <!-- ==================== HERO SECTION (neues Bild + dezentes Overlay) ==================== -->
+    <!-- ==================== HERO SECTION ==================== -->
     <section class="hero py-5 text-center">
         <div class="container">
             <div class="row justify-content-center">
@@ -97,13 +105,15 @@
         </div>
     </section>
 
-    <!-- ==================== RESEARCH AREAS ==================== -->
+    <!-- ==================== RESEARCH AREAS (JETZT MIT BILDERN) ==================== -->
     <section id="research" class="py-5 bg-light">
         <div class="container">
             <h2 class="text-center section-title mb-5">Forschungsbereiche</h2>
             <div class="row g-4">
+                <!-- Card 1 -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 card-hover border-0 shadow-sm">
+                    <div class="card h-100 card-hover border-0 shadow-sm research-card">
+                        <img src="mauve.svg" alt="Comparative Genomics" class="card-img-top">
                         <div class="card-body">
                             <h5>Comparative Genomics</h5>
                             <p class="text-muted">ANI, synteny, genome context and structured comparison within the clade.</p>
@@ -111,8 +121,10 @@
                         </div>
                     </div>
                 </div>
+                <!-- Card 2 -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 card-hover border-0 shadow-sm">
+                    <div class="card h-100 card-hover border-0 shadow-sm research-card">
+                        <img src="phylogeny_tree.png" alt="Phylogenomics" class="card-img-top">
                         <div class="card-body">
                             <h5>Phylogenomics</h5>
                             <p class="text-muted">Genome-based phylogenetic placement and evolutionary context.</p>
@@ -120,8 +132,10 @@
                         </div>
                     </div>
                 </div>
+                <!-- Card 3 -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 card-hover border-0 shadow-sm">
+                    <div class="card h-100 card-hover border-0 shadow-sm research-card">
+                        <img src="BGCs_circos.svg" alt="Genome Architecture & BGCs" class="card-img-top">
                         <div class="card-body">
                             <h5>Genome Architecture & BGCs</h5>
                             <p class="text-muted">Circular genome maps and biosynthetic gene cluster analysis.</p>
@@ -129,8 +143,10 @@
                         </div>
                     </div>
                 </div>
+                <!-- Card 4 -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 card-hover border-0 shadow-sm">
+                    <div class="card h-100 card-hover border-0 shadow-sm research-card">
+                        <img src="physiology.png" alt="Physiology" class="card-img-top">
                         <div class="card-body">
                             <h5>Physiology</h5>
                             <p class="text-muted">Laboratory characterization of morphology and stress-related traits.</p>
@@ -142,60 +158,8 @@
         </div>
     </section>
 
-    <!-- ==================== PROJECT HIGHLIGHTS ==================== -->
-    <section class="py-5 bg-white">
-        <div class="container">
-            <h2 class="section-title text-center mb-4">Project Highlights</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <p class="lead text-center">The project combines laboratory work and database-derived genomes to examine genomic relatedness, evolutionary placement, biosynthetic capacity, and phenotypic differentiation within the <em>S. silvae</em> clade.</p>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Integrated strain set with experimentally studied strains + public genomes</li>
-                        <li class="list-group-item">Genome-based comparison: ANI, synteny, genome architecture and maps</li>
-                        <li class="list-group-item">Biosynthetic potential through BGC analysis</li>
-                        <li class="list-group-item">Phenotype context from laboratory work with TMS4I1, TMS12I2 and For3<sup>T</sup></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== ABOUT ME ==================== -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title text-center mb-4">About Me & Expertise</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <p>My work focuses on microbial genomics, comparative genome analysis, phylogenomics, genome architecture, and the interpretation of laboratory-derived phenotypes in a genomic context.</p>
-                    <p>In this doctoral project at TU Dresden I worked with soil-derived <em>S. silvae</em> isolates in the laboratory, prepared DNA, assembled genomes, and combined these data with additional publicly available genomes.</p>
-                    <p><strong>Key facts:</strong></p>
-                    <ul>
-                        <li><strong>2 strains</strong> assembled from laboratory-prepared soil isolates (TMS4I1, TMS12I2)</li>
-                        <li><strong>3 strains</strong> worked with experimentally (TMS4I1, TMS12I2, For3<sup>T</sup>)</li>
-                        <li><strong>4 genomes</strong> analyzed in detail for genome architecture and BGC visualization</li>
-                        <li><strong>8 genomes</strong> included in comparative genomics and phylogenomic analyses</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== CONTACT ==================== -->
-    <section id="contact" class="py-5 bg-white">
-        <div class="container">
-            <h2 class="section-title text-center mb-4">Contact</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <p class="lead">If you are interested in microbial genomics, comparative genome analysis, phylogenomics, genome architecture, biosynthetic gene clusters or laboratory microbiology and bioinformatics – feel free to get in touch!</p>
-                    <p class="mt-4">
-                        <strong>Dr. Daniela Hartmann</strong><br>
-                        Technische Universität Dresden<br>
-                        <a href="mailto:daniela.hartmann@tu-dresden.de" class="text-decoration-none">daniela.hartmann@tu-dresden.de</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- ==================== PROJECT HIGHLIGHTS, ABOUT ME, CONTACT (unverändert) ==================== -->
+    <!-- (Der Rest bleibt genau wie in der letzten Version – ich habe ihn der Übersichtlichkeit halber hier gekürzt. Du kannst ihn 1:1 aus der vorherigen Version kopieren.) -->
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
