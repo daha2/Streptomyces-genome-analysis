@@ -9,19 +9,31 @@
   />
   <title>Dr. Daniela Hartmann | Streptomyces silvae Project</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
     :root {
-      --blue-dark: #3d6fa8;
-      --blue-mid: #5b8fca;
-      --blue-light: #edf4fc;
-      --blue-soft: #f6faff;
-      --text: #223246;
-      --muted: #5d6f83;
-      --border: #d9e4f0;
-      --bg: #f7fafd;
+      --navy: #234a72;
+      --navy-deep: #1a3655;
+      --blue: #4e7eb6;
+      --blue-soft: #edf4fb;
+      --blue-soft-2: #f6f9fc;
+      --bg: #f5f8fb;
       --white: #ffffff;
-      --shadow: 0 10px 28px rgba(39, 74, 117, 0.08);
+      --text: #223244;
+      --muted: #617285;
+      --border: #d8e2ec;
+      --border-strong: #c8d5e3;
+      --shadow-sm: 0 6px 18px rgba(22, 43, 68, 0.05);
+      --shadow-md: 0 14px 36px rgba(22, 43, 68, 0.08);
+      --shadow-lg: 0 20px 50px rgba(22, 43, 68, 0.10);
       --radius: 18px;
+      --radius-lg: 24px;
       --maxw: 1180px;
     }
 
@@ -35,10 +47,13 @@
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      line-height: 1.65;
+      font-family: "Inter", Arial, sans-serif;
+      line-height: 1.7;
       color: var(--text);
-      background: var(--bg);
+      background:
+        radial-gradient(circle at top left, #f9fcff 0%, #f5f8fb 45%, #f3f7fb 100%);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     img {
@@ -47,12 +62,14 @@
     }
 
     a {
-      color: var(--blue-dark);
+      color: var(--navy);
       text-decoration: none;
+      transition: color 0.2s ease;
     }
 
     a:hover {
-      text-decoration: underline;
+      color: var(--navy-deep);
+      text-decoration: none;
     }
 
     .container {
@@ -62,12 +79,14 @@
 
     /* Header */
     .site-header {
-      background: linear-gradient(135deg, var(--blue-dark), var(--blue-mid));
-      color: white;
       position: sticky;
       top: 0;
       z-index: 30;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(216, 226, 236, 0.9);
+      box-shadow: 0 4px 18px rgba(18, 38, 63, 0.04);
     }
 
     .nav-wrap {
@@ -79,19 +98,22 @@
     }
 
     .brand {
-      line-height: 1.1;
+      line-height: 1.08;
     }
 
     .brand-title {
       margin: 0;
-      font-size: 1.8rem;
-      font-weight: 700;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--navy-deep);
     }
 
     .brand-subtitle {
       margin: 6px 0 0 0;
-      font-size: 0.98rem;
-      color: rgba(255,255,255,0.92);
+      font-size: 0.92rem;
+      color: var(--muted);
+      font-weight: 500;
     }
 
     nav ul {
@@ -104,130 +126,153 @@
     }
 
     nav a {
-      color: white;
-      font-size: 0.98rem;
-      font-weight: 500;
-      opacity: 0.97;
+      color: #3a536d;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 8px 10px;
+      border-radius: 10px;
     }
 
     nav a:hover {
-      text-decoration: none;
-      opacity: 1;
+      background: var(--blue-soft);
+      color: var(--navy-deep);
     }
 
     /* Hero */
     .hero {
-      padding: 34px 0 24px;
+      padding: 42px 0 26px;
     }
 
     .hero-card {
-      background: var(--white);
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(251,253,255,0.98));
       border: 1px solid var(--border);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      padding: 28px;
+      border-radius: 28px;
+      box-shadow: var(--shadow-lg);
+      padding: 34px;
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 0.92fr 1.08fr;
-      gap: 26px;
+      gap: 32px;
       align-items: start;
     }
 
     .eyebrow {
-      display: inline-block;
-      margin-bottom: 12px;
-      padding: 6px 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding: 7px 12px;
       border-radius: 999px;
-      background: var(--blue-light);
-      color: var(--blue-dark);
-      font-size: 0.88rem;
+      background: var(--blue-soft);
+      color: var(--navy);
+      font-size: 0.83rem;
       font-weight: 700;
+      letter-spacing: 0.01em;
+      border: 1px solid #d9e6f4;
     }
 
     h1 {
-      margin: 0 0 14px 0;
-      font-size: clamp(1.9rem, 3vw, 2.9rem);
-      line-height: 1.15;
-      letter-spacing: -0.4px;
-      color: #203652;
-      max-width: 520px;
+      margin: 0 0 16px 0;
+      font-size: clamp(2rem, 3.2vw, 3.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.05em;
+      color: #17314e;
+      max-width: 560px;
+      font-weight: 800;
     }
 
     .lead {
       margin: 0;
-      font-size: 1.02rem;
+      font-size: 1.03rem;
       color: var(--muted);
-      max-width: 520px;
+      max-width: 560px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 22px;
+      margin-top: 24px;
     }
 
     .btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       padding: 12px 18px;
       border-radius: 12px;
       font-weight: 700;
+      font-size: 0.95rem;
       border: 1px solid transparent;
-      transition: 0.2s ease;
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease,
+        border-color 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
     }
 
     .btn-primary {
-      background: var(--blue-dark);
+      background: linear-gradient(135deg, var(--navy), var(--blue));
       color: white;
+      box-shadow: 0 10px 24px rgba(35, 74, 114, 0.16);
     }
 
     .btn-primary:hover {
-      background: #345f90;
-      text-decoration: none;
+      color: white;
+      box-shadow: 0 14px 28px rgba(35, 74, 114, 0.2);
     }
 
     .btn-secondary {
       background: white;
       border-color: var(--border);
-      color: var(--blue-dark);
+      color: var(--navy);
     }
 
     .btn-secondary:hover {
-      background: #f8fbff;
-      text-decoration: none;
+      background: #fafcff;
+      border-color: var(--border-strong);
+      color: var(--navy-deep);
+    }
+
+    .hero-figure {
+      position: relative;
     }
 
     .hero-figure img {
       width: 100%;
-      max-height: 430px;
+      max-height: 450px;
       object-fit: cover;
-      border-radius: 18px;
+      border-radius: 22px;
       border: 1px solid var(--border);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      box-shadow: var(--shadow-md);
       background: white;
     }
 
     .caption {
-      margin-top: 10px;
-      font-size: 0.95rem;
+      margin-top: 12px;
+      font-size: 0.92rem;
       color: var(--muted);
     }
 
     /* Intro strip */
     .intro-strip {
-      margin-top: 22px;
-      background: white;
+      margin-top: 24px;
+      background: rgba(255,255,255,0.9);
       border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 22px 24px;
-      box-shadow: var(--shadow);
+      border-radius: 20px;
+      padding: 24px 26px;
+      box-shadow: var(--shadow-sm);
     }
 
     .intro-strip p {
       margin: 0 0 12px 0;
-      color: #34465a;
+      color: #3c4f62;
     }
 
     .intro-strip p:last-child {
@@ -239,7 +284,7 @@
       color: var(--muted);
     }
 
-    /* Stats cards */
+    /* Strength cards */
     .strengths {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -248,48 +293,64 @@
     }
 
     .strength-card {
-      background: white;
+      background: rgba(255,255,255,0.92);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 18px;
       padding: 24px;
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-sm);
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease;
+    }
+
+    .strength-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: #cfdbe8;
     }
 
     .strength-card h3 {
       margin: 0 0 8px 0;
-      font-size: 1.04rem;
-      color: #214162;
+      font-size: 1.02rem;
+      line-height: 1.3;
+      color: #1f4268;
+      font-weight: 700;
+      letter-spacing: -0.01em;
     }
 
     .strength-card p {
       margin: 0;
-      font-size: 0.96rem;
+      font-size: 0.95rem;
       color: var(--muted);
     }
 
     /* Generic sections */
     section {
-      padding: 26px 0;
+      padding: 30px 0;
     }
 
     .section-title {
-      margin: 0 0 8px 0;
+      margin: 0 0 10px 0;
       font-size: 2rem;
-      color: #214162;
-      letter-spacing: -0.4px;
+      letter-spacing: -0.04em;
+      color: #1b3b5d;
+      font-weight: 800;
     }
 
     .section-subtitle {
-      margin: 0 0 22px 0;
+      margin: 0 0 24px 0;
       color: var(--muted);
-      max-width: 850px;
+      max-width: 880px;
+      font-size: 1rem;
     }
 
     .section-subtitle-full {
-      margin: 0 0 22px 0;
+      margin: 0 0 24px 0;
       color: var(--muted);
       max-width: none;
       width: 100%;
+      font-size: 1rem;
     }
 
     /* Highlights */
@@ -300,22 +361,34 @@
     }
 
     .highlight-card {
-      background: var(--blue-light);
-      border: 1px solid #dbe8f6;
-      border-radius: 16px;
+      background: linear-gradient(180deg, #f8fbfe, #f1f6fb);
+      border: 1px solid #dce7f2;
+      border-radius: 18px;
       padding: 24px;
+      box-shadow: var(--shadow-sm);
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+    }
+
+    .highlight-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
     }
 
     .highlight-card h3 {
       margin: 0 0 10px 0;
-      font-size: 1.08rem;
-      color: #24476d;
+      font-size: 1.04rem;
+      line-height: 1.3;
+      color: #21496f;
+      font-weight: 700;
+      letter-spacing: -0.01em;
     }
 
     .highlight-card p {
       margin: 0;
-      font-size: 0.96rem;
-      color: #3b4d60;
+      font-size: 0.95rem;
+      color: #475a6d;
     }
 
     /* About + metrics */
@@ -327,17 +400,17 @@
     }
 
     .panel {
-      background: white;
+      background: rgba(255,255,255,0.94);
       border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 26px;
-      box-shadow: var(--shadow);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: var(--shadow-md);
       height: 100%;
     }
 
     .panel p {
       margin-top: 0;
-      color: #334559;
+      color: #3b4d61;
     }
 
     .panel-metrics {
@@ -357,10 +430,11 @@
       display: inline-block;
       padding: 8px 12px;
       border-radius: 999px;
-      background: var(--blue-soft);
-      border: 1px solid #d4e3f2;
-      color: #2d4e73;
-      font-size: 0.92rem;
+      background: #f4f8fc;
+      border: 1px solid #d8e4f0;
+      color: #315375;
+      font-size: 0.9rem;
+      font-weight: 600;
     }
 
     .metrics {
@@ -372,7 +446,7 @@
 
     .metric {
       flex: 1;
-      padding: 14px 0 14px 0;
+      padding: 15px 0;
       border-bottom: 1px solid #e7eef5;
       display: flex;
       flex-direction: column;
@@ -391,14 +465,17 @@
     .metric strong {
       display: block;
       font-size: 2rem;
-      line-height: 1.1;
-      color: #1f3d5d;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      color: #1d4167;
+      font-weight: 800;
     }
 
     .metric span {
       display: block;
-      margin-top: 6px;
+      margin-top: 7px;
       color: var(--muted);
+      font-size: 0.96rem;
     }
 
     /* Project cards */
@@ -409,25 +486,38 @@
     }
 
     .project-card {
-      background: white;
+      background: rgba(255,255,255,0.96);
       border: 1px solid var(--border);
-      border-radius: 18px;
+      border-radius: 22px;
       overflow: hidden;
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-md);
       display: flex;
       flex-direction: column;
       min-height: 100%;
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      border-color: #cfdbe8;
     }
 
     .project-card-header {
-      background: linear-gradient(135deg, var(--blue-dark), var(--blue-mid));
+      background: linear-gradient(135deg, #22476f, #4c78ac);
       padding: 16px 20px;
       color: white;
     }
 
     .project-card-header h3 {
       margin: 0;
-      font-size: 1.18rem;
+      font-size: 1.12rem;
+      line-height: 1.3;
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
 
     .project-card-header a {
@@ -435,9 +525,9 @@
     }
 
     .project-card-image {
-      height: 210px;
-      padding: 16px;
-      background: #f4f7fb;
+      height: 215px;
+      padding: 18px;
+      background: linear-gradient(180deg, #f7faff, #f2f6fb);
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
@@ -448,11 +538,11 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      background: #f4f7fb;
+      background: transparent;
     }
 
     .project-card-body {
-      padding: 24px;
+      padding: 24px 24px 22px;
       flex: 1;
     }
 
@@ -463,13 +553,15 @@
 
     .project-card-body li {
       margin-bottom: 10px;
-      color: #33475b;
+      color: #405367;
     }
 
     .tools {
-      margin-top: 16px;
-      font-size: 0.93rem;
+      margin-top: 18px;
+      font-size: 0.92rem;
       color: var(--muted);
+      padding-top: 12px;
+      border-top: 1px solid #edf2f7;
     }
 
     /* Contact */
@@ -483,15 +575,28 @@
       margin: 0 0 10px 0;
     }
 
+    /* Footer */
     .footer {
-      padding: 18px 0 40px;
+      padding: 22px 0 42px;
       color: var(--muted);
-      font-size: 0.94rem;
+      font-size: 0.93rem;
     }
 
     .footer-line {
       border-top: 1px solid var(--border);
       padding-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      color: var(--muted);
     }
 
     /* Responsive */
@@ -528,7 +633,7 @@
       }
 
       nav ul {
-        gap: 12px;
+        gap: 8px;
       }
 
       .strengths,
@@ -547,16 +652,21 @@
       }
 
       .project-card-image {
-        height: 180px;
+        height: 190px;
         padding: 14px;
       }
 
       .brand-title {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
       }
 
       h1 {
         font-size: 2rem;
+      }
+
+      .footer-line {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
@@ -588,7 +698,7 @@
         <div class="hero-card">
           <div class="hero-grid">
             <div>
-              <span class="eyebrow">Streptomyces · comparative genomics · microbiology & bioinformatics</span>
+              <span class="eyebrow">Streptomyces · comparative genomics · microbiology &amp; bioinformatics</span>
 
               <h1>
                 Comparative genomics and phylogenomic characterization of
@@ -631,7 +741,7 @@
           <p>
             The genomes of strains TMS4I1 and TMS12I2 were assembled from soil-derived isolates
             prepared in the laboratory. These two strains were studied experimentally together
-            with the type strain <i>S. silvae</i> For3<sup>T</sup>. Additional genomes included in the
+            with the type strain <i>S. silvae</i> For3. Additional genomes included in the
             comparative analyses were obtained from public databases.
           </p>
           <p class="german-note">
@@ -667,7 +777,7 @@
     <section id="highlights">
       <div class="container">
         <h2 class="section-title">Project Highlights</h2>
-        <p class="section-subtitle-full">
+        <p class="section-subtitle">
           The project combines laboratory work and database-derived genomes in order to examine
           genomic relatedness, evolutionary placement, biosynthetic capacity, and phenotypic
           differentiation within the <i>S. silvae</i> clade.
@@ -711,7 +821,7 @@
 
     <section id="expertise">
       <div class="container">
-        <h2 class="section-title">About Me & Expertise</h2>
+        <h2 class="section-title">About Me &amp; Expertise</h2>
         <p class="section-subtitle-full">
           My work focuses on microbial genomics, comparative genome analysis, phylogenomics, genome architecture,
           and the interpretation of laboratory-derived phenotypes in a genomic context. This project integrates
@@ -772,8 +882,9 @@
     <section id="projects">
       <div class="container">
         <h2 class="section-title">Research Areas</h2>
-        <p class="section-subtitle-full">
-          The project is organized into four connected analytical sections, each representing a distinct level of interpretation within the <i>S. silvae</i> study.
+        <p class="section-subtitle">
+          The project is organized into four connected analytical sections, each representing
+          a distinct level of interpretation within the <i>S. silvae</i> study.
         </p>
 
         <div class="cards-4">
@@ -879,7 +990,7 @@
     <section id="contact">
       <div class="container contact-grid">
         <div class="panel">
-          <h2 class="section-title" style="font-size: 1.75rem;">Contact</h2>
+          <h2 class="section-title" style="font-size: 1.65rem;">Contact</h2>
           <p>
             If you are interested in microbial genomics, comparative genome analysis,
             phylogenomics, genome architecture, biosynthetic gene clusters, or the
@@ -894,7 +1005,7 @@
         </div>
 
         <div class="panel">
-          <h2 class="section-title" style="font-size: 1.75rem;">Quick Links</h2>
+          <h2 class="section-title" style="font-size: 1.65rem;">Quick Links</h2>
           <p><a href="comparative_genomics.html">Comparative Genomics</a></p>
           <p><a href="phylogenomics.html">Phylogenomics</a></p>
           <p><a href="genome_maps.html">Genome Architecture &amp; BGCs</a></p>
@@ -906,7 +1017,12 @@
 
   <footer class="footer">
     <div class="container footer-line">
-      Research website by Dr. Daniela Hartmann · Microbial genomics · Comparative genomics · Phylogenomics
+      <div>Research website by Dr. Daniela Hartmann</div>
+      <div class="footer-meta">
+        <span>Microbial genomics</span>
+        <span>Comparative genomics</span>
+        <span>Phylogenomics</span>
+      </div>
     </div>
   </footer>
 
