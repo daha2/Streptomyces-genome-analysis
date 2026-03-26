@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -42,7 +43,6 @@
         }
         .section-title { color: var(--tu-green); }
         
-        /* Neue Styles für die Card-Bilder */
         .research-card img {
             height: 110px;
             object-fit: contain;
@@ -50,15 +50,8 @@
             padding: 8px;
         }
 
-        .research-card ul {
-            padding-left: 1.1rem;
-            margin-bottom: 0;
-        }
-
-        .research-card li {
-            margin-bottom: 0.45rem;
-            color: #6c757d;
-            font-size: 0.95rem;
+        .key-card {
+            transition: all 0.3s ease;
         }
     </style>
 </head>
@@ -85,57 +78,81 @@
         </div>
     </nav>
 
-    <!-- ==================== HERO SECTION ==================== -->
+    <!-- ==================== HERO SECTION (neue starke Aussage) ==================== -->
     <section class="hero py-5 text-center">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
-                    <h1 class="display-3 fw-bold mb-3">Dr. Daniela Hartmann</h1>
-                    <p class="lead fs-3 mb-4"><i>Streptomyces silvae</i> Project</p>
-                    <p class="fs-4 mb-5">Comparative genomics · Phylogenomics · Biosynthetic gene clusters · Laboratory microbiology</p>
-                    <a href="#research" class="btn btn-lg btn-light text-dark fw-semibold px-5 py-3">
-                        About research →
-                    </a>
+                    <h1 class="display-3 fw-bold mb-3">Comparative genome analysis of <em>Streptomyces silvae</em></h1>
+                    <p class="lead fs-3 mb-4">A genome-based study showing that the <em>S. silvae</em> clade is taxonomically coherent, yet structurally and biosynthetically diversified.</p>
+                    <a href="#key-findings" class="btn btn-lg btn-light text-dark fw-semibold px-5 py-3 me-3">Key findings</a>
+                    <a href="#research" class="btn btn-lg btn-outline-light fw-semibold px-5 py-3">Explore analyses</a>
+                    <p class="mt-5 mb-0"><small>Dr. Daniela Hartmann • Technische Universität Dresden</small></p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ==================== KURZER INTRO ==================== -->
     <section class="py-5 bg-white">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <h2 class="text-center section-title mb-4">Comparative genomics and phylogenomic characterization of <span style="white-space: nowrap;"><em><i>S. silvae</i></em></span></h2>
-                    <p class="lead text-center">This project integrates laboratory microbiology and genome-based analysis to examine diversity, genomic structure, biosynthetic potential, and phenotypic traits within the <i>S. silvae</i> clade.</p>
-                    <p class="text-center">
-                        This website presents doctoral research on Streptomyces silvae, integrating DNA preparation, genome assembly, comparative genomics, phylogenomics, genome architecture analysis, biosynthetic gene cluster profiling, and physiology.
-                        The genomes of strains TMS4I1 and TMS12I2 were assembled from soil-derived isolates prepared in the laboratory. These strains were examined experimentally together with the type strain <em><i>S. silvae</i></em> For3<sup>T</sup>. Additional genomes 
-                        included in the comparative analyses were obtained from public databases.
-                    </p>
-                    <p class="german-note text-center">
-                        <strong>Deutsche Kurzfassung:</strong> Die Seite dokumentiert meine Promotionsarbeit in Mikrobiologie und Bioinformatik. Im Rahmen des Projekts habe ich DNA präpariert, Genome assembliert und die Stämme TMS4I1, TMS12I2 sowie den 
-                        Typstamm For3<sup>T</sup> experimentell im Labor untersucht.
-                    </p>
+                <div class="col-lg-9">
+                    <p class="lead text-center">This website presents my doctoral research combining laboratory microbiology with comparative genomics, phylogenomics, genome architecture analysis, biosynthetic gene cluster profiling, and physiology. The aim is to understand how closely related strains remain taxonomically consistent while differing in genome structure, biosynthetic potential, and phenotype.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="research" class="py-5 bg-light">
+    <!-- ==================== KEY FINDINGS ==================== -->
+    <section id="key-findings" class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center section-title mb-5">Research areas</h2>
+            <h2 class="section-title text-center mb-5">Key findings</h2>
             <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm key-card text-center p-4">
+                        <h5>The <em>S. silvae</em> clade is taxonomically coherent</h5>
+                        <p class="text-muted small">Pairwise ANI values range from 96.65 % to 100 %, clearly above the 95 % species threshold.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm key-card text-center p-4">
+                        <h5>Clear intraspecific structural variation despite overall coherence</h5>
+                        <p class="text-muted small">Whole-genome alignments reveal largely conserved synteny with local rearrangements and inversions.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm key-card text-center p-4">
+                        <h5>Biosynthetic potential is largely conserved but shows strain-level diversification</h5>
+                        <p class="text-muted small">Core BGCs (melanin, ectoine, desferrioxamine, alkylresorcinol, isorenieratene) are shared; accessory clusters differ between strains.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm key-card text-center p-4">
+                        <h5>Laboratory phenotypes complement the genomic picture</h5>
+                        <p class="text-muted small">Broad environmental tolerance (7–37 °C, pH 2–10, up to 10 % NaCl) and typical streptomycete morphology align with genomic plasticity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== RESEARCH AREAS (ergebnisorientiert) ==================== -->
+    <section id="research" class="py-5 bg-white">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Research areas</h2>
+            <div class="row g-4">
+
                 <!-- Card 1 -->
                 <div class="col-md-6 col-lg-3">
                     <div class="card h-100 card-hover border-0 shadow-sm research-card">
                         <img src="mauve.svg" alt="Comparative Genomics" class="card-img-top">
                         <div class="card-body">
                             <h5>Comparative Genomics</h5>
-                            <ul class="text-muted">
+                            <p class="text-muted">Genome-level comparison revealed high relatedness (ANI &gt; 95 %) but clear strain-level structural variation.</p>
+                            <ul class="text-muted mt-3">
                                 <li>ANI-based comparison of genomic relatedness</li>
                                 <li>Synteny analysis and structural genome comparison</li>
-                                <li>Strain-level assessment across the <i>S. silvae</i> clade</li>
-                                <li>Interpretation of conserved and variable genomic features</li>
                             </ul>
                             <a href="comparative_genomics.html" class="btn btn-outline-success btn-sm mt-3">→ Details</a>
                         </div>
@@ -148,11 +165,10 @@
                         <img src="phylogeny_tree.svg" alt="Phylogenomics" class="card-img-top">
                         <div class="card-body">
                             <h5>Phylogenomics</h5>
-                            <ul class="text-muted">
-                                <li>Genome-based phylogenetic placement within the clade</li>
-                                <li>Evolutionary context based on reference genomes</li>
-                                <li>Taxonomic interpretation supported by genome-scale analysis</li>
-                                <li>Framework for relating comparative and phenotypic data</li>
+                            <p class="text-muted">Phylogenomic reconstruction placed the strains within a coherent clade and supported their taxonomic interpretation.</p>
+                            <ul class="text-muted mt-3">
+                                <li>Genome-based phylogenetic placement</li>
+                                <li>Evolutionary context using reference genomes</li>
                             </ul>
                             <a href="phylogenomics.html" class="btn btn-outline-success btn-sm mt-3">→ Details</a>
                         </div>
@@ -165,10 +181,9 @@
                         <img src="BGCs_circos.svg" alt="Genome Architecture & BGCs" class="card-img-top">
                         <div class="card-body">
                             <h5>Genome Architecture & BGCs</h5>
-                            <ul class="text-muted">
+                            <p class="text-muted">Genome maps and BGC profiles showed conserved core organization alongside local differences in structure and biosynthetic content.</p>
+                            <ul class="text-muted mt-3">
                                 <li>Detailed visualization of representative genomes</li>
-                                <li>Genome map analysis and large-scale structural organization</li>
-                                <li>Localization of biosynthetic gene clusters</li>
                                 <li>Comparative assessment of biosynthetic potential</li>
                             </ul>
                             <a href="genome_maps.html" class="btn btn-outline-success btn-sm mt-3">→ Details</a>
@@ -182,11 +197,10 @@
                         <img src="physiology.png" alt="Physiology" class="card-img-top">
                         <div class="card-body">
                             <h5>Physiology</h5>
-                            <ul class="text-muted">
-                                <li>Macromorphology and laboratory phenotype assessment</li>
-                                <li>Stress tolerance under different environmental conditions</li>
+                            <p class="text-muted">Laboratory phenotyping linked genomic variation to observable differences in morphology and stress-related traits.</p>
+                            <ul class="text-muted mt-3">
+                                <li>Macromorphology and stress tolerance tests</li>
                                 <li>Experimental comparison of selected strains</li>
-                                <li>Phenotypic observations complementing genomic interpretation</li>
                             </ul>
                             <a href="physiology_TMS4I1.html" class="btn btn-outline-success btn-sm mt-3">→ Details</a>
                         </div>
@@ -196,12 +210,27 @@
         </div>
     </section>
 
-   <section id="contact" class="py-5 bg-white">
+    <!-- ==================== DEUTSCHE KURZFASSUNG (separate Box) ==================== -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm p-4 text-center">
+                        <h5 class="section-title">Deutsche Kurzfassung</h5>
+                        <p class="mb-0">Die Seite dokumentiert meine Promotionsarbeit in Mikrobiologie und Bioinformatik. Im Rahmen des Projekts habe ich DNA präpariert, Genome assembliert und die Stämme TMS4I1, TMS12I2 sowie den Typstamm For3<sup>T</sup> experimentell im Labor untersucht.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section id="contact" class="py-5 bg-white">
         <div class="container">
             <h2 class="section-title text-center mb-4">Contact</h2>
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <p class="lead">If you are interested in microbial genomics, comparative genome analysis, phylogenomics, or the clear communication of complex biological data, feel free to get in touch!</p>
+                    <p class="lead">Interested in comparative genomics, microbial phylogenomics, genome visualization, or the interpretation of actinomycete data? I welcome scientific exchange and collaboration.</p>
                     <p class="mt-4">
                         <strong>Dr. Daniela Hartmann</strong><br>
                         Technische Universität Dresden<br>
