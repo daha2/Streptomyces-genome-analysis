@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Genome Architecture | Streptomyces silvae</title>
+  <title>Genome Architecture & BGCs | Streptomyces silvae</title>
   <meta
     name="description"
-    content="Genome architecture and biosynthetic gene cluster analysis of Streptomyces silvae strains, including genome maps, assembly statistics, functional categories, and antiSMASH-based BGC comparisons."
+    content="Comparative analysis of genome architecture and biosynthetic gene clusters in Streptomyces silvae, including genome maps, assembly statistics, functional categories, and antiSMASH-based BGC comparisons."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -37,18 +37,13 @@
       --maxw: 1180px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       font-family: "Inter", Arial, sans-serif;
-      line-height: 1.72;
+      line-height: 1.7;
       color: var(--text);
       background: radial-gradient(circle at top left, #fafdfb 0%, #f4f8f5 48%, #f2f7f3 100%);
       -webkit-font-smoothing: antialiased;
@@ -75,6 +70,8 @@
       width: min(var(--maxw), calc(100% - 40px));
       margin: 0 auto;
     }
+
+    .nowrap { white-space: nowrap; }
 
     /* Header */
     .site-header {
@@ -174,12 +171,31 @@
       font-weight: 700;
     }
 
-    .hero {
-      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(249,252,250,0.98));
+    h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.08rem;
+      line-height: 1.25;
+      color: var(--green-deep);
+    }
+
+    .hero,
+    .box,
+    .card,
+    .summary-box,
+    .legend-box,
+    .mini-note,
+    .key-card {
+      background: rgba(255,255,255,0.96);
       border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero {
+      background: linear-gradient(180deg, rgba(255,255,255,0.99), rgba(249,252,250,0.98));
       border-radius: 28px;
       box-shadow: var(--shadow-lg);
-      padding: 32px;
+      padding: 34px;
       margin-bottom: 24px;
     }
 
@@ -187,10 +203,56 @@
       font-size: 1.05rem;
       color: var(--muted);
       margin: 0;
+      max-width: 920px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: 1px solid var(--border);
+      transition: all 0.18s ease;
+    }
+
+    .btn-primary {
+      background: var(--green-deep);
+      color: white;
+      border-color: var(--green-deep);
+    }
+
+    .btn-primary:hover {
+      background: #083e28;
+      color: white;
+    }
+
+    .btn-soft {
+      background: var(--green-soft);
+      color: var(--green-deep);
+      border-color: #d5e6dc;
+    }
+
+    .btn-soft:hover {
+      background: #e4f1e9;
+      color: var(--green-deep);
     }
 
     .section {
       margin-top: 34px;
+    }
+
+    .section-break {
+      margin-top: 52px;
     }
 
     .section-header {
@@ -199,41 +261,65 @@
       border-bottom: 1px solid #dbe8e0;
     }
 
-    .section-break {
-      margin-top: 52px;
+    .section-intro {
+      margin: 0 0 16px 0;
+      color: #3e5147;
     }
 
-    .highlight,
-    .box,
+    .key-grid,
+    .twocol,
+    .threecol {
+      display: grid;
+      gap: 18px;
+    }
+
+    .key-grid {
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 18px;
+    }
+
+    .twocol {
+      grid-template-columns: 1fr 1fr;
+      margin-top: 20px;
+    }
+
+    .threecol {
+      grid-template-columns: 1fr 1fr 1fr;
+      margin-top: 18px;
+    }
+
+    .key-card,
     .card,
-    .shared-block,
-    .summary-box {
-      background: rgba(255,255,255,0.95);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .highlight {
-      background: linear-gradient(180deg, #f5fbf7, #edf6f0);
-      border-color: #d7e7dd;
-      padding: 22px 24px;
-      margin: 0 0 28px 0;
-    }
-
-    .box {
+    .summary-box,
+    .legend-box,
+    .mini-note {
       padding: 20px 22px;
-      margin: 18px 0 0 0;
     }
 
-    .small {
+    .key-card h3,
+    .card-title {
+      font-family: "Inter", Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .key-card p,
+    .small,
+    .summary-box p,
+    .mini-note p {
+      margin: 0;
       font-size: 0.95rem;
       color: var(--muted);
-      margin: 0;
+    }
+
+    .metric {
+      color: var(--tu-green);
+      font-weight: 700;
     }
 
     .figure {
-      margin: 24px 0 30px 0;
+      margin: 24px 0 18px 0;
     }
 
     .figure a {
@@ -257,17 +343,15 @@
       margin-top: 12px;
     }
 
-    .full-caption {
-      text-align: justify;
-      font-size: 0.95rem;
-      color: #475a52;
-      margin-top: 14px;
+    .open-figure {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: var(--muted);
     }
 
-    .note {
-      font-size: 0.92rem;
-      color: var(--muted);
-      margin-top: 8px;
+    .box {
+      padding: 20px 22px;
+      margin-top: 18px;
     }
 
     ul {
@@ -279,15 +363,7 @@
       margin-bottom: 8px;
     }
 
-    .twocol {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin: 20px 0 0 0;
-    }
-
     .card {
-      padding: 22px;
       transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
     }
 
@@ -299,181 +375,133 @@
 
     .card-title {
       margin: 0 0 8px 0;
-      font-family: "Inter", sans-serif;
-      font-size: 1rem;
+      color: var(--green-deep);
+    }
+
+    .shared-layout,
+    .bgc-layout {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .legend-box {
+      background: linear-gradient(180deg, #fbfdfb, #f6faf7);
+    }
+
+    .legend-title {
+      font-size: 0.98rem;
       font-weight: 700;
       color: var(--green-deep);
+      margin: 0 0 12px 0;
+    }
+
+    details {
+      border-top: 1px solid #e2ece5;
+      padding-top: 12px;
+      margin-top: 12px;
+    }
+
+    details:first-of-type {
+      border-top: none;
+      padding-top: 0;
+      margin-top: 0;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--green-deep);
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "＋";
+      float: right;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    details[open] summary::after {
+      content: "–";
+    }
+
+    .legend-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 16px;
+      margin-top: 12px;
+    }
+
+    .legend-item,
+    .bgc-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.88rem;
+      line-height: 1.35;
+      color: #3f5248;
+      margin: 0;
+    }
+
+    .colorbox,
+    .bgc-colorbox,
+    .legend-inline {
+      flex-shrink: 0;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .colorbox,
+    .bgc-colorbox {
+      width: 15px;
+      height: 15px;
+      border-radius: 3px;
+      margin-top: 2px;
     }
 
     .legend-inline {
       display: inline-block;
       width: 12px;
       height: 12px;
-      border: 1px solid rgba(0,0,0,0.18);
       vertical-align: middle;
       margin: 0 4px;
     }
 
-    .colorbox,
-    .bgc-colorbox {
-      width: 16px;
-      height: 16px;
-      display: inline-block;
-      border-radius: 3px;
-      margin-right: 7px;
-      flex-shrink: 0;
-      border: 1px solid rgba(0,0,0,0.08);
+    .compact-list li {
+      margin-bottom: 6px;
     }
 
-    .bgc-colorbox {
-      width: 15px;
-      height: 15px;
+    .small {
+      color: var(--muted);
     }
 
-    .method-list li {
-      margin-bottom: 8px;
-    }
-
-    .shared-wrapper {
-      margin: 24px 0 30px 0;
-    }
-
-    .shared-intro {
-      margin: 0 0 14px 0;
-      color: #3e5147;
-    }
-
-    .shared-block {
-      padding: 16px;
-    }
-
-    .shared-row,
-    .bgc-row {
-      display: grid;
-      grid-template-columns: 1.02fr 0.98fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .bgc-row {
-      grid-template-columns: 1.06fr 0.94fr;
-    }
-
-    .shared-image,
-    .bgc-image {
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
-      min-width: 0;
-    }
-
-    .shared-image a,
-    .bgc-image a {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      align-items: stretch;
-      justify-content: center;
-    }
-
-    .shared-image img,
-    .bgc-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-      border: none;
-      box-shadow: none;
-      border-radius: 0;
-      background: transparent;
-      padding: 0;
+    .reference {
+      font-size: 0.95rem;
+      color: var(--muted);
       margin: 0;
     }
 
-    .bgc-image img {
-      max-height: 560px;
-    }
-
-    .legend-side,
-    .bgc-legend-side {
-      display: grid;
-      grid-template-rows: auto 1fr;
-      min-width: 0;
-      height: 100%;
-    }
-
-    .legend-title,
-    .bgc-legend-title {
-      font-size: 0.98rem;
-      font-weight: 700;
-      color: var(--green-deep);
-      margin: 0 0 10px 0;
-    }
-
-    .legend-columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      column-gap: 14px;
-      row-gap: 0;
-      height: 100%;
-      align-content: stretch;
-    }
-
-    .legend-column {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 100%;
-    }
-
-    .bgc-legend-column {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      justify-content: space-between;
-      gap: 8px;
-      padding-bottom: 6px;
-    }
-
-    .legend-item,
-    .bgc-item {
-      display: flex;
-      align-items: center;
-      font-size: 0.88rem;
-      line-height: 1.18;
-      padding: 2px 0;
-      margin: 0;
-      min-height: 22px;
-      word-break: break-word;
-      overflow-wrap: anywhere;
-      color: #3f5248;
-    }
-
-    .legend-item {
-      font-size: 0.86rem;
-      line-height: 1.12;
-    }
-
-    .section-intro {
-      margin: 0 0 12px 0;
-      color: #3e5147;
+    @media (max-width: 1050px) {
+      .key-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     @media (max-width: 920px) {
-      .shared-row,
-      .bgc-row,
-      .twocol {
+      .shared-layout,
+      .bgc-layout,
+      .twocol,
+      .threecol {
         grid-template-columns: 1fr;
       }
 
       .legend-columns {
         grid-template-columns: 1fr;
-      }
-
-      .shared-image img,
-      .bgc-image img {
-        height: auto;
-        max-height: none;
       }
     }
 
@@ -490,19 +518,19 @@
       .hero,
       .box,
       .card,
-      .highlight,
-      .shared-block,
-      .summary-box {
+      .summary-box,
+      .legend-box,
+      .mini-note,
+      .key-card {
         padding: 20px;
       }
 
-      h1 {
-        font-size: 2rem;
+      .key-grid {
+        grid-template-columns: 1fr;
       }
 
-      h2 {
-        font-size: 1.4rem;
-      }
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.4rem; }
     }
   </style>
 </head>
@@ -523,30 +551,65 @@
 
       <section class="hero">
         <span class="eyebrow">Research area · genome architecture</span>
-        <h1>Genome Architecture of <i>Streptomyces silvae</i> Strains</h1>
+        <h1>Genome Architecture and Biosynthetic Diversity in <i>Streptomyces silvae</i></h1>
         <p class="lead">
-          This page presents circular genome maps and selected comparative features of four strains within the
-          <i>S. silvae</i> clade. Together, the figures summarize contig organization, structural
-          genome characteristics, functional annotation patterns, and assembly statistics.
+          The four analyzed genomes are highly similar at species level, but differ in assembly contiguity, functional gene distribution, and biosynthetic architecture.
         </p>
         <p class="lead" style="margin-top: 12px;">
-          These visualizations provide a genome-wide comparison of conserved and variable properties across the analyzed strains.
+          This page brings together circular genome maps, assembly statistics, functional category profiles, and antiSMASH-based BGC comparisons to distinguish conserved genomic features from strain-level variation within the <i>S. silvae</i> clade.
         </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#key-findings">Key findings</a>
+          <a class="btn btn-soft" href="#bgc-distribution">Jump to BGC analysis</a>
+        </div>
       </section>
 
-      <div class="highlight">
-        <strong>Key findings.</strong>
-        The analyzed genomes show highly similar genome sizes (approximately 8.1–8.3 Mb) and nearly identical GC contents
-        (~71.3–71.43%), supporting their classification within the same species. At the same time, differences in assembly
-        contiguity, functional gene distribution, and biosynthetic repertoires reveal meaningful intraspecific variation.
-      </div>
+      <section id="key-findings" class="section">
+        <div class="section-header">
+          <h2>Key findings</h2>
+        </div>
+
+        <div class="key-grid">
+          <div class="key-card">
+            <h3>Species-level similarity</h3>
+            <p>
+              Genome sizes are closely matched at
+              <span class="metric nowrap">8.1–8.3&nbsp;Mb</span>,
+              with GC contents of
+              <span class="metric nowrap">71.3–71.43&nbsp;%</span>,
+              supporting classification within the same species framework.
+            </p>
+          </div>
+
+          <div class="key-card">
+            <h3>Assembly differences</h3>
+            <p>
+              M3 provides the most contiguous assembly, whereas the remaining strains are more fragmented despite overall genomic similarity.
+            </p>
+          </div>
+
+          <div class="key-card">
+            <h3>Functional variation</h3>
+            <p>
+              Broad functional profiles are shared, but tRNA/rRNA counts and selected annotated categories differ between strains.
+            </p>
+          </div>
+
+          <div class="key-card">
+            <h3>Biosynthetic diversification</h3>
+            <p>
+              A conserved BGC core is present across all genomes, while additional loci vary in class assignment, similarity, or strain-specific occurrence.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <section class="section">
         <div class="section-header">
-          <h2>Strains Included</h2>
+          <h2>Strains included</h2>
         </div>
         <div class="box">
-          <ul>
+          <ul class="compact-list">
             <li><b><i>Streptomyces silvae</i> TMS12I2</b></li>
             <li><b><i>Streptomyces silvae</i> TMS4I1</b></li>
             <li><b><i>Streptomyces silvae</i> For3<sup>T</sup></b> – type strain</li>
@@ -557,46 +620,37 @@
 
       <section class="section">
         <div class="section-header">
-          <h2>Circular Genome Maps</h2>
+          <h2>Circular genome maps</h2>
         </div>
+
+        <p class="section-intro">
+          The circular maps summarize chromosome organization, annotation density, RNA gene positions, resistance-related loci, GC skew, and GC content across the four genomes.
+        </p>
 
         <div class="figure">
           <a href="genome_maps.png" target="_blank">
-            <img src="genome_maps.png" alt="Genome maps of four S. silvae strains" />
+            <img src="genome_maps.png" alt="Circular genome maps of four S. silvae strains" />
           </a>
           <div class="caption">
-            <b>Figure 1.</b> Genome maps of the four <i>S. silvae</i> strains
-            TMS12I2, TMS4I1, For3<sup>T</sup>, and M3. The concentric circles arranged from
-            the outside to the inside show, for each genome, contig lengths in megabase pairs
-            (Mbp), strain-specific colour coding of contigs, positions of protein-coding
-            genes on the forward and reverse strands, localisation of
-            <span class="legend-inline" style="background:rgb(0,0,0);"></span>tRNAs and
-            <span class="legend-inline" style="background:rgb(255,0,0);"></span>rRNAs,
-            antibiotic resistance genes
-            <span class="legend-inline" style="background:rgb(139,0,139);"></span>,
-            as well as
-            <span class="legend-inline" style="background:rgb(31,73,124);"></span>positive GC skew,
-            <span class="legend-inline" style="background:rgb(192,81,78);"></span>negative GC skew,
-            and
-            <span class="legend-inline" style="background:rgb(78,97,39);"></span>GC content.
+            <b>Figure 1.</b> Circular genome maps of <i>S. silvae</i> TMS12I2, TMS4I1, For3<sup>T</sup>, and M3, summarizing contig organization, coding sequences, RNA genes, resistance-associated loci, GC skew, and GC content.
           </div>
-          <div class="note">
-            Click the figure to open the full-size image.
-          </div>
+          <div class="open-figure">Open full-size figure</div>
+        </div>
+
+        <div class="summary-box">
+          <p>
+            The overall map architecture supports close relatedness across the clade, while local differences in contig structure and feature distribution point to strain-level genomic variation rather than species-level separation.
+          </p>
         </div>
       </section>
 
       <section class="section">
         <div class="section-header">
-          <h2>Genome Statistics and Assembly Quality</h2>
+          <h2>Genome statistics and assembly quality</h2>
         </div>
 
         <p class="section-intro">
-          Comparative genome analysis revealed highly similar genome sizes and GC contents across all four strains,
-          consistent with their classification within the species <i>S. silvae</i>. Despite this overall similarity,
-          the assemblies differ in contiguity and annotation metrics. Strain M3 shows the highest assembly continuity,
-          whereas the remaining strains are more fragmented. In addition, variation in tRNA and rRNA gene copy numbers
-          indicates functional differences that may reflect strain-specific adaptation.
+          Genome size and GC content remain highly consistent across all strains, but assembly quality and selected annotation metrics differ and help define intraspecific variation.
         </p>
 
         <div class="figure">
@@ -604,30 +658,106 @@
             <img src="genome_parameter.svg" alt="Genome statistics and assembly parameters of S. silvae strains" />
           </a>
           <div class="caption">
-            <b>Table 1.</b> Selected genome assembly and annotation parameters of the
-            <i>S. silvae</i> strains TMS12I2, TMS4I1, For3<sup>T</sup>, and M3.
-            The table summarizes contig number, genome size, maximum and minimum contig length,
-            N50, L50, completeness, number of coding sequences, tRNA genes, rRNA genes,
-            antibiotic resistance genes, and GC content.
+            <b>Table 1.</b> Selected assembly and annotation parameters for TMS12I2, TMS4I1, For3<sup>T</sup>, and M3, including contig number, genome size, N50/L50, completeness, coding sequences, RNA genes, resistance genes, and GC content.
           </div>
-          <div class="note">
-            Click the figure to open the full-size image.
+          <div class="open-figure">Open full-size figure</div>
+        </div>
+
+        <div class="twocol">
+          <div class="card">
+            <div class="card-title">Main takeaway</div>
+            <p class="small">
+              The genomes remain very similar in overall size and base composition, reinforcing their close taxonomic relationship within <i>S. silvae</i>.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-title">Assembly contrast</div>
+            <p class="small">
+              M3 stands out as the most contiguous assembly, with only three contigs, the highest N50 value, and an L50 of <span class="nowrap">1</span>.
+            </p>
+          </div>
+        </div>
+
+        <div class="box">
+          <p class="small">
+            Differences in tRNA and rRNA copy number suggest that the strains are not functionally identical and may differ in translational capacity or ecological adaptation despite their shared genomic framework.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>Functional category distribution</h2>
+        </div>
+
+        <p class="section-intro">
+          RASTtk-based functional profiles allow comparison of how annotated gene content is distributed across major SEED categories in the four genomes.
+        </p>
+
+        <div class="shared-layout">
+          <div>
+            <div class="figure" style="margin-top: 0;">
+              <a href="functional_categories.svg" target="_blank">
+                <img src="functional_categories.svg" alt="Circular representation of gene numbers per functional category in Streptomyces silvae strains" />
+              </a>
+              <div class="caption">
+                <b>Figure 2.</b> Circular representation of gene numbers per functional category across the four genomes, based on RASTtk annotation and SEED functional assignments.
+              </div>
+              <div class="open-figure">Open full-size figure</div>
+            </div>
+          </div>
+
+          <div class="legend-box">
+            <div class="legend-title">Reading the figure</div>
+            <p class="small" style="margin: 0;">
+              Each concentric ring represents one genome. Segment size reflects the absolute number of genes assigned to a given functional category.
+            </p>
+
+            <details>
+              <summary>SEED color code</summary>
+              <div class="legend-columns">
+                <div class="legend-item"><span class="colorbox" style="background:rgb(102,0,102)"></span>Nucleosides and nucleotides</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(204,255,204)"></span>Amino acids and derivatives</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(255,128,128)"></span>Protein metabolism</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(255,255,153)"></span>Sulfur metabolism</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(0,102,204)"></span>Cell division and cell cycle</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(153,204,255)"></span>Phosphorus metabolism</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(204,204,255)"></span>Motility and chemotaxis</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(255,153,204)"></span>Carbohydrate metabolism</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(255,0,255)"></span>Regulation and cell signaling</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(255,0,0)"></span>Cofactors, vitamins, prosthetic groups and pigments</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(255,255,0)"></span>Secondary metabolism</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(0,128,0)"></span>Cell wall and capsule</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(0,255,255)"></span>DNA metabolism</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(0,0,128)"></span>Virulence, disease and defense</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(128,0,128)"></span>Fatty acids, lipids and isoprenoids</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(128,128,0)"></span>Potassium metabolism</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(128,0,0)"></span>Nitrogen metabolism</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(192,192,192)"></span>Miscellaneous</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(0,128,128)"></span>Dormancy and sporulation</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(128,128,128)"></span>Phages, prophages, transposable elements and plasmids</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(0,0,255)"></span>Respiration</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(153,153,255)"></span>Membrane transport</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(0,204,204)"></span>Stress response</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(153,51,102)"></span>Iron acquisition and metabolism</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(204,255,255)"></span>Metabolism of aromatic compounds</div>
+                <div class="legend-item"><span class="colorbox" style="background:rgb(255,255,201)"></span>RNA metabolism</div>
+              </div>
+            </details>
           </div>
         </div>
 
         <div class="twocol">
           <div class="card">
-            <div class="card-title">Most contiguous assembly</div>
+            <div class="card-title">Interpretation</div>
             <p class="small">
-              Strain M3 shows the strongest assembly quality, with only three contigs, the highest N50 value,
-              and an L50 value of 1.
+              The four strains share a broadly similar functional landscape, consistent with their close relatedness and similar genome size.
             </p>
           </div>
           <div class="card">
-            <div class="card-title">Functional variation</div>
+            <div class="card-title">Most notable difference</div>
             <p class="small">
-              Differences in tRNA and rRNA gene copy numbers suggest variation in translational capacity
-              and possible ecological adaptation among strains.
+              TMS4I1 shows elevated gene numbers in several metabolic categories, whereas TMS12I2, For3<sup>T</sup>, and M3 remain more similar to one another.
             </p>
           </div>
         </div>
@@ -635,209 +765,104 @@
 
       <section class="section">
         <div class="section-header">
-          <h2>Functional Gene Category Distribution and SEED Color Code</h2>
+          <h2>Methods summary</h2>
         </div>
-
-        <div class="shared-wrapper">
-          <p class="shared-intro">
-            To complement the structural genome maps, gene numbers per functional category were visualized for the four
-            <i>S. silvae</i> strains using circular diagrams based on RASTtk annotation. The corresponding SEED Viewer
-            color code is shown directly alongside the circular representation to facilitate direct comparison between
-            functional categories and their quantitative distribution.
+        <div class="mini-note">
+          <p>
+            Genome scaffolding was performed with RagTag using <i>Streptomyces</i> sp. M3 as reference. Genome annotation was generated with RASTtk, and circular visualizations were prepared with Circos.
           </p>
-
-          <div class="shared-block">
-            <div class="shared-row">
-              <div class="shared-image">
-                <a href="functional_categories.svg" target="_blank">
-                  <img src="functional_categories.svg" alt="Circular representation of gene numbers per functional category in Streptomyces silvae strains" />
-                </a>
-              </div>
-
-              <div class="legend-side">
-                <div class="legend-title">SEED functional categories</div>
-
-                <div class="legend-columns">
-                  <div class="legend-column">
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(102,0,102)"></span>Nucleosides and nucleotides</div>
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(204,255,204)"></span>Amino acids and derivatives</div>
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(255,128,128)"></span>Protein metabolism</div>
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(255,255,153)"></span>Sulfur metabolism</div>
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(0,102,204)"></span>Cell division and cell cycle</div>
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(153,204,255)"></span>Phosphorus metabolism</div>
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(204,204,255)"></span>Motility and chemotaxis</div>
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(255,153,204)"></span>Carbohydrate metabolism</div>
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(255,0,255)"></span>Regulation and cell signaling</div>
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(255,0,0)"></span>Cofactors, vitamins, prosthetic groups and pigments</div>
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(255,255,0)"></span>Secondary metabolism</div>
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(0,128,0)"></span>Cell wall and capsule</div>
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(0,255,255)"></span>DNA metabolism</div>
-                  </div>
-
-                  <div class="legend-column">
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(0,0,128)"></span>Virulence, disease and defense</div>
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(128,0,128)"></span>Fatty acids, lipids and isoprenoids</div>
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(128,128,0)"></span>Potassium metabolism</div>
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(128,0,0)"></span>Nitrogen metabolism</div>
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(192,192,192)"></span>Miscellaneous</div>
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(0,128,128)"></span>Dormancy and sporulation</div>
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(128,128,128)"></span>Phages, prophages, transposable elements and plasmids</div>
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(0,0,255)"></span>Respiration</div>
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(153,153,255)"></span>Membrane transport</div>
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(0,204,204)"></span>Stress response</div>
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(153,51,102)"></span>Iron acquisition and metabolism</div>
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(204,255,255)"></span>Metabolism of aromatic compounds</div>
-                    <div class="legend-item"><span class="colorbox" style="background:rgb(255,255,201)"></span>RNA metabolism</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="full-caption">
-              <b>Figure 2.</b> Circular representation of gene numbers per functional category
-              in the genomes of the <i>S. silvae</i> strains TMS12I2, TMS4I1, For3<sup>T</sup>, and M3.
-              The four concentric circles represent the genomes of the four strains from the
-              outside to the inside. Functional annotation was performed using RASTtk. Each
-              segment corresponds to the absolute gene number assigned to a functional category,
-              coloured according to the SEED Viewer scheme. Segment area reflects the number
-              of genes within the respective category.
-            </div>
-
-            <div class="note">
-              Click the figure to open the full-size image.
-            </div>
-          </div>
-        </div>
-
-        <div class="box">
-          <b>Interpretation of genome architecture.</b>
-          The combined structural and functional analyses show that the four strains are genomically closely related,
-          yet not identical. Similar genome size, GC content, and broad functional profiles support their close
-          taxonomic relationship. At the same time, differences in assembly contiguity, tRNA/rRNA copy number,
-          and selected functional categories indicate intraspecific diversification. In particular, strain TMS4I1
-          displays elevated gene numbers in several metabolic categories, suggesting strain-specific adaptation,
-          whereas TMS12I2, For3<sup>T</sup>, and M3 remain more similar to one another.
         </div>
       </section>
 
-      <section class="section">
+      <section id="bgc-distribution" class="section section-break">
         <div class="section-header">
-          <h2>Methods</h2>
-        </div>
-        <div class="box">
-          <ul class="method-list">
-            <li>Genome scaffolding: RagTag</li>
-            <li>Reference genome: <i>Streptomyces</i> sp. M3</li>
-            <li>Genome annotation: RASTtk</li>
-            <li>Genome visualization: Circos</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section section-break">
-        <div class="section-header">
-          <h2>Biosynthetic Gene Cluster Distribution and antiSMASH Color Code</h2>
+          <h2>Biosynthetic gene cluster distribution</h2>
         </div>
 
-        <div class="shared-wrapper">
-          <p class="shared-intro">
-            To further assess the secondary-metabolite potential of the four analyzed genomes,
-            BGCs were identified using antiSMASH 7.0 and visualized in circular form. Beyond illustrating the overall
-            biosynthetic potential, the circular representation enables direct comparison of the genomic positions,
-            presence, and distribution of BGCs across the four strains. The corresponding antiSMASH biosynthetic classes
-            are displayed alongside the circular plot, allowing the biosynthetic category of each cluster to be directly
-            linked to its chromosomal localization.
-          </p>
+        <p class="section-intro">
+          antiSMASH-based comparison shows that the <i>S. silvae</i> clade retains a conserved biosynthetic backbone while varying at selected loci in class assignment, similarity to reference clusters, and strain-specific presence or absence.
+        </p>
 
-          <div class="shared-block">
-            <div class="bgc-row">
-              <div class="bgc-image">
-                <a href="BGCs_circos.svg" target="_blank">
-                  <img src="BGCs_circos.svg" alt="Circular representation of BGCs in S. silvae strains" />
-                </a>
-              </div>
-
-              <div class="bgc-legend-side">
-                <div class="bgc-legend-title">antiSMASH biosynthetic classes</div>
-
-                <div class="bgc-legend-column">
-                  <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(65,105,255)"></span>RiPP-like; class II and III lanthipeptides</div>
-                  <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(240,248,255)"></span>β-Lactams</div>
-                  <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(147,112,219)"></span>Butyrolactones</div>
-                  <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(154,205,50)"></span>Ectoine</div>
-                  <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(244,164,96)"></span>PKS: type II and III; hglE-KS; hglE-KS with T1PKS</div>
-                  <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(46,139,87)"></span>NAPAA; NRPS; NRPS with NRP-metallophores</div>
-                  <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(176,196,222)"></span>T1PKS; T2PKS/NRPS with terpenes; butyrolactone; NRPS; hglE-KS; hybrid NRPS, T3PKS, PKS- and NRPS-like</div>
-                  <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(255,255,119)"></span>Class I lanthipeptides</div>
-                  <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(205,133,63)"></span>Melanin</div>
-                  <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(220,20,60)"></span>Siderophores</div>
-                  <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(128,0,128)"></span>Terpenes</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="full-caption">
-              <b>Figure 3.</b> Circular representation of BGCs in the
-              genomes of the <i>S. silvae</i> strains TMS12I2, TMS4I1, For3<sup>T</sup>, and M3.
-              Biosynthetic regions were identified using antiSMASH. The circular plot shows
-              the chromosomal distribution and biosynthetic class assignment of BGCs in the
-              four genomes.
-            </div>
-
-            <div class="note">
-              Click the figure to open the full-size image.
-            </div>
-
-            <div class="figure" style="margin-top: 26px;">
-              <a href="BGCs_quantitative.svg" target="_blank">
-                <img src="BGCs_quantitative.svg" alt="Comparison of antiSMASH-detected BGCs across four S. silvae strains" />
+        <div class="bgc-layout">
+          <div>
+            <div class="figure" style="margin-top: 0;">
+              <a href="BGCs_circos.svg" target="_blank">
+                <img src="BGCs_circos.svg" alt="Circular representation of BGCs in S. silvae strains" />
               </a>
               <div class="caption">
-                <b>Table 2.</b>
-                <b>Characterization and comparison of BGCs detected with antiSMASH 7.0.1 in the genomes of four <i>S. silvae</i> strains.</b>
-                The first column indicates the BGC color coding according to the antiSMASH 7.0.1 classification (see Fig. 3). For each identified BGC, the most similar reference cluster in the
-                antiSMASH database (including the associated secondary metabolite) was determined. The table lists the predicted (putative) secondary metabolites and the similarity
-                of each BGC in the individual <i>S. silvae</i> genomes to the corresponding reference. Differences in similarity are visualized using a color scale; for example,
-                in the hopene BGC, <b>white (-)</b> indicates absence or very low similarity, <b>lighter shading</b>
-                <span class="legend-inline" style="background:rgb(255,190,255);"></span>
-                indicates intermediate similarity, and <b>more intense shading</b>
-                <span class="legend-inline" style="background:rgb(128,0,128);"></span>
-                indicates high to complete agreement. This systematic comparison provides insight into shared as well as strain-specific differences in the biosynthetic potential across the four <i>S. silvae</i> strains.
+                <b>Figure 3.</b> Circular comparison of antiSMASH-identified biosynthetic gene clusters across TMS12I2, TMS4I1, For3<sup>T</sup>, and M3.
               </div>
-              <div class="note">
-                Click the figure to open the full-size image.
-              </div>
+              <div class="open-figure">Open full-size figure</div>
             </div>
+          </div>
+
+          <div class="legend-box">
+            <div class="legend-title">Reading the figure</div>
+            <p class="small" style="margin: 0;">
+              The plot compares chromosomal positions and class assignments of BGCs across the four genomes and highlights both shared and divergent biosynthetic loci.
+            </p>
+
+            <details>
+              <summary>antiSMASH biosynthetic classes</summary>
+              <div class="legend-columns">
+                <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(65,105,255)"></span>RiPP-like; class II and III lanthipeptides</div>
+                <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(240,248,255)"></span>β-Lactams</div>
+                <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(147,112,219)"></span>Butyrolactones</div>
+                <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(154,205,50)"></span>Ectoine</div>
+                <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(244,164,96)"></span>PKS: type II and III; hglE-KS; hglE-KS with T1PKS</div>
+                <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(46,139,87)"></span>NAPAA; NRPS; NRPS with NRP-metallophores</div>
+                <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(176,196,222)"></span>T1PKS; T2PKS/NRPS with terpenes; butyrolactone; NRPS; hglE-KS; hybrid NRPS, T3PKS, PKS- and NRPS-like</div>
+                <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(255,255,119)"></span>Class I lanthipeptides</div>
+                <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(205,133,63)"></span>Melanin</div>
+                <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(220,20,60)"></span>Siderophores</div>
+                <div class="bgc-item"><span class="bgc-colorbox" style="background:rgb(128,0,128)"></span>Terpenes</div>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="figure" style="margin-top: 24px;">
+          <a href="BGCs_quantitative.svg" target="_blank">
+            <img src="BGCs_quantitative.svg" alt="Comparison of antiSMASH-detected BGCs across four S. silvae strains" />
+          </a>
+          <div class="caption">
+            <b>Table 2.</b> Comparative overview of antiSMASH-detected BGCs and their similarity to reference clusters across the four genomes.
+          </div>
+          <div class="open-figure">Open full-size figure</div>
+        </div>
+
+        <div class="threecol">
+          <div class="card">
+            <div class="card-title">Shared core</div>
+            <p class="small">
+              All four genomes contain identical core clusters for alkylresorcinol, desferrioxamine B, ectoine, isorenieratene, and melanin.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-title">Variable loci</div>
+            <p class="small">
+              Several additional clusters are shared but differ in similarity values or class assignment, indicating moderate divergence at selected genomic positions.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-title">Strain-specific features</div>
+            <p class="small">
+              TMS12I2 and TMS4I1 each carry additional distinctive loci not mirrored in exactly the same way by the other strains.
+            </p>
           </div>
         </div>
 
         <div class="box">
-          <b>Interpretation of BGCs.</b>
-          The BGC comparison reveals a highly conserved core biosynthetic repertoire across the four analyzed strains.
-          All four genomes contain fully identical clusters for alkylresorcinol, desferrioxamine B, ectoine,
-          isorenieratene, and melanin. In addition, ten further clusters are shared by all strains and show
-          similarities to known reference clusters ranging from very low correspondence, such as 3% for tetronasin
-          and lactonamycin, to markedly higher similarity values such as 90% for coelichelin.
-          <br /><br />
-          Despite this broad conservation, divergence between the strains is also evident. Hopene-associated clusters
-          occur in all four genomes, but their similarity differs, reaching 76% in TMS12I2 and For3<sup>T</sup> and 84%
-          in TMS4I1 and M3. The clearest distinction is visible in the genomic region positioned approximately between
-          4 and 5 o’clock in the circular representation. At nearly corresponding loci, antiSMASH assigned different
-          BGC classes, reflected by different colors in the circular plot. Closer inspection showed that the cluster
-          in strain TMS12I2 lacks the genes associated with butyrolactone biosynthesis. Accordingly, the TMS12I2 cluster
-          displayed a 77% similarity to the maduralactomycin A cluster, whereas the corresponding clusters in TMS4I1,
-          For3<sup>T</sup>, and M3 showed initial similarities of 25–33% to prejadomycin. Additional BLAST- and
-          subcluster-based analyses nevertheless demonstrated that these loci still retain high relatedness overall,
-          including 86% similarity to maduralactomycin A in TMS4I1 and M3, 72% in For3<sup>T</sup>, and strong agreement
-          with landomycin/simocyclinone-associated regions.
-          <br /><br />
-          Further strain-specific differences are also apparent. Strain TMS12I2 contains a unique cluster with 8% similarity
-          to an arseno-polyketide, whereas clusters related to stenothricin and griseobactin, present in the other strains,
-          are absent. Strain TMS4I1, in turn, contains additional unique clusters showing similarity to kinamycin (25%) and
-          nataxazole (7%). A cluster weakly related to hexacosalactone A occurs in all four strains at about 4% similarity,
-          while M3 contains an additional cluster with a 6% similarity to the same reference. Overall, the results indicate
-          that BGC divergence within the <i>S. silvae</i> clade is real but moderate: despite locus-specific variation and
-          differences in annotation details, the strains retain a strongly conserved shared biosynthetic backbone.
+          <h3 style="margin-bottom: 12px;">Interpretation of BGC variation</h3>
+          <p class="small" style="margin-bottom: 12px;">
+            The BGC comparison reveals a strongly conserved biosynthetic backbone across the <i>S. silvae</i> clade. Beyond the fully identical core clusters, ten further loci are shared by all strains, although their similarity to known reference clusters ranges from very low to comparatively high values.
+          </p>
+          <p class="small" style="margin-bottom: 12px;">
+            Divergence becomes most visible at selected corresponding loci, especially in the genomic region positioned roughly between <span class="nowrap">4</span> and <span class="nowrap">5&nbsp;o’clock</span> in the circular plot. There, antiSMASH assigned different biosynthetic classes despite substantial underlying relatedness. In TMS12I2, the corresponding region lacks genes associated with butyrolactone biosynthesis and shows <span class="nowrap">77&nbsp;%</span> similarity to the maduralactomycin A cluster, whereas the related loci in TMS4I1, For3<sup>T</sup>, and M3 initially match prejadomycin at lower levels. Additional BLAST- and subcluster-based analyses nevertheless indicate that these regions remain broadly related overall.
+          </p>
+          <p class="small" style="margin: 0;">
+            Further strain-specific differences reinforce this pattern. TMS12I2 contains a unique cluster with <span class="nowrap">8&nbsp;%</span> similarity to an arseno-polyketide and lacks clusters related to stenothricin and griseobactin that are present elsewhere. TMS4I1 contains additional loci related to kinamycin (<span class="nowrap">25&nbsp;%</span>) and nataxazole (<span class="nowrap">7&nbsp;%</span>). Overall, biosynthetic divergence within the clade is real but moderate: the strains vary at selected loci while retaining a clearly shared biosynthetic framework.
+          </p>
         </div>
       </section>
 
@@ -845,7 +870,7 @@
         <div class="section-header">
           <h2>Reference</h2>
         </div>
-        <p class="small">
+        <p class="reference">
           Krzywinski M. et al. 2009. Circos: an information aesthetic for comparative genomics. <i>Genome Research</i>.
         </p>
       </section>
