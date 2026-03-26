@@ -35,6 +35,7 @@
       --radius: 18px;
       --radius-lg: 26px;
       --maxw: 1180px;
+      --nav-dark: #1f2326;
     }
 
     * { box-sizing: border-box; }
@@ -73,66 +74,79 @@
 
     .nowrap { white-space: nowrap; }
 
-    /* Header */
-    .site-header {
+    /* top nav like homepage */
+    .topnav {
       position: sticky;
       top: 0;
-      z-index: 30;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(216, 230, 221, 0.95);
-      box-shadow: 0 4px 18px rgba(18, 38, 63, 0.04);
+      z-index: 100;
+      background: rgba(31, 35, 38, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
     }
 
-    .nav-wrap {
+    .topnav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 24px;
-      padding: 18px 0;
+      min-height: 72px;
     }
 
-    .brand {
-      line-height: 1.08;
-    }
-
-    .brand-title {
-      margin: 0;
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      color: var(--green-deep);
-    }
-
-    .brand-subtitle {
-      margin: 6px 0 0 0;
-      font-size: 0.92rem;
-      color: var(--muted);
-      font-weight: 500;
-    }
-
-    .nav-link {
+    .brand-link {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      color: #3d5549;
-      font-size: 0.95rem;
-      font-weight: 600;
-      padding: 8px 12px;
-      border-radius: 10px;
-      background: transparent;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #fff;
+      white-space: nowrap;
     }
 
-    .nav-link:hover {
-      background: var(--green-soft);
-      color: var(--green-deep);
+    .brand-link:hover {
+      color: #fff;
+    }
+
+    .brand-accent {
+      color: var(--accent);
+      margin-right: 6px;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .nav-item {
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 12px;
+      border-radius: 10px;
+      color: rgba(255,255,255,0.86);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-item:hover {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+    }
+
+    .nav-item.active {
+      background: rgba(0,168,107,0.16);
+      color: #fff;
+    }
+
+    .nav-item.contact-link {
+      color: #ffcf66;
     }
 
     /* Main */
     .page {
-      padding: 38px 0 56px;
+      padding: 34px 0 64px;
     }
 
     .eyebrow {
@@ -196,7 +210,7 @@
       border-radius: 28px;
       box-shadow: var(--shadow-lg);
       padding: 34px;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
     .lead {
@@ -210,7 +224,7 @@
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-top: 22px;
+      margin-top: 24px;
     }
 
     .btn {
@@ -248,22 +262,23 @@
     }
 
     .section {
-      margin-top: 34px;
+      margin-top: 42px;
     }
 
     .section-break {
-      margin-top: 52px;
+      margin-top: 60px;
     }
 
     .section-header {
-      margin-bottom: 14px;
-      padding-bottom: 10px;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
       border-bottom: 1px solid #dbe8e0;
     }
 
     .section-intro {
-      margin: 0 0 16px 0;
+      margin: 0 0 18px 0;
       color: #3e5147;
+      max-width: 980px;
     }
 
     .key-grid,
@@ -280,12 +295,12 @@
 
     .twocol {
       grid-template-columns: 1fr 1fr;
-      margin-top: 20px;
+      margin-top: 22px;
     }
 
     .threecol {
       grid-template-columns: 1fr 1fr 1fr;
-      margin-top: 18px;
+      margin-top: 22px;
     }
 
     .key-card,
@@ -318,8 +333,13 @@
       font-weight: 700;
     }
 
+    /* improved figure rhythm */
     .figure {
-      margin: 24px 0 18px 0;
+      margin: 28px 0 24px 0;
+    }
+
+    .figure-tight-top {
+      margin-top: 10px;
     }
 
     .figure a {
@@ -340,13 +360,17 @@
       text-align: left;
       font-size: 0.95rem;
       color: #475a52;
-      margin-top: 12px;
+      margin-top: 14px;
     }
 
     .open-figure {
-      margin-top: 8px;
+      margin-top: 7px;
       font-size: 0.9rem;
       color: var(--muted);
+    }
+
+    .after-figure {
+      margin-top: 16px;
     }
 
     .box {
@@ -382,7 +406,7 @@
     .bgc-layout {
       display: grid;
       grid-template-columns: 1.08fr 0.92fr;
-      gap: 18px;
+      gap: 22px;
       align-items: start;
     }
 
@@ -486,6 +510,18 @@
       margin: 0;
     }
 
+    @media (max-width: 1100px) {
+      .topnav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .nav-menu {
+        gap: 4px;
+      }
+    }
+
     @media (max-width: 1050px) {
       .key-grid {
         grid-template-columns: 1fr 1fr;
@@ -510,11 +546,6 @@
         width: min(var(--maxw), calc(100% - 28px));
       }
 
-      .nav-wrap {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
       .hero,
       .box,
       .card,
@@ -529,22 +560,36 @@
         grid-template-columns: 1fr;
       }
 
+      .page {
+        padding: 24px 0 56px;
+      }
+
       h1 { font-size: 2rem; }
       h2 { font-size: 1.4rem; }
+
+      .figure {
+        margin: 24px 0 20px 0;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <div class="brand">
-        <p class="brand-title">Genome Architecture &amp; BGCs</p>
-        <p class="brand-subtitle"><i>Streptomyces silvae</i> · genome maps · annotation · antiSMASH</p>
+  <nav class="topnav">
+    <div class="container topnav-inner">
+      <a class="brand-link" href="index.html">
+        <span class="brand-accent"><i>S. silvae</i></span> Genomics
+      </a>
+
+      <div class="nav-menu">
+        <a class="nav-item" href="comparative_genomics.html">Comparative Genomics</a>
+        <a class="nav-item" href="phylogenomics.html">Phylogenomics</a>
+        <a class="nav-item active" href="genome_maps.html">Genome Architecture &amp; BGCs</a>
+        <a class="nav-item" href="physiology_TMS4I1.html">Physiology</a>
+        <a class="nav-item contact-link" href="index.html#contact">Contact</a>
       </div>
-      <a class="nav-link" href="/Streptomyces-genome-analysis/">← Back to homepage</a>
     </div>
-  </header>
+  </nav>
 
   <main class="page">
     <div class="container">
@@ -627,7 +672,7 @@
           The circular maps summarize chromosome organization, annotation density, RNA gene positions, resistance-related loci, GC skew, and GC content across the four genomes.
         </p>
 
-        <div class="figure">
+        <div class="figure figure-tight-top">
           <a href="genome_maps.png" target="_blank">
             <img src="genome_maps.png" alt="Circular genome maps of four S. silvae strains" />
           </a>
@@ -637,7 +682,7 @@
           <div class="open-figure">Open full-size figure</div>
         </div>
 
-        <div class="summary-box">
+        <div class="summary-box after-figure">
           <p>
             The overall map architecture supports close relatedness across the clade, while local differences in contig structure and feature distribution point to strain-level genomic variation rather than species-level separation.
           </p>
@@ -653,7 +698,7 @@
           Genome size and GC content remain highly consistent across all strains, but assembly quality and selected annotation metrics differ and help define intraspecific variation.
         </p>
 
-        <div class="figure">
+        <div class="figure figure-tight-top">
           <a href="genome_parameter.svg" target="_blank">
             <img src="genome_parameter.svg" alt="Genome statistics and assembly parameters of S. silvae strains" />
           </a>
@@ -663,7 +708,7 @@
           <div class="open-figure">Open full-size figure</div>
         </div>
 
-        <div class="twocol">
+        <div class="twocol after-figure">
           <div class="card">
             <div class="card-title">Main takeaway</div>
             <p class="small">
@@ -678,7 +723,7 @@
           </div>
         </div>
 
-        <div class="box">
+        <div class="box after-figure">
           <p class="small">
             Differences in tRNA and rRNA copy number suggest that the strains are not functionally identical and may differ in translational capacity or ecological adaptation despite their shared genomic framework.
           </p>
@@ -696,7 +741,7 @@
 
         <div class="shared-layout">
           <div>
-            <div class="figure" style="margin-top: 0;">
+            <div class="figure figure-tight-top">
               <a href="functional_categories.svg" target="_blank">
                 <img src="functional_categories.svg" alt="Circular representation of gene numbers per functional category in Streptomyces silvae strains" />
               </a>
@@ -747,7 +792,7 @@
           </div>
         </div>
 
-        <div class="twocol">
+        <div class="twocol after-figure">
           <div class="card">
             <div class="card-title">Interpretation</div>
             <p class="small">
@@ -785,7 +830,7 @@
 
         <div class="bgc-layout">
           <div>
-            <div class="figure" style="margin-top: 0;">
+            <div class="figure figure-tight-top">
               <a href="BGCs_circos.svg" target="_blank">
                 <img src="BGCs_circos.svg" alt="Circular representation of BGCs in S. silvae strains" />
               </a>
@@ -821,7 +866,7 @@
           </div>
         </div>
 
-        <div class="figure" style="margin-top: 24px;">
+        <div class="figure after-figure">
           <a href="BGCs_quantitative.svg" target="_blank">
             <img src="BGCs_quantitative.svg" alt="Comparison of antiSMASH-detected BGCs across four S. silvae strains" />
           </a>
@@ -831,7 +876,7 @@
           <div class="open-figure">Open full-size figure</div>
         </div>
 
-        <div class="threecol">
+        <div class="threecol after-figure">
           <div class="card">
             <div class="card-title">Shared core</div>
             <p class="small">
@@ -852,7 +897,7 @@
           </div>
         </div>
 
-        <div class="box">
+        <div class="box after-figure">
           <h3 style="margin-bottom: 12px;">Interpretation of BGC variation</h3>
           <p class="small" style="margin-bottom: 12px;">
             The BGC comparison reveals a strongly conserved biosynthetic backbone across the <i>S. silvae</i> clade. Beyond the fully identical core clusters, ten further loci are shared by all strains, although their similarity to known reference clusters ranges from very low to comparatively high values.
