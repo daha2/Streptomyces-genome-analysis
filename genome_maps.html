@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Genome Architecture & BGCs | Streptomyces silvae</title>
+  <title>Genome Architecture &amp; BGCs | Streptomyces silvae</title>
   <meta
     name="description"
     content="Comparative analysis of genome architecture and biosynthetic gene clusters in Streptomyces silvae, including genome maps, assembly statistics, functional categories, and antiSMASH-based BGC comparisons."
@@ -74,7 +74,7 @@
 
     .nowrap { white-space: nowrap; }
 
-    /* top nav like homepage */
+    /* top nav */
     .topnav {
       position: sticky;
       top: 0;
@@ -84,6 +84,9 @@
       -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(255,255,255,0.08);
       box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      padding-top: 0.2rem;
+      padding-bottom: 0.2rem;
+      min-height: 74px;
     }
 
     .topnav-inner {
@@ -91,20 +94,41 @@
       align-items: center;
       justify-content: space-between;
       gap: 24px;
-      min-height: 72px;
+      min-height: 66px;
     }
 
     .brand-link {
       display: inline-flex;
       align-items: center;
+      gap: 0.85rem;
       font-weight: 700;
       font-size: 1rem;
       color: #fff;
       white-space: nowrap;
+      line-height: 1;
+      flex-shrink: 0;
     }
 
     .brand-link:hover {
       color: #fff;
+    }
+
+    .brand-logo {
+      width: 66px;
+      height: 66px;
+      object-fit: cover;
+      border-radius: 50%;
+      flex-shrink: 0;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.28);
+      display: block;
+    }
+
+    .brand-text {
+      display: inline-flex;
+      align-items: center;
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1;
     }
 
     .brand-accent {
@@ -115,6 +139,7 @@
     .nav-menu {
       display: flex;
       align-items: center;
+      justify-content: flex-end;
       gap: 6px;
       flex-wrap: wrap;
     }
@@ -146,14 +171,14 @@
 
     /* Main */
     .page {
-      padding: 34px 0 64px;
+      padding: 38px 0 72px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       padding: 7px 12px;
       border-radius: 999px;
       background: var(--green-soft);
@@ -162,6 +187,7 @@
       font-weight: 700;
       letter-spacing: 0.01em;
       border: 1px solid #d6e7dd;
+      box-shadow: 0 3px 10px rgba(0,100,0,0.04);
     }
 
     h1, h2, h3 {
@@ -170,17 +196,18 @@
     }
 
     h1 {
-      margin: 0 0 14px 0;
-      font-size: clamp(2rem, 3.4vw, 3.2rem);
-      line-height: 1.08;
+      margin: 0 0 16px 0;
+      font-size: clamp(2.15rem, 3.5vw, 3.3rem);
+      line-height: 1.05;
       color: var(--green-deep);
       font-weight: 700;
+      max-width: 980px;
     }
 
     h2 {
       margin: 0;
-      font-size: 1.6rem;
-      line-height: 1.2;
+      font-size: 1.65rem;
+      line-height: 1.18;
       color: var(--green-deep);
       font-weight: 700;
     }
@@ -209,15 +236,28 @@
       background: linear-gradient(180deg, rgba(255,255,255,0.99), rgba(249,252,250,0.98));
       border-radius: 28px;
       box-shadow: var(--shadow-lg);
-      padding: 34px;
-      margin-bottom: 28px;
+      padding: 38px;
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(0,168,107,0.08) 0%, rgba(0,168,107,0) 70%);
+      pointer-events: none;
     }
 
     .lead {
       font-size: 1.05rem;
       color: var(--muted);
       margin: 0;
-      max-width: 100%;     
+      max-width: 100%;
     }
 
     .hero-actions {
@@ -243,6 +283,7 @@
       background: var(--green-deep);
       color: white;
       border-color: var(--green-deep);
+      box-shadow: 0 8px 20px rgba(11,79,51,0.14);
     }
 
     .btn-primary:hover {
@@ -262,7 +303,7 @@
     }
 
     .section {
-      margin-top: 42px;
+      margin-top: 46px;
     }
 
     .section-break {
@@ -308,7 +349,16 @@
     .summary-box,
     .legend-box,
     .mini-note {
-      padding: 20px 22px;
+      padding: 22px 24px;
+    }
+
+    .key-card,
+    .card,
+    .summary-box,
+    .legend-box,
+    .mini-note,
+    .box {
+      background: rgba(255,255,255,0.97);
     }
 
     .key-card h3,
@@ -333,7 +383,6 @@
       font-weight: 700;
     }
 
-    /* improved figure rhythm */
     .figure {
       margin: 28px 0 24px 0;
     }
@@ -374,7 +423,7 @@
     }
 
     .box {
-      padding: 20px 22px;
+      padding: 22px 24px;
       margin-top: 18px;
     }
 
@@ -388,6 +437,7 @@
     }
 
     .card {
+      padding: 22px 24px;
       transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
     }
 
@@ -514,10 +564,11 @@
       .topnav-inner {
         align-items: flex-start;
         flex-direction: column;
-        padding: 14px 0;
+        padding: 10px 0;
       }
 
       .nav-menu {
+        justify-content: flex-start;
         gap: 4px;
       }
     }
@@ -570,6 +621,35 @@
       .figure {
         margin: 24px 0 20px 0;
       }
+
+      .topnav {
+        min-height: 62px;
+        padding-top: 0.15rem;
+        padding-bottom: 0.15rem;
+      }
+
+      .topnav-inner {
+        gap: 14px;
+        min-height: 56px;
+      }
+
+      .brand-link {
+        gap: 0.65rem;
+      }
+
+      .brand-logo {
+        width: 54px;
+        height: 54px;
+      }
+
+      .brand-text {
+        font-size: 1rem;
+      }
+
+      .nav-item {
+        padding: 8px 10px;
+        font-size: 0.92rem;
+      }
     }
   </style>
 </head>
@@ -577,8 +657,11 @@
 
   <nav class="topnav">
     <div class="container topnav-inner">
-      <a class="brand-link" href="index.html">
-        <span class="brand-accent"><i>S. silvae</i></span> Genomics
+      <a class="brand-link" href="index.html" aria-label="Back to homepage">
+        <img src="Logo.svg" alt="Logo of Daniela Hartmann" class="brand-logo" />
+        <span class="brand-text">
+          <span class="brand-accent"><i>S. silvae</i></span> Genomics
+        </span>
       </a>
 
       <div class="nav-menu">
